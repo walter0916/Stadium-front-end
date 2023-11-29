@@ -28,6 +28,9 @@ const Landing = ({ user }) => {
   return (
     <main className={styles.container}>
       <h1>{user ? user.name : 'friend'} Dashboard</h1>
+      <div className={styles.searchBarContainer}>
+      <SearchBar />
+      </div>
       <div className={styles.interests}>
       {profile.interests ? (
         profile.interests.map(interest => <LeagueCard interest={interest}/>)

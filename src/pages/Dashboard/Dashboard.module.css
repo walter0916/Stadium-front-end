@@ -3,6 +3,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 70px;
+  color: black;
 }
 
 .interests {
@@ -11,4 +12,22 @@
   width: fit-content;
   overflow-y: auto;
   background-color: #D3D3D3;
+}
+
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-top: -60px;
+}
+
+.searchBarContainer ul {
+  align-items: center;
+  background-color: #D3D3D3;
+}
+
+.searchBarContainer li {
+  color: black;
+  margin: auto;
 }

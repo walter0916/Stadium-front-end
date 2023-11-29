@@ -1,17 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'
+import * as communityService from '../../services/communityService'
 
 const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  
-  // Handle changes in the search input
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchResults, setSearchResults] = useState([])
+  const [communities, setCommunities] = useState([])
+
+  useEffect(() => {
+    const fetchCommunities = async () => {
+      const data = await communityService.getAllCommunities()
+      setCommunities(data)
+    }
+    fetchCommunities()
+  }, [])
+
+
   const handleSearchChange = (event) => {
     const query = event.target.value
     setSearchQuery(query)
-
-    // Perform search logic and update searchResults state
-    // Update searchResults with the fetched data
-  };
+    if (query === '') {
+      setSearchResults([])
+      return
+    }
+    const filteredCommunities = communities.filter((community) =>
+      community.teamName.toLowerCase().includes(query.toLowerCase())
+    )
+    setSearchResults(filteredCommunities)
+  }
+  const handleJoinCommunity = (communityId) => {
+    console.log(`Joining community with ID: ${communityId}`)
+  }
 
   return (
     <div>
@@ -21,18 +39,17 @@ const SearchBar = () => {
         value={searchQuery}
         onChange={handleSearchChange}
       />
-      {/* Display search results in a dropdown */}
       <ul>
         {searchResults.map((result) => (
           <li key={result.id}>
-            {result.name} {/* Display relevant information */}
-            {/* Add a button to join the community */}
+            {result.teamName}
             <button onClick={() => handleJoinCommunity(result.id)}>Join</button>
           </li>
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
+
