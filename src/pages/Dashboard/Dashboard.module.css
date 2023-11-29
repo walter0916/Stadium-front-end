@@ -2,12 +2,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 70px;
 }
 
 .interests {
   display: flex;
   justify-content: space-evenly;
-  width: 80vw;
-  border: 2px solid black;
+  width: fit-content;
+  overflow-y: auto;
   background-color: #D3D3D3;
 }

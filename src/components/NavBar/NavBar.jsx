@@ -1,11 +1,12 @@
 // npm modules
 import { NavLink } from 'react-router-dom'
+import styles from'./NavBar.module.css'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
     <nav>
       {user ?
-        <ul>
+        <ul className={styles.links}>
           <li>Welcome, {user.name}</li>
           <li><NavLink to="/profiles">Profiles</NavLink></li>
           <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
