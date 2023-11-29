@@ -13,4 +13,15 @@ async function getAllCommunities() {
   }
 }
 
-export { getAllCommunities }
+async function getCommunityById(communityId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${communityId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+export { getAllCommunities, getCommunityById }
