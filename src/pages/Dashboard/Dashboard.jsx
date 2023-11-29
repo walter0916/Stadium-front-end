@@ -4,6 +4,7 @@ import styles from './Dashboard.module.css'
 import LeagueCard from '../../components/LeagueCard/LeagueCard'
 import * as leagueService from '../../services/leagueService'
 import * as profileService from '../../services/profileService'
+import SearchBar from '../../components/SearchBar/SearchBar'
 
 
 

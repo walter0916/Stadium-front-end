@@ -1,6 +1,7 @@
 // npm modules
 import { NavLink } from 'react-router-dom'
 import styles from'./NavBar.module.css'
+import SearchBar from '../SearchBar/SearchBar'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -11,6 +12,7 @@ const NavBar = ({ user, handleLogout }) => {
           <li><NavLink to="/profiles">Profiles</NavLink></li>
           <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
           <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
+          <li><SearchBar/></li>
         </ul>
       :
         <ul>
