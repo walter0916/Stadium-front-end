@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as communityService from '../../services/communityService'
+import { Link } from 'react-router-dom'
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -41,8 +42,8 @@ const SearchBar = () => {
       />
       <ul>
         {searchResults.map((result) => (
-          <li key={result.id}>
-            {result.teamName}
+          <li key={result._id}>
+            <Link to={`/community/${result._id}`}>{result.teamName}</Link>
             <button onClick={() => handleJoinCommunity(result.id)}>Join</button>
           </li>
         ))}

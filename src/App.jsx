@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Community from './pages/Community/Community'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -61,6 +62,14 @@ function App() {
               <ChangePassword handleAuthEvt={handleAuthEvt} />
             </ProtectedRoute>
           }
+        />
+        <Route
+          path="/community/:communityId"
+          element={
+            <ProtectedRoute user={user}>
+              <Community />
+            </ProtectedRoute>
+            }
         />
       </Routes>
     </>
