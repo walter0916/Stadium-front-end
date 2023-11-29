@@ -1,6 +1,7 @@
 // css
 import { useState, useEffect } from 'react'
-import styles from './Landing.module.css'
+import styles from './Dashboard.module.css'
+import LeagueCard from '../../components/LeagueCard/LeagueCard'
 import * as leagueService from '../../services/leagueService'
 import * as profileService from '../../services/profileService'
 
@@ -27,9 +28,9 @@ const Landing = ({ user }) => {
     <main className={styles.container}>
       <h1>hello, {user ? user.name : 'friend'}</h1>
       <h2>hi</h2>
-      <div>
+      <div className={styles.interests}>
       {profile.interests ? (
-        profile.interests.map(interest => <p key={interest._id}>{interest.leagueName}</p>)
+        profile.interests.map(interest => <LeagueCard interest={interest}/>)
         ) : (
         <p>No interests available</p>
       )}
