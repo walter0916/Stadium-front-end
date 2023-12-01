@@ -18,12 +18,17 @@ const Community = () => {
 
   console.log(community)
 
+  const handleAddPost = async (postFormData, photoData) => {
+    const newPost = await communityService.createPost(communityId, postFormData, photoData)
+    setCommunity({ ...community, posts: [...community.posts, newPost] })
+  }
+
   return (
     <main>
       {community.communityMembers? (<div className={styles.container}>
         <h1 className={styles.header}>{community.teamName}</h1>
         <p>Community Members: {community.communityMembers.length}</p>
-        <PostForm />
+        <PostForm handleAddPost={handleAddPost}/>
         <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga optio illo aliquam, cum aut, quam ipsam repudiandae, iure repellat sint consequuntur excepturi laudantium voluptate officiis nemo possimus officia quidem ratione!</h3>
       </div>) : (
         <p>loading..</p>

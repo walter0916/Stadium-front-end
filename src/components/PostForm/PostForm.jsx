@@ -1,6 +1,6 @@
 import { useState, useRef } from "react"
 
-const PostForm = () => {
+const PostForm = (props) => {
   const imgInputRef = useRef(null)
   const [message, setMessage] = useState('')
   const [formData, setFormData] = useState({
@@ -19,7 +19,6 @@ const PostForm = () => {
     let errMsg = ""
     const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
     const photoFormat = file.name.split('.').at(-1)
-
     // cloudinary supports files up to 10.4MB each as of May 2023
     if (file.size >= 10485760) {
       errMsg = "Image must be smaller than 10.4MB"
@@ -40,9 +39,18 @@ const PostForm = () => {
     setPhotoData({ photo: evt.target.files[0] })
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.handleAddPost(formData, photoData.photo)
+    setFormData({content: ''})
+  }
+
+
+
   return (
     <div>
-      <form >
+      <form onSubmit={handleSubmit}>
+      <p>{message}</p>
         <textarea 
           required 
           name="content"
