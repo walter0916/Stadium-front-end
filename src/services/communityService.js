@@ -69,4 +69,20 @@ async function addPhotoToPost(communityId, postId, photoData) {
   }
 }
 
-export { getAllCommunities, getCommunityById, createPost }
+async function createReply(communityId, postId, formData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${communityId}/posts/${postId}/replies`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    return res.json()
+  } catch (error) {
+    throw new Error('Failed to create reply')
+  }
+}
+
+export { getAllCommunities, getCommunityById, createPost, createReply }
