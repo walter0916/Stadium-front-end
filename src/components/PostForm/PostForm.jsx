@@ -1,4 +1,7 @@
 import { useState, useRef } from "react"
+import styles from './PostForm.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 
 const PostForm = (props) => {
   const imgInputRef = useRef(null)
@@ -7,6 +10,9 @@ const PostForm = (props) => {
     content: '',
   })
   const [photoData, setPhotoData] = useState({ photo: null })
+  const [selectedFileName, setSelectedFileName] = useState('');
+  console.log(selectedFileName)
+
 
   const handleChange = (evt) => {
     setMessage('')
@@ -37,19 +43,21 @@ const PostForm = (props) => {
     }
 
     setPhotoData({ photo: evt.target.files[0] })
+    setSelectedFileName(evt.target.files[0].name)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handleAddPost(formData, photoData.photo)
     setFormData({content: ''})
+    setSelectedFileName('')
   }
 
 
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.postFormContainer}>
+      <form onSubmit={handleSubmit} className={styles.postForm}>
       <p>{message}</p>
         <textarea 
           required 
@@ -60,15 +68,23 @@ const PostForm = (props) => {
           rows="10"
           value={formData.content}
           onChange={handleChange}
+          className={styles.textarea}
         />
-        <input 
-          type="file"
-          required
-          name="photo"
-          ref={imgInputRef}
-          onChange={handleChangePhoto} 
-        />
-        <button type="submit">
+        <div className={styles.fileInputContainer}>
+          <label className={styles.fileInputLabel}>
+            <FontAwesomeIcon icon={faCloudUploadAlt} className={styles.uploadIcon} />
+            {selectedFileName || 'Choose a file'}
+            <input
+              type="file"
+              required
+              name="photo"
+              ref={imgInputRef}
+              onChange={handleChangePhoto}
+              className={styles.fileInput}
+            />
+          </label>
+        </div>
+        <button type="submit" className={styles.submitButton}>
           Post
         </button>
       </form>

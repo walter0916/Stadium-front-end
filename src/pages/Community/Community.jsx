@@ -16,7 +16,6 @@ const Community = () => {
     fetchCommunity()
   }, [communityId])
 
-  console.log(community)
 
   const handleAddPost = async (postFormData, photoData) => {
     const newPost = await communityService.createPost(communityId, postFormData, photoData)
