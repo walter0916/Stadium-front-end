@@ -29,7 +29,7 @@ const Community = () => {
         <h1 className={styles.header}>{community.teamName}</h1>
         <p>Community Members: {community.communityMembers.length}</p>
         <PostForm handleAddPost={handleAddPost}/>
-        {community.posts.map(post => <PostCard key={post._id} post={post} />)}
+        {community.posts.map(post => <PostCard key={post._id} post={post} communityId={communityId} />)}
       </div>) : (
         <p>loading..</p>
       )}

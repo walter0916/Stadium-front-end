@@ -1,23 +1,29 @@
 import { useState } from 'react';
 
-const ReplyForm = () => {
+
+const ReplyForm = (props) => {
   const [formData, setFormData] = useState({
     content: ''
   })
 
-  const handleReplyChange = (event) => {
-    setFormData(event.target.value)
+  const handleReplyChange = (evt) => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const handleSubmit = (evt) => {
+    evt.preventDefault()
+    props.handleAddReply(formData)
     setFormData('')
   };
+
+  console.log(formData)
 
   return (
     <form onSubmit={handleSubmit}>
       <textarea
         placeholder="Type your reply..."
+        type="text"
+        name="content"
         value={formData.content}
         onChange={handleReplyChange}
       />

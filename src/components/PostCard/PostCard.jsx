@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styles from './PostCard.module.css';
 import ReplyForm from '../ReplyForm/ReplyForm';
+import * as communityService from '../../services/communityService'
 
 const PostCard = (props) => {
   const [showReplyForm, setShowReplyForm] = useState(false)
@@ -8,6 +9,12 @@ const PostCard = (props) => {
   const toggleReplyForm = () => {
     setShowReplyForm(!showReplyForm);
   };
+  console.log(props.post._id)
+  console.log(props.communityId)
+
+  const handleAddReply = async (replyFormData) => {
+    await communityService.createReply(props.communityId, props.post._id, replyFormData)
+  }
 
   return (
     <div className={styles.postCard}>
@@ -18,7 +25,7 @@ const PostCard = (props) => {
       <p>{props.post.content}</p>
       {props.post.photo && <img src={props.post.photo} alt="Post" className={styles.postImage} />}
       <button className={styles.replyButton} onClick={toggleReplyForm}>Reply</button>
-      {showReplyForm && <ReplyForm />}
+      {showReplyForm && <ReplyForm handleAddReply={handleAddReply} />}
     </div>
   )
 }
