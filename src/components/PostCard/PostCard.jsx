@@ -1,6 +1,14 @@
-import styles from './PostCard.module.css'; 
+import { useState } from 'react'
+import styles from './PostCard.module.css';
+import ReplyForm from '../ReplyForm/ReplyForm';
 
 const PostCard = (props) => {
+  const [showReplyForm, setShowReplyForm] = useState(false)
+
+  const toggleReplyForm = () => {
+    setShowReplyForm(!showReplyForm);
+  };
+
   return (
     <div className={styles.postCard}>
       <div className={styles.userInfo}>
@@ -9,6 +17,8 @@ const PostCard = (props) => {
       </div>
       <p>{props.post.content}</p>
       {props.post.photo && <img src={props.post.photo} alt="Post" className={styles.postImage} />}
+      <button className={styles.replyButton} onClick={toggleReplyForm}>Reply</button>
+      {showReplyForm && <ReplyForm />}
     </div>
   )
 }
