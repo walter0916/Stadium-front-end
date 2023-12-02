@@ -13,7 +13,7 @@ const ReplyForm = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     props.handleAddReply(formData)
-    setFormData('')
+    setFormData({content: ''})
   };
 
   console.log(formData)

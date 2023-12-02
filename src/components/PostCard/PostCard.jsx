@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styles from './PostCard.module.css';
 import ReplyForm from '../ReplyForm/ReplyForm';
 import * as communityService from '../../services/communityService'
+import * as notificationService from '../../services/notificationService'
 
 const PostCard = (props) => {
   const [showReplyForm, setShowReplyForm] = useState(false)
@@ -14,6 +15,8 @@ const PostCard = (props) => {
 
   const handleAddReply = async (replyFormData) => {
     await communityService.createReply(props.communityId, props.post._id, replyFormData)
+    const formData = { type : "Reply" }
+    await notificationService.createPostNotification(props.communityId, props.post._id, formData)
   }
 
   return (
