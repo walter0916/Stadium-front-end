@@ -19,6 +19,18 @@ const PostCard = (props) => {
     await notificationService.createPostNotification(props.communityId, props.post._id, formData)
   }
 
+  const originalDate = new Date(props.post.createdAt)
+
+  const formattedDate = originalDate.toLocaleString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  });
+  
+
   return (
     <div className={styles.postCard}>
       <div className={styles.userInfo}>
@@ -27,6 +39,7 @@ const PostCard = (props) => {
       </div>
       <p>{props.post.content}</p>
       {props.post.photo && <img src={props.post.photo} alt="Post" className={styles.postImage} />}
+      <p><small>{formattedDate}</small></p>
       <button className={styles.replyButton} onClick={toggleReplyForm}>Reply</button>
       {showReplyForm && <ReplyForm handleAddReply={handleAddReply} />}
     </div>

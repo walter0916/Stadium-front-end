@@ -64,7 +64,7 @@ const PostForm = (props) => {
           name="content"
           type="text"
           id="text-input" 
-          cols="30" 
+          cols="50" 
           rows="10"
           value={formData.content}
           onChange={handleChange}
@@ -73,7 +73,7 @@ const PostForm = (props) => {
         <div className={styles.fileInputContainer}>
           <label className={styles.fileInputLabel}>
             <FontAwesomeIcon icon={faCloudUploadAlt} className={styles.uploadIcon} />
-            {selectedFileName || 'Choose a file'}
+            {selectedFileName || 'Upload a Photo'}
             <input
               type="file"
               required
