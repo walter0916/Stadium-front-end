@@ -1,25 +1,28 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import styles from './PostCard.module.css';
 import ReplyForm from '../ReplyForm/ReplyForm';
-import * as communityService from '../../services/communityService'
-import * as notificationService from '../../services/notificationService'
+import * as communityService from '../../services/communityService';
+import * as notificationService from '../../services/notificationService';
 
 const PostCard = (props) => {
-  const [showReplyForm, setShowReplyForm] = useState(false)
+  const [showReplyForm, setShowReplyForm] = useState(false);
+  const [showReplies, setShowReplies] = useState(false);
 
   const toggleReplyForm = () => {
     setShowReplyForm(!showReplyForm);
   };
-  console.log(props.post._id)
-  console.log(props.communityId)
+
+  const toggleReplies = () => {
+    setShowReplies(!showReplies);
+  };
 
   const handleAddReply = async (replyFormData) => {
-    await communityService.createReply(props.communityId, props.post._id, replyFormData)
-    const formData = { type : "Reply" }
-    await notificationService.createPostNotification(props.communityId, props.post._id, formData)
-  }
+    await communityService.createReply(props.communityId, props.post._id, replyFormData);
+    const formData = { type: 'Reply' };
+    await notificationService.createPostNotification(props.communityId, props.post._id, formData);
+  };
 
-  const originalDate = new Date(props.post.createdAt)
+  const originalDate = new Date(props.post.createdAt);
 
   const formattedDate = originalDate.toLocaleString('en-US', {
     month: 'long',
@@ -29,7 +32,6 @@ const PostCard = (props) => {
     minute: 'numeric',
     hour12: true,
   });
-  
 
   return (
     <div className={styles.postCard}>
@@ -39,11 +41,28 @@ const PostCard = (props) => {
       </div>
       <p>{props.post.content}</p>
       {props.post.photo && <img src={props.post.photo} alt="Post" className={styles.postImage} />}
-      <p><small>{formattedDate}</small></p>
-      <button className={styles.replyButton} onClick={toggleReplyForm}>Reply</button>
+      <p>
+        <small>{formattedDate}</small>
+      </p>
+      <button className={styles.replyButton} onClick={toggleReplyForm}>
+        Reply
+      </button>
+      <button className={styles.repliesButton} onClick={toggleReplies}>
+        {showReplies ? 'Hide Replies' : 'See Replies'}
+      </button>
       {showReplyForm && <ReplyForm handleAddReply={handleAddReply} />}
+      {showReplies && (
+        <div className={styles.repliesContainer}>
+          {props.post.replies.map((reply) => (
+            <div key={reply._id} className={styles.reply}>
+              <p>{reply.content}</p>
+              <small>{/* Add date formatting for replies */}</small>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default PostCard
+export default PostCard;
