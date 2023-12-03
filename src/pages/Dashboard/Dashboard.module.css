@@ -24,9 +24,6 @@
 }
 
 .searchBarContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   margin-left: auto;
   margin-top: -60px;
 }
@@ -63,6 +60,9 @@
 
 .joinedCommunities {
   height: 60% ;
+  padding: 20px;
+  background-color: #FFFFFF; /* White background */
+  border-radius: 10px;
 }
 
 .notifications,
@@ -70,6 +70,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.notifications {
+  padding: 20px;
+  background-color: #FFFFFF; /* White background */
+  border-radius: 10px;
+  margin-right: 10px;
 }
 
 .communitiesNotificationContainer {
@@ -84,4 +91,13 @@
 
 .bell {
   height: 40px;
+  color: #32CD32; /* Green color for soccer feel */
+  font-size: 24px;
+
+}
+
+.trendingBlogs {
+  padding: 20px;
+  background-color: #FFFFFF; /* White background */
+  border-radius: 10px;
 }

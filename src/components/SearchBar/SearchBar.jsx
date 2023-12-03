@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import * as communityService from '../../services/communityService'
 import { Link } from 'react-router-dom'
+import styles from './SearchBar.module.css'
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('')
@@ -33,14 +34,14 @@ const SearchBar = () => {
   }
 
   return (
-    <div>
+    <div className={styles.searchContainer}>
       <input
         type="text"
         placeholder="Search communities..."
         value={searchQuery}
         onChange={handleSearchChange}
       />
-      <ul>
+      <ul className={styles.searchDropdown}>
         {searchResults.map((result) => (
           <li key={result._id}>
             <Link to={`/community/${result._id}`}>{result.teamName}</Link>

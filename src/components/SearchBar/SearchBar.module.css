@@ -1,0 +1,51 @@
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+.searchDropdown {
+  top: 0;
+  width: calc(100% - 16px); 
+  border: 1px solid #4C8C32; 
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+}
+
+.searchDropdown li {
+  border-radius: 4px;
+  background: #6DBB3D;
+  border: 1px solid #4C8C32; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+}
+
+.searchDropdown a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+.searchDropdown button {
+  margin-left: 8px;
+  padding: 4px 8px;
+  background-color: #4C8C32; 
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
