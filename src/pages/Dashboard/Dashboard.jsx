@@ -3,15 +3,19 @@ import styles from './Dashboard.module.css';
 import LeagueCard from '../../components/LeagueCard/LeagueCard';
 import * as leagueService from '../../services/leagueService';
 import * as profileService from '../../services/profileService';
+import * as notificationsService from '../../services/notificationService'
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Landing = ({ user }) => {
+  const profileId = user.profile
   const [leagues, setLeagues] = useState([])
   const [profile, setProfile] = useState([])
+  const [notifications, setNotifications] = useState([])
 
+  console.log(profileId)
   library.add(fas)
 
   useEffect(() => {
@@ -20,12 +24,16 @@ const Landing = ({ user }) => {
       const profileData = await profileService.getProfileById()
       setLeagues(data)
       setProfile(profileData)
-    };
+      const notificationsdata = await notificationsService.getAllNotifications()
+      console.log(notificationsdata)
+      const filteredNotifcationData = await notificationsdata.filter(notification => notification.targetUser === profileId)
+      setNotifications(filteredNotifcationData)
+    }
     fetchLeagues()
-  }, [])
+  }, [profileId])
 
-  console.log(leagues)
-  console.log(profile)
+
+  console.log(notifications)
 
   return (
     <main className={styles.container}>
@@ -60,10 +68,10 @@ const Landing = ({ user }) => {
       {/* New section: Notifications */}
       <div className={styles.notifications}>
         <h2>Notifications</h2>
+        <div className={styles.iconWrapper} data-number={notifications.length}>
         <FontAwesomeIcon icon={['fas', 'bell']} className={styles.bell} />
-        <p>{/* Display notification count */}</p>
-        {/* Link to notifications page */}
-        <a href="/profile/notifications">See All</a>
+        </div>
+        <p>{notifications.length}</p>
       </div>
       {/* New section: Trending Blogs */}
         </div>

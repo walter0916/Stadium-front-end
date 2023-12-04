@@ -9,6 +9,7 @@
   height: 80%;
   width: 70%;
   background: linear-gradient(to right, #f0f0f0, #d3d3d3);
+  padding: 20px;
 }
 
 .header {
@@ -76,7 +77,7 @@
   padding: 20px;
   background-color: #FFFFFF; /* White background */
   border-radius: 10px;
-  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .communitiesNotificationContainer {
@@ -90,10 +91,58 @@
 }
 
 .bell {
-  height: 40px;
-  color: #32CD32; /* Green color for soccer feel */
+  height: 100%;
+  color: black; /* Green color for soccer feel */
   font-size: 24px;
 
+}
+
+.iconWrapper {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.iconWrapper:after {
+  content: attr(data-number);
+  width: 40px; 
+  height: 40px;
+  background-color: #89fc00;
+  color: black;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 1;
+  transform: translate(3px);
+}
+
+.iconWrapper:hover::after {
+  opacity: 1;
+  transform: translate(0);
+  transition: opacity .25s;
+  transform: .25s;
+}
+
+.iconWrapper:hover .bell {
+  animation: shake 1s forwards;
+}
+
+@keyframes shake {
+  10%{
+    transform: rotate(15deg);
+  }
+  20%{
+    transform: rotate(-15deg);
+  }
+  30%{
+    transform: rotate(15deg);
+  }
+  50%{
+    transform: rotate(0deg)
+  }
 }
 
 .trendingBlogs {
