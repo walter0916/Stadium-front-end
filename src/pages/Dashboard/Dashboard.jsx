@@ -66,13 +66,11 @@ const Landing = ({ user }) => {
           <p>No communities joined</p>
           )}
       </div>
-      {/* New section: Notifications */}
       <div className={styles.notifications}>
         <h2>Notifications</h2>
         <div className={styles.iconWrapper} data-number={notifications.length}>
         <FontAwesomeIcon icon={['fas', 'bell']} className={styles.bell} />
         </div>
-        <p>{notifications.length}</p>
       </div>
       {/* New section: Trending Blogs */}
         </div>

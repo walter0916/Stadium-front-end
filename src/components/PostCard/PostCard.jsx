@@ -24,7 +24,7 @@ const PostCard = (props) => {
 
   const originalDate = new Date(props.post.createdAt);
 
-  const formattedDate = originalDate.toLocaleString('en-US', {
+  const postFormattedDate = originalDate.toLocaleString('en-US', {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
@@ -32,6 +32,8 @@ const PostCard = (props) => {
     minute: 'numeric',
     hour12: true,
   });
+
+
 
   return (
     <div className={styles.postCard}>
@@ -42,21 +44,34 @@ const PostCard = (props) => {
       <p>{props.post.content}</p>
       {props.post.photo && <img src={props.post.photo} alt="Post" className={styles.postImage} />}
       <p>
-        <small>{formattedDate}</small>
+        <small>{postFormattedDate}</small>
       </p>
+      <div className={styles.buttonsContainer}>
       <button className={styles.replyButton} onClick={toggleReplyForm}>
         Reply
       </button>
       <button className={styles.repliesButton} onClick={toggleReplies}>
         {showReplies ? 'Hide Replies' : 'See Replies'}
       </button>
+      </div>
       {showReplyForm && <ReplyForm handleAddReply={handleAddReply} />}
       {showReplies && (
         <div className={styles.repliesContainer}>
           {props.post.replies.map((reply) => (
             <div key={reply._id} className={styles.reply}>
               <p>{reply.content}</p>
-              <small>{/* Add date formatting for replies */}</small>
+              <small>{reply.author.name}</small>
+            <small>
+              <br />
+            {new Date(reply.createdAt).toLocaleString('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true,
+          })}
+            </small>
             </div>
           ))}
         </div>

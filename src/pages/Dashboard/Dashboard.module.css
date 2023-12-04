@@ -104,6 +104,15 @@
   padding: 0;
 }
 
+.communitiesList a {
+  text-decoration: none;
+  color: black;
+}
+.communitiesList a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 .bell {
   height: 100%;
   color: black;

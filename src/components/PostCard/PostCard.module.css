@@ -29,9 +29,16 @@
   margin-top: 10px;
 }
 
+.buttonsContainer {
+  width: 30% ;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .replyButton {
   background-color: #4CAF50; /* Green color */
-  color: white;
+  color: black;
   border: none;
   padding: 5px;
   text-align: center;
@@ -40,9 +47,48 @@
   font-size: 14px;
   cursor: pointer;
   bottom: 10px;
-  left: 10px;
   width: fit-content;
   height: 25px;
   border-radius: 10px;
   text-align: center;
+  font-weight: bold;
+}
+
+.repliesButton {
+  background-color: #4CAF50; /* Green color */
+  color: black;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  bottom: 10px;
+  left: 40px;
+  width: fit-content;
+  height: 25px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.repliesContainer {
+  margin-top: 10px;
+}
+
+.reply {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.reply p {
+  margin-bottom: 5px;
+}
+
+.reply small {
+  color: #555;
+  font-size: 12px;
 }
