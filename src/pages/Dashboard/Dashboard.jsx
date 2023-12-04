@@ -8,6 +8,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const Landing = ({ user }) => {
   const profileId = user.profile
@@ -58,7 +59,7 @@ const Landing = ({ user }) => {
         {profile.joinedCommunities ? (
           <ul className={styles.communitiesList}>
             {profile.joinedCommunities.map((community) => (
-              <li key={community.id}>{community.teamName}</li>
+              <li key={community.id}><Link to={`/community/${community._id}`}>{community.teamName}</Link></li>
               ))}
           </ul>
         ) : (

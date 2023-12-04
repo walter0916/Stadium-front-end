@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'sport-font';
+  src: url('../../assets/Fonts/sports-night.ttf') format('truetype');
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -13,15 +18,21 @@
 }
 
 .header {
-  color: #3498db
+  font-family: 'sport-font', sans-serif;
+  position: relative;
+  font-size: 44px;
+  display: inline-block;
+  color: black;
+  /* -webkit-text-stroke: 0.5px #89fc00; */
 }
+
 
 .interests {
   display: flex;
-  justify-content: space-evenly;
-  width: fit-content;
+  width: 80%;
   overflow-y: auto;
   background-color: #D3D3D3;
+  height: 200px;
 }
 
 .searchBarContainer {
@@ -87,12 +98,15 @@
 }
 
 .communitiesList {
-  background-color: #ecf0f1
+  background-color: #ecf0f1;
+  list-style: none;
+  text-align: center;
+  padding: 0;
 }
 
 .bell {
   height: 100%;
-  color: black; /* Green color for soccer feel */
+  color: black;
   font-size: 24px;
 
 }
