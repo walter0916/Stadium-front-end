@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './PostCard.module.css';
 import ReplyForm from '../ReplyForm/ReplyForm';
 import * as communityService from '../../services/communityService';
@@ -8,24 +8,43 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 
 const PostCard = (props) => {
-  const [showReplyForm, setShowReplyForm] = useState(false);
-  const [showReplies, setShowReplies] = useState(false);
+  const [showReplyForm, setShowReplyForm] = useState(false)
+  const [showReplies, setShowReplies] = useState(false)
+  const [liked, setLiked] = useState(false)
+  const [likes, setLikes] = useState(props.post.likes.length)
+
+  console.log(props.user.profile)
+
+  useEffect(() => {
+    const userLiked = props.post.likes.some((like) => like.author === props.user.profile)
+    setLiked(userLiked);
+  }, [props.post.likes, props.user.profile])
+
 
   const toggleReplyForm = () => {
-    setShowReplyForm(!showReplyForm);
-  };
+    setShowReplyForm(!showReplyForm)
+  }
 
   const toggleReplies = () => {
-    setShowReplies(!showReplies);
-  };
+    setShowReplies(!showReplies)
+  }
 
   const handleAddReply = async (replyFormData) => {
-    await communityService.createReply(props.communityId, props.post._id, replyFormData);
-    const formData = { type: 'Reply' };
-    await notificationService.createPostNotification(props.communityId, props.post._id, formData);
-  };
+    await communityService.createReply(props.communityId, props.post._id, replyFormData)
+    const formData = { type: 'Reply' }
+    await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+  }
 
-  const originalDate = new Date(props.post.createdAt);
+  const handleAddLike = async () => {
+    const formData = { type: 'Like' }
+    await communityService.addLikeOrDislike(props.communityId, props.post._id, formData)
+    if (!liked) {
+      setLikes((prevLikes) => prevLikes + 1)
+      await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+    }
+  }
+
+  const originalDate = new Date(props.post.createdAt)
 
   const postFormattedDate = originalDate.toLocaleString('en-US', {
     month: 'long',
@@ -34,7 +53,7 @@ const PostCard = (props) => {
     hour: 'numeric',
     minute: 'numeric',
     hour12: true,
-  });
+  })
 
 
 
@@ -56,8 +75,9 @@ const PostCard = (props) => {
       <button className={styles.repliesButton} onClick={toggleReplies}>
         {showReplies ? 'Hide Replies' : 'See Replies'}
       </button>
-      <button className={styles.thumbsUpButton} >
-        <FontAwesomeIcon icon={faThumbsUp} size='2x' />
+      <button className={styles.thumbsUpButton}>
+        <FontAwesomeIcon icon={faThumbsUp} size='2x' onClick={handleAddLike} />
+        {likes > 0 && <span className={styles.likesCount}>{likes}</span>}
       </button>
       <button className={styles.thumbsDownButton} >
         <FontAwesomeIcon icon={faThumbsDown} size='2x' />

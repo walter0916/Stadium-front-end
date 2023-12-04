@@ -67,7 +67,7 @@ function App() {
           path="/community/:communityId"
           element={
             <ProtectedRoute user={user}>
-              <Community />
+              <Community user={user} />
             </ProtectedRoute>
             }
         />

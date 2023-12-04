@@ -5,7 +5,7 @@ import * as communityService from '../../services/communityService'
 import PostForm from '../../components/PostForm/PostForm'
 import PostCard from '../../components/PostCard/PostCard'
 
-const Community = () => {
+const Community = (props) => {
   const { communityId } = useParams()
   const [community, setCommunity] = useState({})
 
@@ -29,7 +29,7 @@ const Community = () => {
         <h1 className={styles.header}>{community.teamName}</h1>
         <p>Community Members: {community.communityMembers.length}</p>
         <PostForm handleAddPost={handleAddPost}/>
-        {community.posts.map(post => <PostCard key={post._id} post={post} communityId={communityId} />)}
+        {community.posts.map(post => <PostCard key={post._id} post={post} communityId={communityId} user={props.user} />)}
       </div>) : (
         <p>loading..</p>
       )}
