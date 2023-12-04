@@ -48,7 +48,7 @@ const PostCard = (props) => {
       </p>
       <div className={styles.buttonsContainer}>
       <button className={styles.replyButton} onClick={toggleReplyForm}>
-        Reply
+        {showReplyForm ? 'Cancel' : 'Reply'}
       </button>
       <button className={styles.repliesButton} onClick={toggleReplies}>
         {showReplies ? 'Hide Replies' : 'See Replies'}

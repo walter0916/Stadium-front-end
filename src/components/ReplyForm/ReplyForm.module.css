@@ -1,0 +1,25 @@
+
+
+.replyForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.replyTextArea {
+  resize: vertical;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.replyButton {
+  background-color: #3498db;
+  color: #fff;
+  padding: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.replyButton:hover {
+  background-color: #2980b9;
+}

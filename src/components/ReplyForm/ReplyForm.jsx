@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import styles from './ReplyForm.module.css'
 
 const ReplyForm = (props) => {
   const [formData, setFormData] = useState({
@@ -19,15 +19,16 @@ const ReplyForm = (props) => {
   console.log(formData)
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.replyForm} onSubmit={handleSubmit}>
       <textarea
+      className={styles.replyTextArea}
         placeholder="Type your reply..."
         type="text"
         name="content"
         value={formData.content}
         onChange={handleReplyChange}
       />
-      <button type="submit">Submit Reply</button>
+      <button className={styles.replyButton} type="submit">Submit Reply</button>
     </form>
   )
 }
