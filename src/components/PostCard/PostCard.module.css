@@ -30,14 +30,15 @@
 }
 
 .buttonsContainer {
-  width: 35% ;
+  width: 50% ;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .replyButton {
-  background-color: #3498db; /* Green color */
+  background-color: #3498db; 
   color: black;
   border: none;
   padding: 5px;
@@ -55,7 +56,7 @@
 }
 
 .repliesButton {
-  background-color: #3498db; /* Green color */
+  background-color: #3498db; 
   color: black;
   border: none;
   padding: 5px;
@@ -113,5 +114,23 @@
   border-radius: 50%;
 }
 
-.replyDate {
+.thumbsUpButton,
+.thumbsDownButton {
+  background-color: transparent;
+  color: #3498db; 
+
+  cursor: pointer;
+  border: none;
+  margin-right: 8px;
+}
+
+.thumbsUpButton:hover,
+.thumbsDownButton:hover {
+  color: #2980b9;
+}
+
+
+.thumbsUpButton:active,
+.thumbsDownButton:active {
+  color: #1f618d;
 }

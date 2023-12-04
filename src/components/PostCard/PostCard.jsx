@@ -3,6 +3,9 @@ import styles from './PostCard.module.css';
 import ReplyForm from '../ReplyForm/ReplyForm';
 import * as communityService from '../../services/communityService';
 import * as notificationService from '../../services/notificationService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+
 
 const PostCard = (props) => {
   const [showReplyForm, setShowReplyForm] = useState(false);
@@ -52,6 +55,12 @@ const PostCard = (props) => {
       </button>
       <button className={styles.repliesButton} onClick={toggleReplies}>
         {showReplies ? 'Hide Replies' : 'See Replies'}
+      </button>
+      <button className={styles.thumbsUpButton} >
+        <FontAwesomeIcon icon={faThumbsUp} size='2x' />
+      </button>
+      <button className={styles.thumbsDownButton} >
+        <FontAwesomeIcon icon={faThumbsDown} size='2x' />
       </button>
       </div>
       {showReplyForm && <ReplyForm handleAddReply={handleAddReply} />}
