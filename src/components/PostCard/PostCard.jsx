@@ -59,10 +59,11 @@ const PostCard = (props) => {
         <div className={styles.repliesContainer}>
           {props.post.replies.map((reply) => (
             <div key={reply._id} className={styles.reply}>
-              <p>{reply.content}</p>
-              <small>{reply.author.name}</small>
-            <small>
-              <br />
+              <div className={styles.replyP}>
+              <img className={styles.replyImg} src={reply.author.photo} width={30} alt="" />
+              <span><small className={styles.replyAuthor}>{reply.author.name}</small> <small className={styles.replyContent}>{reply.content}</small></span>
+              </div>
+            <small className={styles.replyDate}>
             {new Date(reply.createdAt).toLocaleString('en-US', {
             month: 'long',
             day: 'numeric',
