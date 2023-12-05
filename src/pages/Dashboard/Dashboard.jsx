@@ -51,7 +51,7 @@ const Landing = ({ user }) => {
           <p>No interests available</p>
         )}
       </div>
-      <div className={styles.secondContainer}>
+      {/* <div className={styles.secondContainer}> */}
       <div className={styles.communitiesNotificationContainer}>
 
       <div className={styles.joinedCommunities}>
@@ -66,28 +66,46 @@ const Landing = ({ user }) => {
           <p>No communities joined</p>
           )}
       </div>
+      <div className={styles.blogForm}>
+      </div>
       <div className={styles.notifications}>
         <h2>Notifications</h2>
         <div className={styles.iconWrapper} data-number={notifications.length}>
         <FontAwesomeIcon icon={['fas', 'bell']} className={styles.bell} />
         </div>
       </div>
-      {/* New section: Trending Blogs */}
         </div>
+    {/* </div> */}
       <div className={styles.trendingBlogs}>
         <h2>Trending Blogs</h2>
-        {/*
-          Render trending blogs based on likes, comments, and user interests
-        */}
-        {/* Sample blog */}
-        <div className={styles.trendingBlog}>
+          <div className={styles.blogCards}>
+
+        <div className={styles.blogCard}>
           <p>Blog Title</p>
           <p>Author: John Doe</p>
           <p>Likes: 50</p>
           <p>Comments: 30</p>
         </div>
+        <div className={styles.blogCard}>
+          <p>Blog Title</p>
+          <p>Author: John Doe</p>
+          <p>Likes: 50</p>
+          <p>Comments: 30</p>
+        </div>
+        <div className={styles.blogCard}>
+          <p>Blog Title</p>
+          <p>Author: John Doe</p>
+          <p>Likes: 50</p>
+          <p>Comments: 30</p>
+        </div>
+        <div className={styles.blogCard}>
+          <p>Blog Title</p>
+          <p>Author: John Doe</p>
+          <p>Likes: 50</p>
+          <p>Comments: 30</p>
+        </div>
+          </div>
       </div>
-    </div>
     </main>
   )
 }

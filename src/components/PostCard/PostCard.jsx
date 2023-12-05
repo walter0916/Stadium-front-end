@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { formatDistanceToNow } from 'date-fns';
 import styles from './PostCard.module.css';
 import ReplyForm from '../ReplyForm/ReplyForm';
 import * as communityService from '../../services/communityService';
@@ -11,14 +12,20 @@ const PostCard = (props) => {
   const [showReplyForm, setShowReplyForm] = useState(false)
   const [showReplies, setShowReplies] = useState(false)
   const [liked, setLiked] = useState(false)
+  const [disliked, setDisliked] = useState(false)
   const [likes, setLikes] = useState(props.post.likes.length)
+  const [dislikes, setDislikes] = useState(props.post.dislikes.length)
+
+  const formattedDate = formatDistanceToNow(new Date(props.post.createdAt), { addSuffix: true });
 
   console.log(props.user.profile)
 
   useEffect(() => {
     const userLiked = props.post.likes.some((like) => like.author === props.user.profile)
     setLiked(userLiked);
-  }, [props.post.likes, props.user.profile])
+    const userDisliked = props.post.dislikes.some((dislike) => dislike.author === props.user.profile)
+    setDisliked(userDisliked);
+  }, [props.post.dislikes, props.post.likes, props.user.profile])
 
 
   const toggleReplyForm = () => {
@@ -39,7 +46,18 @@ const PostCard = (props) => {
     const formData = { type: 'Like' }
     await communityService.addLikeOrDislike(props.communityId, props.post._id, formData)
     if (!liked) {
-      setLikes((prevLikes) => prevLikes + 1)
+      setLiked(true)
+      setDisliked(false)
+      await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+    }
+  }
+
+  const handleAddDislike = async () => {
+    const formData = { type: 'Dislike' }
+    await communityService.addLikeOrDislike(props.communityId, props.post._id, formData)
+    if (!disliked) {
+      setDisliked(true)
+      setLiked(false)
       await notificationService.createPostNotification(props.communityId, props.post._id, formData)
     }
   }
@@ -80,7 +98,8 @@ const PostCard = (props) => {
         {likes > 0 && <span className={styles.likesCount}>{likes}</span>}
       </button>
       <button className={styles.thumbsDownButton} >
-        <FontAwesomeIcon icon={faThumbsDown} size='2x' />
+        <FontAwesomeIcon icon={faThumbsDown} size='2x' onClick={handleAddDislike}/>
+        {dislikes >= 0 && <span className={styles.dislikesCount}>{dislikes}</span>}
       </button>
       </div>
       {showReplyForm && <ReplyForm handleAddReply={handleAddReply} />}
@@ -92,7 +111,7 @@ const PostCard = (props) => {
               <img className={styles.replyImg} src={reply.author.photo} width={30} alt="" />
               <span><small className={styles.replyAuthor}>{reply.author.name}</small> <small className={styles.replyContent}>{reply.content}</small></span>
               </div>
-            <small className={styles.replyDate}>
+            {/* <small className={styles.replyDate}>
             {new Date(reply.createdAt).toLocaleString('en-US', {
             month: 'long',
             day: 'numeric',
@@ -101,7 +120,8 @@ const PostCard = (props) => {
             minute: 'numeric',
             hour12: true,
           })}
-            </small>
+            </small> */}
+            <small>{formattedDate}</small>
             </div>
           ))}
         </div>

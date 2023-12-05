@@ -11,10 +11,16 @@
   margin: 0 auto;
   margin-top: 150px;
   color: black;
-  height: 80%;
-  width: 70%;
-  background: linear-gradient(to right, #f0f0f0, #d3d3d3);
+  height: 80vh;
+  width: 100vw;
+  /* background: linear-gradient(to right,#4e586e, #8997ab); */
+  /* background: linear-gradient(to right, #364670, #242E4C); */
+  background-color: white ;
   padding: 20px;
+  /* box-shadow: 0 20px 40px 0 #333, inset 0px -10px 17px 1px #444; */
+  overflow: hidden;
+  border-radius: 25px;
+  z-index: 998;
 }
 
 .header {
@@ -29,10 +35,14 @@
 
 .interests {
   display: flex;
-  width: 80%;
+  width: 100%;
   overflow-y: auto;
-  background-color: #D3D3D3;
+  /* background-color: #D3D3D3; */
+  background-color: white;
   height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
 }
 
 .searchBarContainer {
@@ -56,7 +66,8 @@
   width: 800px;
   margin: 0 auto;
   margin-top: 20px;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .trendingBlogs {
@@ -66,15 +77,18 @@
 .joinedCommunities,
 .notifications,
 .trendingBlogs {
-  border: 2px solid black;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* border: 3px solid black; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 .joinedCommunities {
-  height: 60% ;
+  height: 100% ;
   padding: 20px;
-  background-color: #FFFFFF; /* White background */
+  background-color: #242E4C; 
   border-radius: 10px;
+  color: white;
+  width: 70vw;
 }
 
 .notifications,
@@ -86,15 +100,20 @@
 
 .notifications {
   padding: 20px;
-  background-color: #FFFFFF; /* White background */
+  background-color: #242E4C; /* White background */
   border-radius: 10px;
-  margin-top: 10px;
+  color: white;
+  height: 100%;
+  width: 25vw;
+  margin-left: 10px;
 }
 
 .communitiesNotificationContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw ;
+  padding: 20px;
 }
 
 .communitiesList {
@@ -115,7 +134,7 @@
 
 .bell {
   height: 100%;
-  color: black;
+  color: white;
   font-size: 24px;
 
 }
@@ -170,6 +189,27 @@
 
 .trendingBlogs {
   padding: 20px;
-  background-color: #FFFFFF; /* White background */
-  border-radius: 10px;
+  background-color: #242E4C; /* White background */
+  color: white;
+  width: 100vw;
+  height: 40vh;
+}
+
+.blogCards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95vw;
+  height: 80%;
+  overflow-y: auto;
+}
+
+.blogCard{
+  background-color: white;
+  color: black;
+  width: 35%;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  padding: 10px;
 }
