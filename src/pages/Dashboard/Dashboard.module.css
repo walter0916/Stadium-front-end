@@ -3,13 +3,16 @@
   src: url('../../assets/Fonts/sports-night.ttf') format('truetype');
 }
 
+body {
+  overflow: hidden;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 150px;
   color: black;
   height: 80vh;
   width: 100vw;
@@ -30,6 +33,7 @@
   display: inline-block;
   color: black;
   -webkit-text-stroke: 0.5px white;
+  margin-top: 100px;
 }
 
 
@@ -63,7 +67,7 @@
 .secondContainer {
   display: flex;
   height: 400px;
-  width: 800px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20px;
   justify-content: center;
@@ -88,7 +92,7 @@
   background-color: #242E4C; 
   border-radius: 10px;
   color: white;
-  width: 70vw;
+  width: 50vw;
 }
 
 .notifications,
@@ -104,7 +108,7 @@
   border-radius: 10px;
   color: white;
   height: 100%;
-  width: 25vw;
+  width: 20vw;
   margin-left: 10px;
 }
 
@@ -112,8 +116,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   width: 100vw ;
-  padding: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 30px;
 }
 
 .communitiesList {
@@ -198,7 +205,7 @@
 .blogCards {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 95vw;
   height: 80%;
   overflow-y: auto;
@@ -211,5 +218,29 @@
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
+}
+
+.blogFormLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #242E4C;
+  color: white;
+  height: 100%;
+  width: 15vw;
+  left: 10px;
+  right: 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.blogFormLink a {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.blogFormLink a:visited{
+  color: white;
 }

@@ -51,7 +51,7 @@ const BlogForm = () => {
         <label>Title:</label>
         <input
           type="text"
-          id="title"
+          className={styles.titleInput}
           name="title"
           value={formData.title}
           onChange={handleChange}
@@ -71,19 +71,17 @@ const BlogForm = () => {
             />
           </label>
         </div>
-
         <label>Content:</label>
         <textarea
-          id="content"
-          cols="50" 
+          className={styles.contentInput}
+          cols="90" 
           rows="60"
           value={formData.content}
           name="content"
           onChange={handleChange}
           required
         ></textarea>
-
-        <button type="submit">Submit</button>
+        <button className={styles.submitBtn} type="submit">Post</button>
       </form>
 
     </div>

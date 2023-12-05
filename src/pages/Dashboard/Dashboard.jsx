@@ -66,7 +66,8 @@ const Landing = ({ user }) => {
           <p>No communities joined</p>
           )}
       </div>
-      <div className={styles.blogForm}>
+      <div className={styles.blogFormLink}>
+        <Link to={'/blog/new'}>Create A Blog</Link>
       </div>
       <div className={styles.notifications}>
         <h2>Notifications</h2>
