@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Community from './pages/Community/Community'
+import BlogForm from './pages/BlogForm/BlogForm'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -70,6 +71,14 @@ function App() {
               <Community user={user} />
             </ProtectedRoute>
             }
+        />
+        <Route
+          path="/blog/new"
+          element={
+            <ProtectedRoute user={user}>
+              <BlogForm user={user}/>
+            </ProtectedRoute>
+          }
         />
       </Routes>
     </>
