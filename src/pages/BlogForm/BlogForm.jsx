@@ -74,29 +74,29 @@ const BlogForm = () => {
     <div className={styles.formContainer}>
       <h2>Create a New Blog</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <label>Title:</label>
-        <input
-          type="text"
-          className={styles.titleInput}
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
-        <div className={styles.fileInputContainer}>
-          <label className={styles.fileInputLabel}>
-            <FontAwesomeIcon icon={faCloudUploadAlt} className={styles.uploadIcon} />
-            {selectedFileName || 'Upload a Photo'}
+            <label>Title:</label>
             <input
-              type="file"
+              type="text"
+              className={styles.titleInput}
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
               required
-              name="photo"
-              ref={imgInputRef}
-              onChange={handleChangePhoto}
-              className={styles.fileInput}
             />
-          </label>
-        </div>
+          <div className={styles.fileInputContainer}>
+            <label className={styles.fileInputLabel}>
+              <FontAwesomeIcon icon={faCloudUploadAlt} className={styles.uploadIcon} />
+              {selectedFileName || 'Upload a Photo'}
+              <input
+                type="file"
+                required
+                name="photo"
+                ref={imgInputRef}
+                onChange={handleChangePhoto}
+                className={styles.fileInput}
+              />
+            </label>
+          </div>
         <label>Content:</label>
         <textarea
           type="text"
@@ -108,12 +108,13 @@ const BlogForm = () => {
           onChange={handleChange}
           required
         ></textarea>
-        <label>League</label>
+        <label className={styles.leagueLabel}>League</label>
         <select 
         name="leagueId"
         required
         value={formData.leagueId}
         onChange={handleChange}
+        className={styles.leagueSelect}
         >
           <option value="">Select League</option>
           {leagues.length ? (leagues.map(league => (

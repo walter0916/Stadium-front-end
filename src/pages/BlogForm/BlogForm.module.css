@@ -7,6 +7,9 @@
   height: 80vh;
   width: 100vw;
 }
+.inputContainer {
+  width: 100%;
+}
 
 .form {
   display: flex;
@@ -32,6 +35,8 @@
   cursor: pointer;
   display: inline-block;
   transition: background-color 0.3s;
+  height: 50px;
+  border: 1px solid #ccc;
 }
 
 .uploadIcon {
@@ -45,10 +50,21 @@
   right: 0;
   opacity: 0;
   cursor: pointer;
+  display: none;
+}
+
+.titleInput,
+.contentInput,
+.leagueSelect {
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .titleInput {
   width: 50%;
+  margin: 0 auto;
 }
 
 .contentInput {
@@ -59,6 +75,41 @@
   background-color: #3498db;
   color: #fff;
   padding: 10px 15px;
+  font-size: 16px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.leagueLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.leagueSelect {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.leagueSelect option {
+  font-size: 14px;
+}
+
+.leagueSelect:hover,
+.leagueSelect:focus {
+  border-color: #007BFF;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+}
+
+.leagueSelect:active,
+.leagueSelect.open {
+  border-color: #0056b3;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
 }
