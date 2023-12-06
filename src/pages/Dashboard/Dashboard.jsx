@@ -4,6 +4,7 @@ import LeagueCard from '../../components/LeagueCard/LeagueCard';
 import * as leagueService from '../../services/leagueService';
 import * as profileService from '../../services/profileService';
 import * as notificationsService from '../../services/notificationService'
+import * as blogsService from '../../services/blogService';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +16,7 @@ const Landing = ({ user }) => {
   const [leagues, setLeagues] = useState([])
   const [profile, setProfile] = useState([])
   const [notifications, setNotifications] = useState([])
+  const [blogs, setBlogs] = useState([])
 
   console.log(profileId)
   library.add(fas)
@@ -29,6 +31,8 @@ const Landing = ({ user }) => {
       console.log(notificationsdata)
       const filteredNotifcationData = await notificationsdata.filter(notification => notification.targetUser === profileId)
       setNotifications(filteredNotifcationData)
+      const blogsData = await blogsService.getAllBlogs()
+      setBlogs(blogsData)
     }
     fetchLeagues()
   }, [profileId])
@@ -59,7 +63,11 @@ const Landing = ({ user }) => {
         {profile.joinedCommunities ? (
           <ul className={styles.communitiesList}>
             {profile.joinedCommunities.map((community) => (
-              <li key={community.id}><Link to={`/community/${community._id}`}>{community.teamName}</Link></li>
+              <li key={community.id}>
+                <div className={styles.circle}>
+                  <Link to={`/community/${community._id}`}>{community.teamName}</Link>
+                </div>
+              </li>
               ))}
           </ul>
         ) : (
@@ -78,33 +86,12 @@ const Landing = ({ user }) => {
         </div>
     {/* </div> */}
       <div className={styles.trendingBlogs}>
-        <h2>Trending Blogs</h2>
+        <h1>Trending Blogs</h1>
           <div className={styles.blogCards}>
-
-        <div className={styles.blogCard}>
-          <p>Blog Title</p>
-          <p>Author: John Doe</p>
-          <p>Likes: 50</p>
-          <p>Comments: 30</p>
-        </div>
-        <div className={styles.blogCard}>
-          <p>Blog Title</p>
-          <p>Author: John Doe</p>
-          <p>Likes: 50</p>
-          <p>Comments: 30</p>
-        </div>
-        <div className={styles.blogCard}>
-          <p>Blog Title</p>
-          <p>Author: John Doe</p>
-          <p>Likes: 50</p>
-          <p>Comments: 30</p>
-        </div>
-        <div className={styles.blogCard}>
-          <p>Blog Title</p>
-          <p>Author: John Doe</p>
-          <p>Likes: 50</p>
-          <p>Comments: 30</p>
-        </div>
+        {blogs.length ? blogs.map((blog) => (<div key={blog._id} className={styles.blogCard}>
+          <img src={blog.photo} alt="" />
+          <h2>{blog.title}</h2>
+        </div>)) : ''}
           </div>
       </div>
     </main>

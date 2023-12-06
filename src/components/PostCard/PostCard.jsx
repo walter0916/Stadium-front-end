@@ -47,8 +47,14 @@ const PostCard = (props) => {
     await communityService.addLikeOrDislike(props.communityId, props.post._id, formData)
     if (!liked) {
       setLiked(true)
-      setDisliked(false)
-      await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+      setLikes((prevLikes) => prevLikes + 1)
+      if (disliked) {
+        setDisliked(false)
+        setDislikes((prevDislikes) => prevDislikes - 1)
+      }
+      if (!liked & !disliked) {
+        await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+      }
     }
   }
 
@@ -57,8 +63,14 @@ const PostCard = (props) => {
     await communityService.addLikeOrDislike(props.communityId, props.post._id, formData)
     if (!disliked) {
       setDisliked(true)
-      setLiked(false)
-      await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+      setDislikes((prevDislikes) => prevDislikes + 1)
+      if (liked) {
+        setLiked(false)
+        setLikes((prevLikes) => prevLikes - 1)
+      }
+      if (!liked & !disliked) {
+        await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+      }
     }
   }
 
@@ -99,7 +111,7 @@ const PostCard = (props) => {
       </button>
       <button className={styles.thumbsDownButton} >
         <FontAwesomeIcon icon={faThumbsDown} size='2x' onClick={handleAddDislike}/>
-        {dislikes >= 0 && <span className={styles.dislikesCount}>{dislikes}</span>}
+        {dislikes > 0 && <span className={styles.dislikesCount}>{dislikes}</span>}
       </button>
       </div>
       {showReplyForm && <ReplyForm handleAddReply={handleAddReply} />}
