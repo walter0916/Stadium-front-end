@@ -1,17 +1,28 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import styles from './BlogForm.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
-
+import * as blogService from '../../services/blogService'
+import * as leagueService from '../../services/leagueService'
 const BlogForm = () => {
   const imgInputRef = useRef(null)
+  const [leagues, setLeagues] = useState({})
   const [message, setMessage] = useState('')
   const [formData, setFormData] = useState({
     title: '' ,
-    content: ''
+    content: '',
+    leagueId: 0
   })
   const [photoData, setPhotoData] = useState({ photo: null })
   const [selectedFileName, setSelectedFileName] = useState('');
+
+  useEffect(() => {
+    const fetchLeagues = async () => {
+      const data = await leagueService.getAllLeagues()
+      setLeagues(data)
+    }
+    fetchLeagues()
+  }, [])
 
   const handleChangePhoto = evt => {
     const file = evt.target.files[0]
@@ -44,10 +55,25 @@ const BlogForm = () => {
     setFormData({...formData, [evt.target.name]: evt.target.value })
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    handleAddBlog(formData, photoData.photo)
+    setFormData({
+      content: '',
+      title: '',
+      leagueId: 0
+    })
+    setSelectedFileName('')
+  }
+
+  const handleAddBlog = async (blogFormData, photoData) => {
+    await blogService.create(blogFormData, photoData)
+  }
+
   return (
     <div className={styles.formContainer}>
       <h2>Create a New Blog</h2>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <label>Title:</label>
         <input
           type="text"
@@ -73,6 +99,7 @@ const BlogForm = () => {
         </div>
         <label>Content:</label>
         <textarea
+          type="text"
           className={styles.contentInput}
           cols="90" 
           rows="60"
@@ -81,9 +108,22 @@ const BlogForm = () => {
           onChange={handleChange}
           required
         ></textarea>
+        <label>League</label>
+        <select 
+        name="leagueId"
+        required
+        value={formData.leagueId}
+        onChange={handleChange}
+        >
+          <option value="">Select League</option>
+          {leagues.length ? (leagues.map(league => (
+            <option value={league._id} key={league._id}>
+              {league.leagueName}
+            </option>
+          ))) : ''}
+        </select>
         <button className={styles.submitBtn} type="submit">Post</button>
       </form>
-
     </div>
   )
 }
