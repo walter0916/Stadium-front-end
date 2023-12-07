@@ -21,6 +21,13 @@ const League = (props) => {
 
   const handleAddComment = async (blogId, blogFormData) => {
     const newComment = await blogService.createComment(blogId, blogFormData)
+    const blogIndex = leagueBlogs.findIndex((blog) => blog._id === blogId)
+    const updatedLeagueBlogs = [...leagueBlogs]
+    updatedLeagueBlogs[blogIndex] = {
+      ...updatedLeagueBlogs[blogIndex],
+      comments: [...updatedLeagueBlogs[blogIndex].comments, newComment],
+    }
+    setLeagueBlogs(updatedLeagueBlogs)
   }
 
   return (
