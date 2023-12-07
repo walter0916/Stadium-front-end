@@ -20,11 +20,14 @@ const CommentForm = (props) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  console.log(profile)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setFormData({content: ''})
+  }
 
   return (
     <div>
-      <form className={styles.commentForm} >
+      <form className={styles.commentForm} onSubmit={handleSubmit} >
         <img src={profile.photo} alt="" className={styles.profilePhoto}/>
       <textarea
       className={styles.commentTextArea}

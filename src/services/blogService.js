@@ -58,4 +58,20 @@ async function addPhotoToBlog(blogId, photoData) {
   }
 }
 
-export { create, getAllBlogs }
+async function createComment(blogId, blogFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${blogId}/comments`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(blogFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { create, getAllBlogs, createComment }
