@@ -7,6 +7,7 @@ import ligue1Logo from '../../assets/ligue-1.svg'
 import europaLogo from '../../assets/europa.svg'
 import championsLogo from '../../assets/champions.svg'
 import styles from './LeagueCard.module.css'
+import { Link } from 'react-router-dom'
 
 const LeagueCard = (props) => {
   console.log(props)
@@ -49,7 +50,9 @@ const LeagueCard = (props) => {
 
   return (
     <div className={styles.logoContainer}>
-      <img src={logo} alt="" className={styles.logo}/>
+      <Link to={`/league/${props.interest._id}`}>
+      <img src={logo} alt="" className={styles.logo}/>  
+      </Link>
     </div>
   );
 }

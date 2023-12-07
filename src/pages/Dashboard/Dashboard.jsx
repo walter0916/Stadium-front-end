@@ -49,7 +49,7 @@ const Landing = ({ user }) => {
       <div className={styles.interests}>
         {profile.interests ? (
           profile.interests.map((interest) => (
-            <LeagueCard key={interest.id} interest={interest} />
+            <LeagueCard key={interest.id} interest={interest} />           
           ))
         ) : (
           <p>No interests available</p>
