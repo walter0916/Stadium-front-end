@@ -5,6 +5,7 @@ import styles from './league.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import CommentForm from "../../components/CommentForm/CommentForm";
+import * as notificationService from "../../services/notificationService";
 
 const League = (props) => {
   const { leagueId } = useParams()
@@ -28,6 +29,10 @@ const League = (props) => {
       comments: [...updatedLeagueBlogs[blogIndex].comments, newComment],
     }
     setLeagueBlogs(updatedLeagueBlogs)
+    const typeFormData = {
+      type: 'Comment',
+    }
+    await notificationService.createBlogNotification(blogId, typeFormData)
   }
 
   return (
