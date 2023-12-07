@@ -22,6 +22,7 @@ const CommentForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    props.handleAddComment(props.blogId, formData)
     setFormData({content: ''})
   }
 

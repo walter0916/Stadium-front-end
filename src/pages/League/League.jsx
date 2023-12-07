@@ -19,6 +19,10 @@ const League = (props) => {
     fetchBlogs()
   },[leagueId])
 
+  const handleAddComment = async (blogId, blogFormData) => {
+    const newComment = await blogService.createComment(blogId, blogFormData)
+  }
+
   return (
     <div className={styles.leagueContainer}>
       <h1>La Liga</h1>
@@ -33,7 +37,7 @@ const League = (props) => {
           </div>
           {blog.comments.length > 0 ? (<p className={styles.commentNum}>view all {blog.comments.length} comments</p>) : ('')}
           <div className={styles.commentFormContainer}>
-          <CommentForm user={props.user}/>
+          <CommentForm user={props.user} handleAddComment={handleAddComment} blogId={blog._id}/>
           </div>
         </div>)) : ''}
       </div>
