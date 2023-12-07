@@ -1,0 +1,28 @@
+.commentForm {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  padding: 5px;
+}
+
+.commentTextArea {
+  width: 90%;
+  border-radius: 15px;
+  height: 30px;
+  overflow-y: hidden;
+}
+
+.submitButton {
+  border: none;
+  height: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  right: 0;
+}
+
+.profilePhoto {
+  height: 30px;
+  border-radius: 50%;
+}

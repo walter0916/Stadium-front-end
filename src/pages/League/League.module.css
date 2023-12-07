@@ -15,12 +15,23 @@
   flex-direction: row;
   width: 60vw;
   height: max-content;
-  border: 1px solid #ccc;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 .leagueBlogCard img {
   width: 30%;
+}
+
+.leagueBlogCardContainer {
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3)
+}
+
+.commentNum {
+  font-size: 12px;
+  margin-left: 15px;
+  color: #5b5b5b;
 }
 
 .articleContent {
