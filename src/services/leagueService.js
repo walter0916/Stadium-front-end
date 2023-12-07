@@ -13,4 +13,15 @@ async function getAllLeagues() {
   }
 }
 
-export { getAllLeagues }
+async function getLeagueById(leagueId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${leagueId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export { getAllLeagues, getLeagueById }

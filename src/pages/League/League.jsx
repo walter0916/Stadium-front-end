@@ -6,16 +6,63 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import CommentForm from "../../components/CommentForm/CommentForm";
 import * as notificationService from "../../services/notificationService";
+import * as leagueService from '../../services/leagueService'
+import laliga from '../../assets/laliga.svg'
+import premierLeagueLogo from '../../assets/premier-league.svg'
+import serieALogo from '../../assets/serieA.svg'
+import bundesligaLogo from '../../assets/bundesliga.svg'
+import mlsLogo from '../../assets/mls.svg'
+import ligue1Logo from '../../assets/ligue-1.svg'
+import europaLogo from '../../assets/europa.svg'
+import championsLogo from '../../assets/champions.svg'
 
 const League = (props) => {
   const { leagueId } = useParams()
+  const [league, setLeague] = useState({})
   const [leagueBlogs, setLeagueBlogs] = useState({})
+
+  let logo = null
+
+  if (league.leagueName && typeof league.leagueName === 'string') {
+    switch (league.leagueName.toLowerCase()) {
+      case 'laliga':
+        logo = laliga
+        break
+      case 'premier league':
+        logo = premierLeagueLogo
+        break
+      case 'serie a':
+        logo = serieALogo
+        break
+      case 'bundesliga':
+        logo = bundesligaLogo
+        break
+      case 'mls':
+        logo = mlsLogo
+        break
+      case 'ligue 1':
+        logo = ligue1Logo
+        break
+      case 'champions league':
+        logo = championsLogo
+        break
+      case 'europa league':
+        logo = europaLogo
+        break
+      default:
+        logo = laliga
+        break
+    }
+  }
+
 
   useEffect(() => {
     const fetchBlogs = async () => {
       const data = await blogService.getAllBlogs()
+      const leagueData = await leagueService.getLeagueById(leagueId)
       const filteredData = data.filter(blog => blog.league._id === leagueId)
       setLeagueBlogs(filteredData)
+      setLeague(leagueData)
     }
     fetchBlogs()
   },[leagueId])
@@ -37,7 +84,8 @@ const League = (props) => {
 
   return (
     <div className={styles.leagueContainer}>
-      <h1>La Liga</h1>
+      <img src={logo} alt="" className={styles.logo}/>
+      <h1>{league.leagueName}</h1>
       <div className={styles.leagueBlogCards}>
         {leagueBlogs.length ? leagueBlogs.map((blog) => (<div key={blog._id} className={styles.leagueBlogCardContainer}>
           <div className={styles.leagueBlogCard}>
