@@ -1,17 +1,3 @@
-.leagueContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.logo {
-  margin-top: 100px;
-  height: 10vh;
-}
-
-
 .leagueBlogCard {
   display: flex;
   flex-direction: row;
@@ -57,25 +43,4 @@
 .commentFormContainer {
   border-top: 1px solid #ccc;
   margin-top: 10px;
-}
-
-.thumbsUpButton,
-.thumbsDownButton {
-  background-color: transparent;
-  color: #3498db; 
-
-  cursor: pointer;
-  border: none;
-  margin-right: 8px;
-}
-
-.thumbsUpButton:hover,
-.thumbsDownButton:hover {
-  color: #2980b9;
-}
-
-
-.thumbsUpButton:active,
-.thumbsDownButton:active {
-  color: #1f618d;
 }

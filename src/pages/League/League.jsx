@@ -6,6 +6,7 @@ import styles from './league.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import CommentForm from "../../components/CommentForm/CommentForm";
+import BlogCard from "../../components/BlogCard/BlogCard"
 import * as notificationService from "../../services/notificationService";
 import * as leagueService from '../../services/leagueService'
 import laliga from '../../assets/laliga.svg'
@@ -83,30 +84,14 @@ const League = (props) => {
     await notificationService.createBlogNotification(blogId, typeFormData)
   }
 
+
   return (
     <div className={styles.leagueContainer}>
       <img src={logo} alt="" className={styles.logo}/>
       <h1>{league.leagueName}</h1>
       <div className={styles.leagueBlogCards}>
-        {leagueBlogs.length ? leagueBlogs.map((blog) => (<div key={blog._id} className={styles.leagueBlogCardContainer}>
-          <div className={styles.leagueBlogCard}>
-          <img src={blog.photo} alt="" />
-          <div className={styles.articleContent}>
-          <h2>{blog.title}</h2>
-          <p>via {blog.author.name}</p>
-          </div>
-          </div>
-          <button className={styles.thumbsUpButton}>
-            <FontAwesomeIcon icon={faThumbsUp} size='1x'/>
-          </button>
-          <button className={styles.thumbsDownButton} >
-            <FontAwesomeIcon icon={faThumbsDown} size='1x'/>
-          </button>
-          {blog.comments.length > 0 ? (<Link to={`blog/${blog._id}/comments`} className={styles.commentNum}>view all {blog.comments.length} comments</Link>) : ('')}
-          <div className={styles.commentFormContainer}>
-          <CommentForm user={props.user} handleAddComment={handleAddComment} blogId={blog._id}/>
-          </div>
-        </div>)) : ''}
+        {leagueBlogs.length ? leagueBlogs.map((blog) => (
+        <BlogCard key={blog._Id} blog={blog} handleAddComment={handleAddComment} user={props.user}/>)) : ''}
       </div>
     </div>
   )  
