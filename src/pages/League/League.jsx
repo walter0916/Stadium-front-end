@@ -96,6 +96,12 @@ const League = (props) => {
           <p>via {blog.author.name}</p>
           </div>
           </div>
+          <button className={styles.thumbsUpButton}>
+            <FontAwesomeIcon icon={faThumbsUp} size='1x'/>
+          </button>
+          <button className={styles.thumbsDownButton} >
+            <FontAwesomeIcon icon={faThumbsDown} size='1x'/>
+          </button>
           {blog.comments.length > 0 ? (<Link to={`blog/${blog._id}/comments`} className={styles.commentNum}>view all {blog.comments.length} comments</Link>) : ('')}
           <div className={styles.commentFormContainer}>
           <CommentForm user={props.user} handleAddComment={handleAddComment} blogId={blog._id}/>

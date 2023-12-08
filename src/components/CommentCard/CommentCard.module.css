@@ -36,7 +36,10 @@
 }
 
 .repliesContainer {
+  width: 90%;
   margin-top: 10px;
+  margin-left: auto;
+  margin-bottom: 20px;
 }
 
 .reply {
@@ -45,10 +48,9 @@
   justify-content: space-between;
   flex-direction: row;
   border: none;
-  box-shadow: 5px 6px 6px 2px #e9ecef;
   border-radius: 4px;
   height: max-content;
-  width: 100%;
+  width: 80%;
   margin-bottom: 10px;
 }
 

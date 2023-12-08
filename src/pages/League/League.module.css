@@ -31,8 +31,14 @@
 }
 
 .commentNum {
+  text-decoration: none;
   font-size: 12px;
   margin-left: 15px;
+  color: #5b5b5b;
+}
+
+.commentNum:visited {
+  text-decoration: none;
   color: #5b5b5b;
 }
 

@@ -34,8 +34,6 @@ const BlogComments = (props) => {
     const newReply = await blogService.createReply(blogId, commentId, replyFormData)
   }
 
-
-
   return (
     <div className={styles.blogCommentsContainer}>
       {blog.author ? (<div className={styles.blogContainer}>
