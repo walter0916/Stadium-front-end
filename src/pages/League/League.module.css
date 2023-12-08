@@ -47,3 +47,8 @@
 .articleContent p {
   color: #5b5b5b;
 }
+
+.commentFormContainer {
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+}

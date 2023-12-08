@@ -91,7 +91,7 @@ function App() {
           }
         />
                 <Route
-          path="/blog/:blogId/comments"
+          path="/league/:leagueId/blog/:blogId/comments"
           element={
             <ProtectedRoute user={user}>
               <BlogComments user={user} />

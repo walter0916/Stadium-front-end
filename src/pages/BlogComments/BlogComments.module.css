@@ -1,0 +1,77 @@
+.blogCommentsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blogContainer {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+  height: max-content;
+  margin-top: 100px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3)
+}
+
+.blogContainer img {
+  width: 30%;
+}
+
+.articleContent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 70%;
+  padding: 20px;
+}
+
+.commentsContainer {
+  width: 60vw;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.commentCard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.imgContainer {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.imgContainer img {
+  width: 70%;
+  border-radius: 50%;
+}
+
+.commentContent {
+  border-bottom: 1px solid #ccc;
+  width: 90%;
+}
+
+.commentAuthor {
+  color: #575656;
+  margin-top: 5px;
+}
+
+.commentCreatedAt {
+  font-size: 13px;
+}
+
+.buttonsContainer {
+  margin-bottom: 20px;
+}
+
+.commentFormContainer {
+  width: 60vw;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
