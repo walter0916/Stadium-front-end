@@ -34,3 +34,43 @@
 .buttonsContainer {
   margin-bottom: 20px;
 }
+
+.repliesContainer {
+  margin-top: 10px;
+}
+
+.reply {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  border: none;
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  border-radius: 4px;
+  height: max-content;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+.replyP {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-start;
+  left: auto;
+}
+
+.replyAuthor {
+  font-weight: bold;
+  color: blue;
+}
+
+.replyContent {
+  font-weight: bold;
+}
+
+.replyImg {
+  margin-top: 4px;
+  border-radius: 50%;
+}

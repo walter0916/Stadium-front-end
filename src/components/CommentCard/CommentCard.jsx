@@ -6,9 +6,14 @@ import ReplyForm from '../ReplyForm/ReplyForm';
 
 const CommentCard = (props) => {
   const [showReplyForm, setShowReplyForm] = useState(false)
+  const [showReplies, setShowReplies] = useState(false)
   
   const toggleReplyForm = () => {
     setShowReplyForm(!showReplyForm)
+  }
+
+  const toggleReplies = () => {
+    setShowReplies(!showReplies)
   }
 
   const handleAddReply = (replyFormData) => {
@@ -16,6 +21,8 @@ const CommentCard = (props) => {
   }
 
   return (
+    <div>
+
     <div className={styles.commentCard}>
       <div className={styles.imgContainer}>
         <img src={props.comment.author.photo} alt=""/>
@@ -32,12 +39,28 @@ const CommentCard = (props) => {
           <FontAwesomeIcon icon={faThumbsDown} size='1x'/>
         </button>
         <button onClick={toggleReplyForm}>
-        {showReplyForm ? 'Cancel' : 'Reply'}
+          {showReplyForm ? 'Cancel' : 'Reply'}
+        </button>
+        <button onClick={toggleReplies}>
+          {showReplies ? 'Hide Replies' : 'See Replies'}
         </button>
       </div>
         {showReplyForm && <ReplyForm handleAddReply={handleAddReply}/>}
       </div>
     </div>
+      {showReplies && (
+        <div className={styles.repliesContainer}>
+          {props.comment.replies.map((reply) => (
+            <div key={reply._id} className={styles.reply}>
+              <div className={styles.replyP}>
+              <img className={styles.replyImg} src={reply.author.photo} width={30} alt="" />
+              <span><small className={styles.replyAuthor}>{reply.author.name}</small> <small className={styles.replyContent}>{reply.content}</small></span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      </div>
   )
 }
 
