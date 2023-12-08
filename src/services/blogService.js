@@ -14,6 +14,17 @@ async function getAllBlogs() {
   }
 }
 
+async function getBlogById(blogId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${blogId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 async function create(blogFormData, photoData) {
   const formData = new FormData()
   formData.append('photo', photoData)
@@ -74,4 +85,4 @@ async function createComment(blogId, blogFormData) {
   }
 }
 
-export { create, getAllBlogs, createComment }
+export { create, getAllBlogs,getBlogById, createComment }

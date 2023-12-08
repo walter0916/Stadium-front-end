@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import * as blogService from '../../services/blogService'
 import styles from './league.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -95,7 +96,7 @@ const League = (props) => {
           <p>via {blog.author.name}</p>
           </div>
           </div>
-          {blog.comments.length > 0 ? (<p className={styles.commentNum}>view all {blog.comments.length} comments</p>) : ('')}
+          {blog.comments.length > 0 ? (<Link to={`blog/${blog._id}/comments`} className={styles.commentNum}>view all {blog.comments.length} comments</Link>) : ('')}
           <div className={styles.commentFormContainer}>
           <CommentForm user={props.user} handleAddComment={handleAddComment} blogId={blog._id}/>
           </div>
