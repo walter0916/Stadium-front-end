@@ -11,6 +11,10 @@ const CommentCard = (props) => {
     setShowReplyForm(!showReplyForm)
   }
 
+  const handleAddReply = (replyFormData) => {
+    props.handleAddReply(props.comment._id ,replyFormData)
+  }
+
   return (
     <div className={styles.commentCard}>
       <div className={styles.imgContainer}>
@@ -27,9 +31,11 @@ const CommentCard = (props) => {
         <button className={styles.thumbsDownButton} >
           <FontAwesomeIcon icon={faThumbsDown} size='1x'/>
         </button>
-        <button onClick={toggleReplyForm}>Reply</button>
+        <button onClick={toggleReplyForm}>
+        {showReplyForm ? 'Cancel' : 'Reply'}
+        </button>
       </div>
-        {showReplyForm && <ReplyForm />}
+        {showReplyForm && <ReplyForm handleAddReply={handleAddReply}/>}
       </div>
     </div>
   )
