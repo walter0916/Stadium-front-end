@@ -6,6 +6,8 @@ import styles from './BlogComments.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import CommentForm from "../../components/CommentForm/CommentForm";
+import ReplyForm from "../../components/ReplyForm/ReplyForm"
+import CommentCard from "../../components/CommentCard/CommentCard"
 
 const BlogComments = (props) => {
   const {blogId} = useParams()
@@ -28,7 +30,7 @@ const BlogComments = (props) => {
     await notificationService.createBlogNotification(blogId, typeFormData)
   }
 
-  console.log(blog)
+
 
   return (
     <div className={styles.blogCommentsContainer}>
@@ -45,26 +47,7 @@ const BlogComments = (props) => {
         </div>
       {blog.author ? (
               <div className={styles.commentsContainer}>
-              { blog.comments.map(comment => 
-              <div key={comment._id} className={styles.commentCard}>
-                <div className={styles.imgContainer}>
-                  <img src={comment.author.photo} alt=""/>
-                </div>
-                <div className={styles.commentContent}>
-                  <p className={styles.commentAuthor}>{comment.author.name}</p>
-                  <p className={styles.commentCreatedAt}>{comment.createdAt}</p>
-                  <p>{comment.content}</p>
-                <div className={styles.buttonsContainer}>
-                <button className={styles.thumbsUpButton}>
-                  <FontAwesomeIcon icon={faThumbsUp} size='1x'/>
-                </button>
-                <button className={styles.thumbsDownButton} >
-                  <FontAwesomeIcon icon={faThumbsDown} size='1x'/>
-                </button>
-                  <button>Reply</button>
-                </div>
-                </div>
-              </div>) }
+              { blog.comments.map(comment => <CommentCard key={comment._id} comment={comment} />) }
             </div>
       ) : ' '}  
     </div>

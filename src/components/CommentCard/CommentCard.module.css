@@ -1,0 +1,36 @@
+.commentCard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.imgContainer {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.imgContainer img {
+  width: 70%;
+  border-radius: 50%;
+}
+
+.commentContent {
+  border-bottom: 1px solid #ccc;
+  width: 90%;
+}
+
+.commentAuthor {
+  color: #575656;
+  margin-top: 5px;
+}
+
+.commentCreatedAt {
+  font-size: 13px;
+}
+
+.buttonsContainer {
+  margin-bottom: 20px;
+}
