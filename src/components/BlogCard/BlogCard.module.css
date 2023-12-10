@@ -8,6 +8,16 @@
   width: 30%;
 }
 
+.leagueBlogCard a {
+  text-decoration: none;
+  color: black;
+}
+
+.leagueBlogCard a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 .leagueBlogCardContainer {
   border: 1px solid #ccc;
   margin-top: 20px;

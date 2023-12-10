@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import * as blogService from '../../services/blogService'
 import styles from './Blog.module.css'
 
 const Blog = () => {
+  const navigate = useNavigate()
   const { blogId } = useParams()
   const [blog, setBlog] = useState({})
 
@@ -14,6 +16,10 @@ const Blog = () => {
     }
     fetchBlog()
   }, [blogId])
+
+  const handleReturn = () => {
+    navigate(-1)
+  }
 
   const originalDate = new Date(blog.createdAt)
 
@@ -30,10 +36,11 @@ const Blog = () => {
     <div className={styles.blogContainer}>
       {blog.title ? (
         <div className={styles.blog}>
-        <h1>{blog.title}</h1>
-        <h4>{blogFormattedDate}</h4>
-        <img src={blog.photo} alt="" />
-        <p>{blog.content}</p>
+          <button onClick={handleReturn}>Return</button>
+          <h1>{blog.title}</h1>
+          <h4>{blogFormattedDate}</h4>
+          <img src={blog.photo} alt="" />
+          <p>{blog.content}</p>
         </div>
       ) : ''}
     </div>

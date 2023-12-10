@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import * as blogService from '../../services/blogService'
 import * as notificationService from '../../services/notificationService'
 import styles from './BlogComments.module.css'
@@ -11,6 +12,7 @@ import CommentCard from "../../components/CommentCard/CommentCard"
 
 const BlogComments = (props) => {
   const {blogId} = useParams()
+  const {leagueId} = useParams()
   const [blog, setBlog] = useState({})
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const BlogComments = (props) => {
       {blog.author ? (<div className={styles.blogContainer}>
         <img src={blog.photo} alt="" />
         <div className={styles.articleContent}>
-          <h2>{blog.title}</h2>
+          <Link to={`/league/${leagueId}/blog/${blogId}`}><h2>{blog.title}</h2></Link>
           <p>via {blog.author.name}</p>
         </div>
       </div>

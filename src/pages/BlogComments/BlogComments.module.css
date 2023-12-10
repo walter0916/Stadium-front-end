@@ -26,6 +26,16 @@
   padding: 20px;
 }
 
+.articleContent a {
+  text-decoration: none;
+  color: black;
+}
+
+.articleContent a:visited {
+  text-decoration: none;
+  color: black;
+}
+
 .commentsContainer {
   width: 60vw;
   margin-top: 20px;
