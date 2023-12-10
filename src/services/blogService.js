@@ -117,4 +117,4 @@ async function addLikeOrDislike(blogId, postId, formData) {
   }
 }
 
-export { create, getAllBlogs,getBlogById, createComment, createReply, addLikeOrDislike }
+export { create, getAllBlogs, getBlogById, createComment, createReply, addLikeOrDislike }

@@ -44,7 +44,7 @@ const BlogCard = (props) => {
       <div className={styles.leagueBlogCard}>
         <img src={props.blog.photo} alt="" />
         <div className={styles.articleContent}>
-          <h2>{props.blog.title}</h2>
+          <Link to={`/league/${props.leagueId}/blog/${props.blog._id}`}><h2>{props.blog.title}</h2></Link>
           <p>via {props.blog.author.name}</p>
         </div>
       </div>

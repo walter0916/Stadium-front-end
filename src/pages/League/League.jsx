@@ -91,7 +91,7 @@ const League = (props) => {
       <h1>{league.leagueName}</h1>
       <div className={styles.leagueBlogCards}>
         {leagueBlogs.length ? leagueBlogs.map((blog) => (
-        <BlogCard key={blog._Id} blog={blog} handleAddComment={handleAddComment} user={props.user}/>)) : ''}
+        <BlogCard key={blog._Id} blog={blog} handleAddComment={handleAddComment} user={props.user} leagueId={leagueId}/>)) : ''}
       </div>
     </div>
   )  

@@ -92,7 +92,7 @@ function App() {
           }
         />
         <Route
-          path="/league/:leagueId/blog"
+          path="/league/:leagueId/blog/:blogId"
           element={
             <ProtectedRoute user={user}>
               <Blog user={user}/>

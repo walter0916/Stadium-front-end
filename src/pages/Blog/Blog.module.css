@@ -1,0 +1,34 @@
+.blogContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+.blog {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog img{
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.blog h1 {
+  margin-bottom: 0;
+}
+
+.blog h4 {
+  color: #747272;
+}
+
+.blog p {
+  font-size: 18px;
+  line-height: 2;
+  width: 80%;
+  margin: auto;
+  white-space: pre-line;
+}
