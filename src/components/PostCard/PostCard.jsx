@@ -139,7 +139,7 @@ const PostCard = (props) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default PostCard;
+export default PostCard

@@ -12,6 +12,7 @@ import Community from './pages/Community/Community'
 import BlogForm from './pages/BlogForm/BlogForm'
 import League from './pages/League/League'
 import BlogComments from './pages/BlogComments/BlogComments'
+import Blog from './pages/Blog/Blog'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -90,7 +91,15 @@ function App() {
             </ProtectedRoute>
           }
         />
-                <Route
+        <Route
+          path="/league/:leagueId/blog"
+          element={
+            <ProtectedRoute user={user}>
+              <Blog user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/league/:leagueId/blog/:blogId/comments"
           element={
             <ProtectedRoute user={user}>

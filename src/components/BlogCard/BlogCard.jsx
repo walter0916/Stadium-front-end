@@ -20,21 +20,21 @@ const BlogCard = (props) => {
         setDisliked(false)
       }
       if (!liked & !disliked) {
-        await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+        await notificationService.createPostNotification(props.blog._id, formData)
       }
     }
   }
 
   const handleAddDislike = async () => {
     const formData = { type: 'Dislike' }
-    await blogService.addLikeOrDislike(props.communityId, props.post._id, formData)
+    await blogService.addLikeOrDislike(props.blog._id, formData)
     if (!disliked) {
       setDisliked(true)
       if (liked) {
         setLiked(false)
       }
       if (!liked & !disliked) {
-        await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+        await notificationService.createPostNotification(props.blog._id, formData)
       }
     }
   }
@@ -48,10 +48,10 @@ const BlogCard = (props) => {
           <p>via {props.blog.author.name}</p>
         </div>
       </div>
-      <button className={styles.thumbsUpButton}>
+      <button className={styles.thumbsUpButton} onClick={handleAddLike}>
         <FontAwesomeIcon icon={faThumbsUp} size='2x'/>
       </button>
-      <button className={styles.thumbsDownButton} >
+      <button className={styles.thumbsDownButton} onClick={handleAddDislike}>
         <FontAwesomeIcon icon={faThumbsDown} size='2x'/>
       </button>
         {props.blog.comments.length > 0 ? (<Link to={`blog/${props.blog._id}/comments`} className={styles.commentNum}>view all {props.blog.comments.length} comments</Link>) : ('')}
