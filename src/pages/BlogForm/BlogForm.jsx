@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import * as blogService from '../../services/blogService'
 import * as leagueService from '../../services/leagueService'
+
 const BlogForm = () => {
   const imgInputRef = useRef(null)
   const [leagues, setLeagues] = useState({})

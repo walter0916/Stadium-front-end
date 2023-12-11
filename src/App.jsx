@@ -13,6 +13,7 @@ import BlogForm from './pages/BlogForm/BlogForm'
 import League from './pages/League/League'
 import BlogComments from './pages/BlogComments/BlogComments'
 import Blog from './pages/Blog/Blog'
+import Profile from './pages/Profile/Profile'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -44,10 +45,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard user={user} />} />
         <Route
-          path="/profiles"
+          path="/profile"
           element={
             <ProtectedRoute user={user}>
-              <Profiles />
+              <Profile user={user}/>
             </ProtectedRoute>
           }
         />
