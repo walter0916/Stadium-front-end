@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styles from './Community.module.css'
 import * as communityService from '../../services/communityService'
+import * as postService from '../../services/postService'
 import PostForm from '../../components/PostForm/PostForm'
 import PostCard from '../../components/PostCard/PostCard'
 
@@ -19,7 +20,7 @@ const Community = (props) => {
 
 
   const handleAddPost = async (postFormData, photoData) => {
-    const newPost = await communityService.createPost(communityId, postFormData, photoData)
+    const newPost = await postService.createPost(communityId, postFormData, photoData)
     setCommunity({ ...community, posts: [...community.posts, newPost] })
   }
 

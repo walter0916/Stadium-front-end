@@ -29,7 +29,7 @@ async function createPost(communityId, postFormData, photoData) {
     })
     const createdPost = await res.json()
     if (createdPost._id) {
-      await addPhotoToPost(communityId, createdPost._id, photoData)
+      await addPhotoToPost( createdPost._id, photoData)
     } else {
       console.error('Failed to create post')
     }
@@ -91,4 +91,4 @@ async function addLikeOrDislike( postId, formData) {
   }
 }
 
-export { getAllPosts, getCommunityById, createPost, createReply, addLikeOrDislike }
+export { getAllPosts, createPost, createReply, addLikeOrDislike }
