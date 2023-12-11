@@ -21,7 +21,7 @@ const Notifications = (props) => {
     <div>
       {notifications.length ? (
         <div>
-          {notifications.map((notification) => <p key={notification._id}>{`${notification.user.name} has left a ${notification.type} on your ${notification.blog ? 'blog' : 'post'}`}</p>)}
+          {notifications.map((notification) => <p key={notification._id}>{`${notification.user.name} has left a ${notification.type} on your ${notification.blog ? 'blog' : notification.comment ? 'comment' : 'post'}`}</p>)}
         </div>
       ) : ''}
     </div>
