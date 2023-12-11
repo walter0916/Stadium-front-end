@@ -13,6 +13,17 @@ async function getAllNotifications() {
   }
 }
 
+async function getUserNotifications(profileId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 
 async function createPostNotification(communityId, postId, formData) {
   try {
@@ -46,4 +57,4 @@ async function createBlogNotification(blogId, formData) {
   }
 }
 
-export { getAllNotifications, createPostNotification, createBlogNotification }
+export { getAllNotifications, getUserNotifications, createPostNotification, createBlogNotification }

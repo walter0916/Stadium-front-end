@@ -39,7 +39,7 @@ const Profile = (props) => {
       <SideBar profile={profile} handleButtonClick={handleButtonClick}/>
       <div>
         {activeComponent === 'changePassword' && <ChangePassword />}
-        {activeComponent === 'notifications' && <Notifications />}
+        {activeComponent === 'notifications' && <Notifications profile={profile}/>}
         {activeComponent === 'usersPosts' && <UsersPosts />}
         {activeComponent === 'usersBlogs' && <UsersBlogs />}
         {activeComponent === 'interestForm' && <InterestForm />}
