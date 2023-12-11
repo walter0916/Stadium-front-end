@@ -1,7 +1,7 @@
 const Notifications = () => {
   return (
     <div>
-      hi
+      Notifications
     </div>
   )
 }

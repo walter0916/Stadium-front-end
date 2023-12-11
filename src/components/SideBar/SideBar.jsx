@@ -16,12 +16,12 @@ const SideBar = (props) => {
       <h2>{props.profile.name}</h2>
       <div className={styles.buttonContainer}>
         <button onClick={() => props.handleButtonClick('changePassword')}>Change Password</button>
-        <button >Change Interested Leagues</button>
+        <button onClick={() => props.handleButtonClick('interestForm')}>Change Interested Leagues</button>
         <button>Change Profile Photo</button>
         <button onClick={() => props.handleButtonClick('notifications')}>See Notifications</button>
-        <button>Leave Communities</button>
-        <button>See Posts</button>
-        <button>See Blogs</button>
+        <button onClick={() => props.handleButtonClick('communitiesForm')}>Leave Communities</button>
+        <button onClick={() => props.handleButtonClick('usersPosts')}>See Posts</button>
+        <button onClick={() => props.handleButtonClick('usersBlogs')}>See Blogs</button>
       </div>
     </div>
   )

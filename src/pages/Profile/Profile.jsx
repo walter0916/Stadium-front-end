@@ -7,6 +7,11 @@ import { useState, useEffect } from "react"
 import SideBar from "../../components/SideBar/SideBar"
 import ChangePassword from "../../components/ChangePassword/ChangePassword"
 import Notifications from "../../components/Notifications/Notifications"
+import UsersPosts from "../../components/UsersPosts/UsersPosts"
+import UsersBlogs from "../../components/UsersBlogs/UsersBlogs"
+import InterestForm from "../../components/InterestForm/InterestForm"
+import LeaveCommunitiesForm from "../../components/LeaveCommunitiesForm/LeaveCommunitiesForm"
+
 // services
 import * as profileService from '../../services/profileService'
 
@@ -35,6 +40,10 @@ const Profile = (props) => {
       <div>
         {activeComponent === 'changePassword' && <ChangePassword />}
         {activeComponent === 'notifications' && <Notifications />}
+        {activeComponent === 'usersPosts' && <UsersPosts />}
+        {activeComponent === 'usersBlogs' && <UsersBlogs />}
+        {activeComponent === 'interestForm' && <InterestForm />}
+        {activeComponent === 'communitiesForm' && <LeaveCommunitiesForm />}
       </div>
     </div>
   )
