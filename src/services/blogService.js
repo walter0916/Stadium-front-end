@@ -69,38 +69,6 @@ async function addPhotoToBlog(blogId, photoData) {
   }
 }
 
-async function createComment(blogId, blogFormData) {
-  try {
-    const res = await fetch(`${BASE_URL}/${blogId}/comments`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(blogFormData)
-    })
-    return res.json()
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-async function createReply(blogId, commentId, blogFormData) {
-  try {
-    const res = await fetch(`${BASE_URL}/${blogId}/comments/${commentId}/replies`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(blogFormData)
-    })
-    return res.json()
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 async function addLikeOrDislike(blogId, postId, formData) {
   try {
     const res = await fetch(`${BASE_URL}/${blogId}/likesordislikes`, {
@@ -117,4 +85,4 @@ async function addLikeOrDislike(blogId, postId, formData) {
   }
 }
 
-export { create, getAllBlogs, getBlogById, createComment, createReply, addLikeOrDislike }
+export { create, getAllBlogs, getBlogById, addLikeOrDislike }

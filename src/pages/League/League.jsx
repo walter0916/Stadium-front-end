@@ -9,6 +9,7 @@ import CommentForm from "../../components/CommentForm/CommentForm";
 import BlogCard from "../../components/BlogCard/BlogCard"
 import * as notificationService from "../../services/notificationService";
 import * as leagueService from '../../services/leagueService'
+import * as commentsService from '../../services/commentService'
 import laliga from '../../assets/laliga.svg'
 import premierLeagueLogo from '../../assets/premier-league.svg'
 import serieALogo from '../../assets/serieA.svg'
@@ -70,7 +71,7 @@ const League = (props) => {
   },[leagueId])
 
   const handleAddComment = async (blogId, blogFormData) => {
-    const newComment = await blogService.createComment(blogId, blogFormData)
+    const newComment = await commentsService.createComment(blogId, blogFormData)
     const blogIndex = leagueBlogs.findIndex((blog) => blog._id === blogId)
     const updatedLeagueBlogs = [...leagueBlogs]
     updatedLeagueBlogs[blogIndex] = {

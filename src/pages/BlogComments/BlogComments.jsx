@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import * as blogService from '../../services/blogService'
 import * as notificationService from '../../services/notificationService'
+import * as commentService from '../../services/commentService'
 import styles from './BlogComments.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
@@ -24,7 +25,7 @@ const BlogComments = (props) => {
   },[blogId])
 
   const handleAddComment = async (blogId, blogFormData) => {
-    const newComment = await blogService.createComment(blogId, blogFormData)
+    const newComment = await commentService.createComment(blogId, blogFormData)
     setBlog({ ...blog, comments: [...blog.comments, newComment]})
     const typeFormData = {
       type: 'Comment',
@@ -33,7 +34,7 @@ const BlogComments = (props) => {
   }
 
   const handleAddReply = async (commentId, replyFormData) => {
-    const newReply = await blogService.createReply(blogId, commentId, replyFormData)
+    const newReply = await commentService.createReply(blogId, commentId, replyFormData)
   }
 
   return (
