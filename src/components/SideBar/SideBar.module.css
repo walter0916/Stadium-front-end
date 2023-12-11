@@ -1,0 +1,24 @@
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  align-items: center;
+  height: 100vh;
+}
+
+.sideBar img {
+  width: 50%;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30%;
+}
+
+.buttonContainer button {
+  background-color: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+}

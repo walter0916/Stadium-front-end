@@ -2,6 +2,9 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
+// components 
+import SideBar from '../../components/SideBar/SideBar'
+
 // services
 import * as authService from '../../services/authService'
 
@@ -40,7 +43,7 @@ const ChangePassword = ({ handleAuthEvt }) => {
   }
 
   return (
-    <main className={styles.container}>
+    <div className={styles.formContainer}>
       <h1>Change Password</h1>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
@@ -78,7 +81,7 @@ const ChangePassword = ({ handleAuthEvt }) => {
           </button>
         </div>
       </form>
-    </main>
+    </div>
   )
 }
 

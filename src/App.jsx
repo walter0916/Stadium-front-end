@@ -7,7 +7,6 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Profiles from './pages/Profiles/Profiles'
-import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Community from './pages/Community/Community'
 import BlogForm from './pages/BlogForm/BlogForm'
 import League from './pages/League/League'
@@ -59,14 +58,6 @@ function App() {
         <Route
           path="/auth/login"
           element={<Login handleAuthEvt={handleAuthEvt} />}
-        />
-        <Route
-          path="/auth/change-password"
-          element={
-            <ProtectedRoute user={user}>
-              <ChangePassword handleAuthEvt={handleAuthEvt} />
-            </ProtectedRoute>
-          }
         />
         <Route
           path="/community/:communityId"

@@ -4,7 +4,8 @@ import { useState, useEffect } from "react"
 // pages
 
 // components
-
+import SideBar from "../../components/SideBar/SideBar"
+import ChangePassword from "../../components/ChangePassword/ChangePassword"
 // services
 import * as profileService from '../../services/profileService'
 
@@ -13,6 +14,7 @@ import styles from './Profile.module.css'
 
 const Profile = (props) => {
   const [profile, setProfile] = useState({})
+  const [activeComponent, setActiveComponent] = useState(null)
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -22,11 +24,16 @@ const Profile = (props) => {
     fetchProfile()
   }, [props.user.profile])
 
-  console.log(profile)
+  const handleButtonClick = (component) => {
+    setActiveComponent(component)
+  }
 
   return (
     <div className={styles.profileContainer}>
-      
+      <SideBar profile={profile} handleButtonClick={handleButtonClick}/>
+      <div>
+        {activeComponent === 'changePassword' && <ChangePassword />}
+      </div>
     </div>
   )
 }
