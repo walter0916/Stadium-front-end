@@ -19,7 +19,11 @@ const Notifications = (props) => {
 
   return (
     <div>
-      Notifications
+      {notifications.length ? (
+        <div>
+          {notifications.map((notification) => <p key={notification._id}>{`${notification.user.name} has left a ${notification.type} on your ${notification.blog ? 'blog' : 'post'}`}</p>)}
+        </div>
+      ) : ''}
     </div>
   )
 }

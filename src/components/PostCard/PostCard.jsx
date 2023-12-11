@@ -17,7 +17,7 @@ const PostCard = (props) => {
   const [likes, setLikes] = useState(props.post.likes.length)
   const [dislikes, setDislikes] = useState(props.post.dislikes.length)
 
-  const formattedDate = formatDistanceToNow(new Date(props.post.createdAt), { addSuffix: true });
+  const formattedDate = formatDistanceToNow(new Date(props.post.createdAt), { addSuffix: true })
 
   console.log(props.user.profile)
 
@@ -124,16 +124,6 @@ const PostCard = (props) => {
               <img className={styles.replyImg} src={reply.author.photo} width={30} alt="" />
               <span><small className={styles.replyAuthor}>{reply.author.name}</small> <small className={styles.replyContent}>{reply.content}</small></span>
               </div>
-            {/* <small className={styles.replyDate}>
-            {new Date(reply.createdAt).toLocaleString('en-US', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: true,
-          })}
-            </small> */}
             <small>{formatDistanceToNow(new Date(reply.createdAt), { addSuffix: true })}</small>
             </div>
           ))}
