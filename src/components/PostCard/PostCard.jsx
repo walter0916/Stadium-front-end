@@ -4,6 +4,7 @@ import styles from './PostCard.module.css';
 import ReplyForm from '../ReplyForm/ReplyForm';
 import * as communityService from '../../services/communityService';
 import * as notificationService from '../../services/notificationService';
+import * as postService from '../../services/postService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -37,14 +38,14 @@ const PostCard = (props) => {
   }
 
   const handleAddReply = async (replyFormData) => {
-    await communityService.createReply(props.communityId, props.post._id, replyFormData)
+    await postService.createReply( props.post._id, replyFormData)
     const formData = { type: 'Reply' }
-    await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+    await notificationService.createPostNotification( props.post._id, formData)
   }
 
   const handleAddLike = async () => {
     const formData = { type: 'Like' }
-    await communityService.addLikeOrDislike(props.communityId, props.post._id, formData)
+    await postService.addLikeOrDislike(props.post._id, formData)
     if (!liked) {
       setLiked(true)
       setLikes((prevLikes) => prevLikes + 1)
@@ -53,14 +54,14 @@ const PostCard = (props) => {
         setDislikes((prevDislikes) => prevDislikes - 1)
       }
       if (!liked & !disliked) {
-        await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+        await notificationService.createPostNotification(props.post._id, formData)
       }
     }
   }
 
   const handleAddDislike = async () => {
     const formData = { type: 'Dislike' }
-    await communityService.addLikeOrDislike(props.communityId, props.post._id, formData)
+    await postService.addLikeOrDislike(props.post._id, formData)
     if (!disliked) {
       setDisliked(true)
       setDislikes((prevDislikes) => prevDislikes + 1)
@@ -69,7 +70,7 @@ const PostCard = (props) => {
         setLikes((prevLikes) => prevLikes - 1)
       }
       if (!liked & !disliked) {
-        await notificationService.createPostNotification(props.communityId, props.post._id, formData)
+        await notificationService.createPostNotification(props.post._id, formData)
       }
     }
   }
@@ -133,7 +134,7 @@ const PostCard = (props) => {
             hour12: true,
           })}
             </small> */}
-            <small>{formattedDate}</small>
+            <small>{formatDistanceToNow(new Date(reply.createdAt), { addSuffix: true })}</small>
             </div>
           ))}
         </div>

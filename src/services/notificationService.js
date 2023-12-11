@@ -25,9 +25,9 @@ async function getUserNotifications(profileId) {
 }
 
 
-async function createPostNotification(communityId, postId, formData) {
+async function createPostNotification( postId, formData) {
   try {
-    const res = await fetch(`${BASE_URL}/${communityId}/posts/${postId}`, {
+    const res = await fetch(`${BASE_URL}/posts/${postId}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
