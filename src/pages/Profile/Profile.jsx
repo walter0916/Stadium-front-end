@@ -11,6 +11,7 @@ import UsersPosts from "../../components/UsersPosts/UsersPosts"
 import UsersBlogs from "../../components/UsersBlogs/UsersBlogs"
 import InterestForm from "../../components/InterestForm/InterestForm"
 import LeaveCommunitiesForm from "../../components/LeaveCommunitiesForm/LeaveCommunitiesForm"
+import ProfileOverview from "../../components/ProfileOverview/ProfileOverview"
 
 // services
 import * as profileService from '../../services/profileService'
@@ -44,6 +45,7 @@ const Profile = (props) => {
         {activeComponent === 'usersBlogs' && <UsersBlogs />}
         {activeComponent === 'interestForm' && <InterestForm />}
         {activeComponent === 'communitiesForm' && <LeaveCommunitiesForm />}
+        {activeComponent === 'profileOverview' && <ProfileOverview profile={profile}/>}
       </div>
     </div>
   )

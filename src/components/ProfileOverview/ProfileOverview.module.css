@@ -1,0 +1,35 @@
+.profileContainer {
+  margin-left: 50px
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid black;
+}
+
+.buttonContainer button {
+  margin: 0 10px 0 10px;
+  cursor: pointer;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+}
+
+.activeButton {
+  position: relative;
+}
+
+.activeButton::before {
+  content: '';
+  position: absolute;
+  top: -3px; 
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-color: greenyellow;
+}
