@@ -1,5 +1,13 @@
 .profileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: 50px
+}
+
+.profilePhoto {
+  width: 20%;
+  border-radius: 50%;
 }
 
 .buttonContainer {

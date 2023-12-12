@@ -21,7 +21,7 @@ import styles from './Profile.module.css'
 
 const Profile = (props) => {
   const [profile, setProfile] = useState({})
-  const [activeComponent, setActiveComponent] = useState(null)
+  const [activeComponent, setActiveComponent] = useState('profileOverview')
 
   useEffect(() => {
     const fetchProfile = async () => {

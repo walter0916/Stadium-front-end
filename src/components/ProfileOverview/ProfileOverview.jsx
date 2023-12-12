@@ -21,6 +21,8 @@ const ProfileOverview = (props) => {
 
   return (
     <div className={styles.profileContainer}>
+      <img src={props.profile.photo} alt="" className={styles.profilePhoto}/>
+      <h2 className={styles.profileName}>{props.profile.name}</h2>
       <div className={styles.buttonContainer}>
         <button
           className={`${activeButton === 'Posts' ? styles.activeButton : ''}`}
@@ -43,7 +45,7 @@ const ProfileOverview = (props) => {
       </div>
         {activeComponent === 'Posts' && < UsersPosts />}
         {activeComponent === 'Notifications' &&  < Notifications profile={props.profile} />}
-        {activeComponent === 'Blogs' &&  < UsersBlogs />}
+        {activeComponent === 'Blogs' &&  < UsersBlogs profile={props.profile}/>}
     </div>
   )
 }

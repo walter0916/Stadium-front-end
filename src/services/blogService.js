@@ -14,6 +14,17 @@ async function getAllBlogs() {
   }
 }
 
+async function getUsersBlogs(profileId) {
+  try {
+    const res = await fetch(`${BASE_URL}/userBlogs/${profileId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 async function getBlogById(blogId) {
   try {
     const res = await fetch(`${BASE_URL}/${blogId}`, {
@@ -85,4 +96,4 @@ async function addLikeOrDislike(blogId, postId, formData) {
   }
 }
 
-export { create, getAllBlogs, getBlogById, addLikeOrDislike }
+export { create, getUsersBlogs, getAllBlogs, getBlogById, addLikeOrDislike }
