@@ -4,6 +4,9 @@ import { useState, useEffect } from "react"
 // services
 import * as blogService from '../../services/blogService'
 
+// styles
+import styles from './UsersBlogs.module.css'
+
 const UsersBlogs = (props) => {
   const [blogs, setBlogs] = useState({})
   console.log(props.profile)
@@ -19,10 +22,16 @@ const UsersBlogs = (props) => {
   console.log(blogs)
 
   return (
-    <div>
+    <div className={styles.container}>
       {blogs.length ? 
-        <div>
-          {blogs.map((blog) => <p>{blog.title}</p>) }
+        <div className={styles.blogContainer}>
+          {blogs.map((blog) => 
+            <div key={blog._id} className={styles.blogCard}>
+              <div className={styles.overlay}>
+                <h3>{blog.title}</h3>
+              </div>
+              <img src={blog.photo} alt="" />
+            </div>) }
         </div> : ''} 
     </div>
   )
