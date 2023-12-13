@@ -1,5 +1,6 @@
 // npm modules 
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 // services
 import * as blogService from '../../services/blogService'
@@ -28,7 +29,9 @@ const UsersBlogs = (props) => {
           {blogs.map((blog) => 
             <div key={blog._id} className={styles.blogCard}>
               <div className={styles.overlay}>
-                <h3>{blog.title}</h3>
+                <Link to={`/league/${blog.league._id}/blog/${blog._id}`}>
+                  <h3>{blog.title}</h3>
+                </Link>
               </div>
               <img src={blog.photo} alt="" />
             </div>) }

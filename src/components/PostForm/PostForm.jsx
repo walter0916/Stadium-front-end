@@ -76,7 +76,6 @@ const PostForm = (props) => {
             {selectedFileName || 'Upload a Photo'}
             <input
               type="file"
-              required
               name="photo"
               ref={imgInputRef}
               onChange={handleChangePhoto}

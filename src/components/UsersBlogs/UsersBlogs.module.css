@@ -40,6 +40,14 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+.overlay a {
+  text-decoration: none;
+}
+
+.overlay a:visited {
+  text-decoration: none;
+}
+
 .blogCard:hover .overlay {
   opacity: 1;
 }
