@@ -43,7 +43,7 @@ const ProfileOverview = (props) => {
           Notifications
         </button>
       </div>
-        {activeComponent === 'Posts' && < UsersPosts />}
+        {activeComponent === 'Posts' && < UsersPosts profile={props.profile}/>}
         {activeComponent === 'Notifications' &&  < Notifications profile={props.profile} />}
         {activeComponent === 'Blogs' &&  < UsersBlogs profile={props.profile}/>}
     </div>

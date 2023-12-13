@@ -102,4 +102,4 @@ async function addLikeOrDislike( postId, formData) {
   }
 }
 
-export { getAllPosts, createPost, createReply, addLikeOrDislike }
+export { getAllPosts, getUserPosts, createPost, createReply, addLikeOrDislike }
