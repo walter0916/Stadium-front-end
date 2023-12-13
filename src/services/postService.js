@@ -14,6 +14,17 @@ async function getAllPosts() {
   }
 }
 
+async function getUserPosts(profileId) {
+  try {
+    const res = await fetch(`${BASE_URL}/userPosts/${profileId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 
 async function createPost(communityId, postFormData, photoData) {
   try {
