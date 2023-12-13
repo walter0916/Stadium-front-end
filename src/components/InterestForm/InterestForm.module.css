@@ -1,0 +1,35 @@
+.formContainer {
+  margin: 20px;
+}
+
+.formTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.checkbox {
+  margin-right: 5px;
+}
+
+.submitButton {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #45a049;
+}

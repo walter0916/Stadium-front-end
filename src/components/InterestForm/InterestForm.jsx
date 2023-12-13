@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 // service 
 import * as leagueService from '../../services/leagueService'
 
-// styles 
+// styles
+import styles from './InterestForm.module.css'
 
 const InterestForm = (props) => {
   const [usersLeagues, setUsersLeagues] = useState(props.profile.interests)
@@ -30,12 +31,12 @@ const InterestForm = (props) => {
 
 
   return (
-    <div>
-      <h2>Interest Form</h2>
+    <div className={styles.formContainer}>
+      <h2 className={styles.formTitle}>Interest Form</h2>
       <form >
         {leagues ? <div>
         {leagues.map((league) => (
-          <div key={league._id}>
+          <div key={league._id} className={styles.checkboxContainer}>
             <label htmlFor="">{league.leagueName}</label>
             <input
               type="checkbox"
@@ -43,10 +44,11 @@ const InterestForm = (props) => {
               checked={formData.includes(league._id)}
               onChange={() => handleCheckboxChange(league._id)}
               value={league._id}
+              className={styles.checkbox}
             />
           </div>
         ))}
-        <button type="submit">Update Interests</button>
+        <button type="submit" className={styles.submitButton}>Update Interests</button>
         </div>
         : ' '}
         </form>
