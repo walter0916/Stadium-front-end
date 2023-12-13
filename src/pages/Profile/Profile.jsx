@@ -43,7 +43,7 @@ const Profile = (props) => {
         {activeComponent === 'notifications' && <Notifications profile={profile}/>}
         {activeComponent === 'usersPosts' && <UsersPosts />}
         {activeComponent === 'usersBlogs' && <UsersBlogs />}
-        {activeComponent === 'interestForm' && <InterestForm />}
+        {activeComponent === 'interestForm' && <InterestForm profile={profile}/>}
         {activeComponent === 'communitiesForm' && <LeaveCommunitiesForm />}
         {activeComponent === 'profileOverview' && <ProfileOverview profile={profile}/>}
       </div>
