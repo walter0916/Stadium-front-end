@@ -38,7 +38,7 @@ const Profile = (props) => {
   return (
     <div className={styles.profileContainer}>
       <SideBar profile={profile} handleButtonClick={handleButtonClick}/>
-      <div>
+      <div className={styles.componentContainer}>
         {activeComponent === 'changePassword' && <ChangePassword />}
         {activeComponent === 'notifications' && <Notifications profile={profile}/>}
         {activeComponent === 'usersPosts' && <UsersPosts />}
