@@ -1,22 +1,29 @@
-import { useState, useEffect } from 'react';
-import styles from './Dashboard.module.css';
-import LeagueCard from '../../components/LeagueCard/LeagueCard';
-import * as leagueService from '../../services/leagueService';
-import * as profileService from '../../services/profileService';
+// npm modules
+import { useState, useEffect } from 'react'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
+
+// services
+import * as leagueService from '../../services/leagueService'
+import * as profileService from '../../services/profileService'
 import * as notificationsService from '../../services/notificationService'
-import * as blogsService from '../../services/blogService';
-import SearchBar from '../../components/SearchBar/SearchBar';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import * as blogsService from '../../services/blogService'
+
+// components
+import LeagueCard from '../../components/LeagueCard/LeagueCard'
+import SearchBar from '../../components/SearchBar/SearchBar'
+
+// styles
+import styles from './Dashboard.module.css'
 
 const Landing = ({ user }) => {
   const profileId = user.profile
   const [leagues, setLeagues] = useState([])
   const [profile, setProfile] = useState([])
-  const [notifications, setNotifications] = useState([])
   const [blogs, setBlogs] = useState([])
+  const [unreadNotifications, setUnreadNotifications] = useState([])
 
   console.log(profileId)
   library.add(fas)
@@ -27,18 +34,15 @@ const Landing = ({ user }) => {
       const profileData = await profileService.getProfileById()
       setLeagues(data)
       setProfile(profileData)
-      const notificationsdata = await notificationsService.getAllNotifications()
-      console.log(notificationsdata)
-      const filteredNotifcationData = await notificationsdata.filter(notification => notification.targetUser === profileId)
-      setNotifications(filteredNotifcationData)
+      const notificationsData = await notificationsService.getUserNotifications(profileId)
+      const unreadNotifications = notificationsData.filter(notification => !notification.read);
+      setUnreadNotifications(unreadNotifications)
       const blogsData = await blogsService.getAllBlogs()
       setBlogs(blogsData)
     }
     fetchLeagues()
   }, [profileId])
 
-
-  console.log(notifications)
 
   return (
     <main className={styles.container}>
@@ -55,7 +59,6 @@ const Landing = ({ user }) => {
           <p>No interests available</p>
         )}
       </div>
-      {/* <div className={styles.secondContainer}> */}
       <div className={styles.communitiesNotificationContainer}>
 
       <div className={styles.joinedCommunities}>
@@ -79,12 +82,11 @@ const Landing = ({ user }) => {
       </div>
       <div className={styles.notifications}>
         <h2>Notifications</h2>
-        <div className={styles.iconWrapper} data-number={notifications.length}>
+        <Link to={'/profile'} className={styles.iconWrapper} data-number={unreadNotifications.length}>
         <FontAwesomeIcon icon={['fas', 'bell']} className={styles.bell} />
-        </div>
+        </Link>
       </div>
         </div>
-    {/* </div> */}
       <div className={styles.trendingBlogs}>
         <h1>Trending Blogs</h1>
           <div className={styles.blogCards}>

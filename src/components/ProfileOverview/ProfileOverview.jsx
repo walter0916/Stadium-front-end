@@ -10,8 +10,8 @@ import UsersPosts from '../UsersPosts/UsersPosts'
 import styles from './ProfileOverview.module.css'
 
 const ProfileOverview = (props) => {
-  const [activeButton, setActiveButton] = useState('Posts')
-  const [activeComponent, setActiveComponent] = useState('Posts')
+  const [activeButton, setActiveButton] = useState('Notifications')
+  const [activeComponent, setActiveComponent] = useState('Notifications')
 
   const handleButtonClick = (button) => {
     setActiveButton(button)
