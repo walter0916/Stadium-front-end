@@ -4,6 +4,9 @@ import { useState } from "react";
 // services
 import * as profileService from '../../services/profileService';
 
+// styles 
+import styles from './EditProfileForm.module.css'
+
 const EditProfileForm = (props) => {
   const [formData, setFormData] = useState({
     name: props.profile.name,
@@ -40,9 +43,27 @@ const EditProfileForm = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.imgContainer}>
+        <label htmlFor="photo" className={styles.photoLabel}>
+          <img
+            src={formData.photo}
+            alt="Profile"
+            className={styles.profilePhoto}
+          />
+          <div className={styles.tooltip}>Click to Change Photo</div>
+        </label>
+        <input
+          type="file"
+          id="photo"
+          name="photo"
+          accept="image/*"
+          onChange={handlePhotoChange}
+          className={styles.photoInput}
+        />
+      </div>
       <div>
-        <label htmlFor="name">Name:</label>
+        <label>Name:</label>
         <input
           type="text"
           id="name"
@@ -51,24 +72,9 @@ const EditProfileForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div>
-        <label htmlFor="photo">Profile Photo:</label>
-        <img
-          src={formData.photo}
-          alt="Profile"
-          style={{ width: '100px', height: '100px', objectFit: 'cover' }}
-        />
-        <input
-          type="file"
-          id="photo"
-          name="photo"
-          accept="image/*"
-          onChange={handlePhotoChange}
-        />
-      </div>
       <button type="submit">Update Profile</button>
     </form>
-  );
-};
+  )
+}
 
-export default EditProfileForm;
+export default EditProfileForm
