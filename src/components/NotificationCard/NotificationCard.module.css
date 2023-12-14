@@ -7,7 +7,15 @@
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 5px 6px 6px 2px #e9ecef;
+  text-decoration: none;
+  color: black;
 }
+
+.notificationContainer:visited {
+  text-decoration: none;
+  color: black;
+}
+
 
 .notificationContainer.unread {
   background-color: #e2f0ff; 
