@@ -54,3 +54,18 @@
   border-top: 1px solid #ccc;
   margin-top: 10px;
 }
+
+.likeButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;  
+}
+
+.notLiked {
+  color: grey; 
+}
+
+.liked {
+  color: orange;
+}

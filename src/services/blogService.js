@@ -80,7 +80,7 @@ async function addPhotoToBlog(blogId, photoData) {
   }
 }
 
-async function addLikeOrDislike(blogId, postId, formData) {
+async function addLikeOrDislike(blogId, formData) {
   try {
     const res = await fetch(`${BASE_URL}/${blogId}/likesordislikes`, {
       method: 'PATCH',
