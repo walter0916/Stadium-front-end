@@ -1,5 +1,6 @@
 // npm modules
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 //services 
 import * as postService from '../../services/postService';
@@ -21,16 +22,16 @@ const UsersPosts = (props) => {
   console.log(posts)
 
   return (
-    <div className={styles.container}>
+    <div  className={styles.container}>
       {posts.length ? 
         <div className={styles.postContainer}>
           {posts.map((post) => 
-            <div key={post._id} className={styles.postCard}>
+            <Link to={`/community/${post.community}`} key={post._id} className={styles.postCard}>
               <div className={styles.overlay}>
                 <h3>{post.content}</h3>
               </div>
               <img src={post.photo} alt="" />
-            </div>) }
+            </Link>) }
         </div> : ''} 
     </div>
   )
