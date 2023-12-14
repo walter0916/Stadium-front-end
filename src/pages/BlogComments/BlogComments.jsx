@@ -1,15 +1,21 @@
+// npm modules 
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+
+// services
 import * as blogService from '../../services/blogService'
 import * as notificationService from '../../services/notificationService'
 import * as commentService from '../../services/commentService'
-import styles from './BlogComments.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+
+// components
 import CommentForm from "../../components/CommentForm/CommentForm";
-import ReplyForm from "../../components/ReplyForm/ReplyForm"
 import CommentCard from "../../components/CommentCard/CommentCard"
+
+// styles
+import styles from './BlogComments.module.css'
 
 const BlogComments = (props) => {
   const {blogId} = useParams()
@@ -35,6 +41,10 @@ const BlogComments = (props) => {
 
   const handleAddReply = async (commentId, replyFormData) => {
     const newReply = await commentService.createReply(blogId, commentId, replyFormData)
+    const typeFormData = {
+      type: 'Reply',
+    }
+    await notificationService.createCommentNotification(blogId, commentId, typeFormData)
   }
 
   return (

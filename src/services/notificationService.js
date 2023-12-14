@@ -57,22 +57,22 @@ async function createBlogNotification(blogId, formData) {
   }
 }
 
-async function create(bookingFormData) {
+async function createCommentNotification(blogId, commentId, formData) {
   try {
-    const res = await fetch(BASE_URL, {
+    const res = await fetch(`${BASE_URL}/${blogId}/comment/${commentId}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(bookingFormData),
-
+      body: JSON.stringify(formData)
     })
     return res.json()
   } catch (error) {
     console.log(error)
   }
 }
+
 
 async function updateStatus(notificationId, newStatus) {
   try {
@@ -90,4 +90,11 @@ async function updateStatus(notificationId, newStatus) {
   }
 }
 
-export { getAllNotifications, getUserNotifications, createPostNotification, createBlogNotification, updateStatus }
+export { 
+  getAllNotifications, 
+  getUserNotifications, 
+  createPostNotification, 
+  createBlogNotification, 
+  updateStatus,
+  createCommentNotification 
+}
