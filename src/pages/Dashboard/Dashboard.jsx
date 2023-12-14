@@ -90,10 +90,10 @@ const Landing = ({ user }) => {
       <div className={styles.trendingBlogs}>
         <h1>Trending Blogs</h1>
           <div className={styles.blogCards}>
-        {blogs.length ? blogs.map((blog) => (<div key={blog._id} className={styles.blogCard}>
+        {blogs.length ? blogs.map((blog) => (<Link to={`/league/${blog.league._id}/blog/${blog._id}`} key={blog._id} className={styles.blogCard}>
           <img src={blog.photo} alt="" />
           <h2>{blog.title}</h2>
-        </div>)) : ''}
+        </Link>)) : ''}
           </div>
       </div>
     </main>
