@@ -1,6 +1,7 @@
 // npm modules 
 import { useState } from 'react'
 import { formatDistanceToNow } from 'date-fns'
+import { Link } from 'react-router-dom'
 
 // services 
 import * as notificationService from '../../services/notificationService'
@@ -18,9 +19,18 @@ const NotificationCard = (props) => {
     setIsRead(true)
   }
 
+  const getNotificationLink = (notification) => {
+    if (notification.blog) {
+      return `/league/${notification.blog.league}/blog/${notification.blog._id}/comments`
+    } else if (notification.post) {
+      return `/community/${notification.post.community}`
+    } else {
+      return '/'
+    }
+  };
 
   return (
-    <div className={containerClass}  onClick={handleCardClick}>
+    <Link to={getNotificationLink(props.notification)} className={containerClass} onClick={handleCardClick}>
       <div className={styles.imgContainer}>
         <img src={props.notification.user.photo} alt="" />
       </div>
@@ -28,7 +38,7 @@ const NotificationCard = (props) => {
         <p>{`${props.notification.user.name} has left a ${props.notification.type} on your ${props.notification.blog ? 'blog' : props.notification.comment ? 'comment' : 'post'}`}</p>
         <small>{formatDistanceToNow(new Date(props.notification.createdAt), { addSuffix: true })}</small>
       </div>
-    </div>
+    </Link>
   )
 }
 
