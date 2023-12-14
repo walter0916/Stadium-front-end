@@ -1,12 +1,19 @@
-import { useState, useEffect } from 'react';
-import { formatDistanceToNow } from 'date-fns';
-import styles from './PostCard.module.css';
-import ReplyForm from '../ReplyForm/ReplyForm';
-import * as communityService from '../../services/communityService';
-import * as notificationService from '../../services/notificationService';
-import * as postService from '../../services/postService';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+// npm modules
+import { useState, useEffect } from 'react'
+import { formatDistanceToNow } from 'date-fns'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+
+// components 
+import ReplyForm from '../ReplyForm/ReplyForm'
+
+// services
+import * as communityService from '../../services/communityService'
+import * as notificationService from '../../services/notificationService'
+import * as postService from '../../services/postService'
+
+// styles   
+import styles from './PostCard.module.css'
 
 
 const PostCard = (props) => {

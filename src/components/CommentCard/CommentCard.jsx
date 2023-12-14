@@ -1,8 +1,14 @@
+// npm modules 
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
-import styles from './CommentCard.module.css'
+import { formatDistanceToNow } from 'date-fns'
+
+//components
 import ReplyForm from '../ReplyForm/ReplyForm';
+
+//styles 
+import styles from './CommentCard.module.css'
 
 const CommentCard = (props) => {
   const [showReplyForm, setShowReplyForm] = useState(false)
@@ -54,7 +60,7 @@ const CommentCard = (props) => {
             <div key={reply._id} className={styles.reply}>
               <div className={styles.replyP}>
               <img className={styles.replyImg} src={reply.author.photo} width={30} alt="" />
-              <span><small className={styles.replyAuthor}>{reply.author.name}</small> <small className={styles.replyContent}>{reply.content}</small></span>
+              <span><small className={styles.replyAuthor}>{reply.author.name}</small> <small className={styles.replyContent}>{reply.content}</small> <small>{formatDistanceToNow(new Date(reply.createdAt), { addSuffix: true })}</small></span>
               </div>
             </div>
           ))}
