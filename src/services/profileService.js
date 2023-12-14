@@ -38,9 +38,10 @@ async function editInterests(formData) {
     const res = await fetch(`${BASE_URL}/${profileId}/interests/edit`, {
       method: 'PUT',
       headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
       },
-      body: formData,
+      body: JSON.stringify(formData),
     })
     return await res.json()
   } catch (err) {
