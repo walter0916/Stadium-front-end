@@ -1,10 +1,17 @@
+// npm modules
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import styles from './Community.module.css'
+
+// services
 import * as communityService from '../../services/communityService'
 import * as postService from '../../services/postService'
+
+// components
 import PostForm from '../../components/PostForm/PostForm'
 import PostCard from '../../components/PostCard/PostCard'
+
+// styles 
+import styles from './Community.module.css'
 
 const Community = (props) => {
   const { communityId } = useParams()

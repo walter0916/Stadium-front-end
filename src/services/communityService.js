@@ -25,80 +25,35 @@ async function getCommunityById(communityId) {
   }
 }
 
-async function createPost(communityId, postFormData, photoData) {
+async function joinCommunity(communityId) {
   try {
-    const formData = new FormData()
-    formData.append('photo', photoData)
-    const res = await fetch(`${BASE_URL}/${communityId}/posts`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(postFormData),
-    })
-    const createdPost = await res.json()
-    if (createdPost._id) {
-      await addPhotoToPost(communityId, createdPost._id, photoData)
-    } else {
-      console.error('Failed to create post')
-    }
-    return createdPost
-  } catch (error) {
-    console.log(error)
-    throw new Error('Failed to create post')
-  }
-}
-
-async function addPhotoToPost(communityId, postId, photoData) {
-  try {
-    const formData = new FormData()
-    formData.append('photo', photoData)
-    const res = await fetch(`${BASE_URL}/${communityId}/posts/${postId}/add-photo`, {
+    const res = await fetch(`${BASE_URL}/${communityId}/join`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
       },
-      body: formData,
     })
-    const updatedPost = await res.json()
-    return updatedPost
+    return res.json()
   } catch (error) {
     console.log(error)
-    throw new Error('Failed to add photo to post')
   }
 }
 
-async function createReply(communityId, postId, formData) {
+async function leaveCommunity(communityId) {
   try {
-    const res = await fetch(`${BASE_URL}/${communityId}/posts/${postId}/replies`, {
-      method: 'POST',
+    const res = await fetch(`${BASE_URL}/${communityId}/leaveCommunity`, {
+      method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(formData),
     })
     return res.json()
   } catch (error) {
-    throw new Error('Failed to create reply')
+    console.log(error)
   }
 }
 
-async function addLikeOrDislike(communityId, postId, formData) {
-  try {
-    const res = await fetch(`${BASE_URL}/${communityId}/posts/${postId}/likes&dislikes`, {
-      method: 'PATCH',
-      headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-    return res.json()
-  } catch (error) {
-    throw new Error('Failed to create like or dislike response')
-  }
-}
 
-export { getAllCommunities, getCommunityById, createPost, createReply, addLikeOrDislike }
+export { getAllCommunities, getCommunityById, leaveCommunity, joinCommunity }

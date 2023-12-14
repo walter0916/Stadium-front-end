@@ -12,8 +12,10 @@ const Notifications = (props) => {
 
   useEffect(() => {
     const fetchNotifications = async () => {
-      const data = await notificationService.getUserNotifications(props.profile._id)
-      setNotifications(data)
+      if (props.profile._id) {
+        const data = await notificationService.getUserNotifications(props.profile._id)
+        setNotifications(data)
+      }
     }
     fetchNotifications()
   }, [props.profile._id])

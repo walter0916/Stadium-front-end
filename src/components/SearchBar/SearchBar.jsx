@@ -29,8 +29,8 @@ const SearchBar = () => {
     )
     setSearchResults(filteredCommunities)
   }
-  const handleJoinCommunity = (communityId) => {
-    console.log(`Joining community with ID: ${communityId}`)
+  const handleJoinCommunity = async (communityId) => {
+    await communityService.joinCommunity(communityId)
   }
 
   return (
@@ -45,7 +45,7 @@ const SearchBar = () => {
         {searchResults.map((result) => (
           <li key={result._id}>
             <Link to={`/community/${result._id}`}>{result.teamName}</Link>
-            <button onClick={() => handleJoinCommunity(result.id)}>Join</button>
+            <button onClick={() => handleJoinCommunity(result._id)}>Join</button>
           </li>
         ))}
       </ul>
