@@ -1,15 +1,26 @@
 // npm modules 
-import { formatDistanceToNow } from 'date-fns';
+import { useState } from 'react'
+import { formatDistanceToNow } from 'date-fns'
+
+// services 
+import * as notificationService from '../../services/notificationService'
 
 // styles 
 import styles from './NotificationCard.module.css'
 
 
 const NotificationCard = (props) => {
-  const containerClass = `${styles.notificationContainer} ${props.notification.read ? '' : styles.unread}`
+  const [isRead, setIsRead] = useState(props.notification.read)
+  const containerClass = `${styles.notificationContainer} ${isRead ? '' : styles.unread}`
+
+  const handleCardClick = async () => {
+    await notificationService.updateStatus(props.notification._id, true)
+    setIsRead(true)
+  }
+
 
   return (
-    <div className={containerClass}>
+    <div className={containerClass}  onClick={handleCardClick}>
       <div className={styles.imgContainer}>
         <img src={props.notification.user.photo} alt="" />
       </div>

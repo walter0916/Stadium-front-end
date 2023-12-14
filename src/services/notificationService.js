@@ -57,4 +57,37 @@ async function createBlogNotification(blogId, formData) {
   }
 }
 
-export { getAllNotifications, getUserNotifications, createPostNotification, createBlogNotification }
+async function create(bookingFormData) {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(bookingFormData),
+
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function updateStatus(notificationId, newStatus) {
+  try {
+    const res = await fetch(`${BASE_URL}/${notificationId}/edit`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({read: newStatus}),
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { getAllNotifications, getUserNotifications, createPostNotification, createBlogNotification, updateStatus }
