@@ -28,7 +28,7 @@ const Community = (props) => {
 
   const handleAddPost = async (postFormData, photoData) => {
     const newPost = await postService.createPost(communityId, postFormData, photoData)
-    setCommunity({ ...community, posts: [...community.posts, newPost] })
+    setCommunity({ ...community, posts: [newPost, ...community.posts] })
   }
 
   return (
