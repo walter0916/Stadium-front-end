@@ -1,12 +1,19 @@
+// npm modeuls
 import { useState, useRef, useEffect } from "react"
-import styles from './BlogForm.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
+
+// services
 import * as blogService from '../../services/blogService'
 import * as leagueService from '../../services/leagueService'
 
+// styles 
+import styles from './BlogForm.module.css'
+
 const BlogForm = () => {
   const imgInputRef = useRef(null)
+  const navigate = useNavigate()
   const [leagues, setLeagues] = useState({})
   const [message, setMessage] = useState('')
   const [formData, setFormData] = useState({
@@ -68,7 +75,8 @@ const BlogForm = () => {
   }
 
   const handleAddBlog = async (blogFormData, photoData) => {
-    await blogService.create(blogFormData, photoData)
+    const newBlog = await blogService.create(blogFormData, photoData)
+    navigate(`/league/${newBlog.league._id}/blog/${newBlog._id}`)
   }
 
   return (
