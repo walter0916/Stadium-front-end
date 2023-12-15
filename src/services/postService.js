@@ -39,7 +39,7 @@ async function createPost(communityId, postFormData, photoData) {
       body: JSON.stringify(postFormData),
     })
     const createdPost = await res.json()
-    if (createdPost._id) {
+    if (createdPost._id && photoData) {
       await addPhotoToPost( createdPost._id, photoData)
     } else {
       console.error('Failed to create post')
