@@ -25,9 +25,6 @@ const PostCard = (props) => {
   const [dislikes, setDislikes] = useState(props.post.dislikes.length)
   const [replies, setReplies] = useState(props.post.replies)
 
-  const formattedDate = formatDistanceToNow(new Date(props.post.createdAt), { addSuffix: true })
-
-  console.log(props.user.profile)
 
   useEffect(() => {
     const userLiked = props.post.likes.some((like) => like.author === props.user.profile)

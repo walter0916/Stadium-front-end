@@ -35,4 +35,20 @@ async function createReply(blogId, commentId, blogFormData) {
   }
 }
 
-export {createComment, createReply}
+async function addLikeOrDislike( commentId, formData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${commentId}/likes&dislikes`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    return res.json()
+  } catch (error) {
+    throw new Error('Failed to create like or dislike response')
+  }
+}
+
+export {createComment, createReply, addLikeOrDislike}

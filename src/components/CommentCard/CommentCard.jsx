@@ -1,5 +1,5 @@
 // npm modules 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import { formatDistanceToNow } from 'date-fns'
@@ -17,7 +17,18 @@ import styles from './CommentCard.module.css'
 const CommentCard = (props) => {
   const [showReplyForm, setShowReplyForm] = useState(false)
   const [showReplies, setShowReplies] = useState(false)
+  const [liked, setLiked] = useState(false)
+  const [disliked, setDisliked] = useState(false)
+  const [likes, setLikes] = useState(props.comment.likes.length)
+  const [dislikes, setDislikes] = useState(props.comment.dislikes.length)
   const [replies, setReplies] = useState(props.comment.replies)
+
+  useEffect(() => {
+    const userLiked = props.comment.likes.some((like) => like.author === props.user.profile)
+    setLiked(userLiked)
+    const userDisliked = props.comment.dislikes.some((dislike) => dislike.author === props.user.profile)
+    setDisliked(userDisliked)
+  }, [props.comment.dislikes, props.comment.likes, props.user.profile])
   
   const toggleReplyForm = () => {
     setShowReplyForm(!showReplyForm)
@@ -36,6 +47,38 @@ const CommentCard = (props) => {
     await notificationService.createCommentNotification(props.blogId, props.comment._id, typeFormData)
   }
 
+  const handleAddLike = async () => {
+    const formData = { type: 'Like' }
+    await commentService.addLikeOrDislike(props.comment._id, formData)
+    if (!liked) {
+      setLiked(true)
+      setLikes((prevLikes) => prevLikes + 1)
+      if (disliked) {
+        setDisliked(false)
+        setDislikes((prevDislikes) => prevDislikes - 1)
+      }
+      if (!liked & !disliked) {
+        await notificationService.createCommentNotification(props.blogId, props.comment._id, formData)
+      }
+    }
+  }
+
+  const handleAddDislike = async () => {
+    const formData = { type: 'Dislike' }
+    await commentService.addLikeOrDislike(props.comment._id, formData)
+    if (!disliked) {
+      setDisliked(true)
+      setDislikes((prevDislikes) => prevDislikes + 1)
+      if (liked) {
+        setLiked(false)
+        setLikes((prevLikes) => prevLikes - 1)
+      }
+      if (!liked & !disliked) {
+        await notificationService.createCommentNotification(props.blogId, props.comment._id, formData)
+      }
+    }
+  }
+
   return (
     <div>
 
@@ -48,10 +91,10 @@ const CommentCard = (props) => {
         <p className={styles.commentCreatedAt}>{props.comment.createdAt}</p>
         <p>{props.comment.content}</p>
         <div className={styles.buttonsContainer}>
-        <button className={styles.thumbsUpButton}>
+        <button className={styles.thumbsUpButton} onClick={handleAddLike}>
           <FontAwesomeIcon icon={faThumbsUp} size='1x'/>
         </button>
-        <button className={styles.thumbsDownButton} >
+        <button className={styles.thumbsDownButton} onClick={handleAddDislike}>
           <FontAwesomeIcon icon={faThumbsDown} size='1x'/>
         </button>
         <button onClick={toggleReplyForm}>

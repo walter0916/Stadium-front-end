@@ -56,7 +56,7 @@ const BlogComments = (props) => {
         </div>
       {blog.author ? (
               <div className={styles.commentsContainer}>
-              { blog.comments.map(comment => <CommentCard key={comment._id} comment={comment} blogId={blogId}/>) }
+              { blog.comments.map(comment => <CommentCard key={comment._id} comment={comment} blogId={blogId} user={props.user}/>) }
             </div>
       ) : ' '}  
     </div>
