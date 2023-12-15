@@ -1,18 +1,23 @@
 // npm modules 
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import { formatDistanceToNow } from 'date-fns'
 
-//components
-import ReplyForm from '../ReplyForm/ReplyForm';
+// components
+import ReplyForm from '../ReplyForm/ReplyForm'
 
-//styles 
+// services
+import * as notificationService from '../../services/notificationService'
+import * as commentService from '../../services/commentService'
+
+// styles 
 import styles from './CommentCard.module.css'
 
 const CommentCard = (props) => {
   const [showReplyForm, setShowReplyForm] = useState(false)
   const [showReplies, setShowReplies] = useState(false)
+  const [replies, setReplies] = useState(props.comment.replies)
   
   const toggleReplyForm = () => {
     setShowReplyForm(!showReplyForm)
@@ -22,8 +27,13 @@ const CommentCard = (props) => {
     setShowReplies(!showReplies)
   }
 
-  const handleAddReply = (replyFormData) => {
-    props.handleAddReply(props.comment._id ,replyFormData)
+  const handleAddReply = async ( replyFormData) => {
+    const newReply = await commentService.createReply(props.blogId, props.comment._id, replyFormData)
+    setReplies((prevReplies) => [newReply, ...prevReplies ])
+    const typeFormData = {
+      type: 'Reply',
+    }
+    await notificationService.createCommentNotification(props.blogId, props.comment._id, typeFormData)
   }
 
   return (
@@ -56,7 +66,7 @@ const CommentCard = (props) => {
     </div>
       {showReplies && (
         <div className={styles.repliesContainer}>
-          {props.comment.replies.map((reply) => (
+          {replies.map((reply) => (
             <div key={reply._id} className={styles.reply}>
               <div className={styles.replyP}>
               <img className={styles.replyImg} src={reply.author.photo} width={30} alt="" />

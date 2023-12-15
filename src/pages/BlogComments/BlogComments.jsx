@@ -32,20 +32,14 @@ const BlogComments = (props) => {
 
   const handleAddComment = async (blogId, blogFormData) => {
     const newComment = await commentService.createComment(blogId, blogFormData)
-    setBlog({ ...blog, comments: [...blog.comments, newComment]})
+    setBlog({ ...blog, comments: [ newComment, ...blog.comments]})
     const typeFormData = {
       type: 'Comment',
     }
     await notificationService.createBlogNotification(blogId, typeFormData)
   }
 
-  const handleAddReply = async (commentId, replyFormData) => {
-    const newReply = await commentService.createReply(blogId, commentId, replyFormData)
-    const typeFormData = {
-      type: 'Reply',
-    }
-    await notificationService.createCommentNotification(blogId, commentId, typeFormData)
-  }
+
 
   return (
     <div className={styles.blogCommentsContainer}>
@@ -62,7 +56,7 @@ const BlogComments = (props) => {
         </div>
       {blog.author ? (
               <div className={styles.commentsContainer}>
-              { blog.comments.map(comment => <CommentCard key={comment._id} comment={comment} handleAddReply={handleAddReply}/>) }
+              { blog.comments.map(comment => <CommentCard key={comment._id} comment={comment} blogId={blogId}/>) }
             </div>
       ) : ' '}  
     </div>
