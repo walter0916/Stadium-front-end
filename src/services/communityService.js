@@ -55,5 +55,21 @@ async function leaveCommunity(communityId) {
   }
 }
 
+async function createCommunity(communityFormData) {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(communityFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
-export { getAllCommunities, getCommunityById, leaveCommunity, joinCommunity }
+
+export { getAllCommunities, getCommunityById, leaveCommunity, joinCommunity, createCommunity }
