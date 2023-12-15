@@ -23,6 +23,7 @@ const PostCard = (props) => {
   const [disliked, setDisliked] = useState(false)
   const [likes, setLikes] = useState(props.post.likes.length)
   const [dislikes, setDislikes] = useState(props.post.dislikes.length)
+  const [replies, setReplies] = useState(props.post.replies)
 
   const formattedDate = formatDistanceToNow(new Date(props.post.createdAt), { addSuffix: true })
 
@@ -45,7 +46,8 @@ const PostCard = (props) => {
   }
 
   const handleAddReply = async (replyFormData) => {
-    await postService.createReply( props.post._id, replyFormData)
+    const newReply = await postService.createReply( props.post._id, replyFormData)
+    setReplies((prevReplies) => [...prevReplies, newReply])
     const formData = { type: 'Reply' }
     await notificationService.createPostNotification( props.post._id, formData)
   }
@@ -125,7 +127,7 @@ const PostCard = (props) => {
       {showReplyForm && <ReplyForm handleAddReply={handleAddReply} />}
       {showReplies && (
         <div className={styles.repliesContainer}>
-          {props.post.replies.map((reply) => (
+          {replies.map((reply) => (
             <div key={reply._id} className={styles.reply}>
               <div className={styles.replyP}>
               <img className={styles.replyImg} src={reply.author.photo} width={30} alt="" />

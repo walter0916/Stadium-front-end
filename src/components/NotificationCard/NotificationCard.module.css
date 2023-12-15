@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   width: 25vw;
-  height: 100px;
+  height: 150px;
   border: 1px solid #ccc;
   margin-bottom: 20px;
   border-radius: 10px;
@@ -33,6 +33,7 @@
 }
 
 .content {
+  width: 75%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

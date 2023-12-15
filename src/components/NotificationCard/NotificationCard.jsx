@@ -27,6 +27,20 @@ const NotificationCard = (props) => {
     } else {
       return '/'
     }
+  }
+
+  const getNotificationMessage = (notification) => {
+    const { type } = notification
+    if (type === 'Like') {
+      return 'liked your '
+    } else if (type === 'Dislike') {
+      return 'disliked your'
+    } else if (type === 'Reply') {
+      return 'replied to your'
+    } else if (type === 'Comment') {
+      return 'commented on your'
+    }
+  
   };
 
   return (
@@ -35,7 +49,7 @@ const NotificationCard = (props) => {
         <img src={props.notification.user.photo} alt="" />
       </div>
       <div className={styles.content}>
-        <p>{`${props.notification.user.name} has left a ${props.notification.type} on your ${props.notification.blog ? 'blog' : props.notification.comment ? 'comment' : 'post'}`}</p>
+        <p>{`${props.notification.user.name} ${getNotificationMessage(props.notification)} ${props.notification.comment ? `comment on the blog "${props.notification.blog.title}"` : props.notification.blog ? `blog "${props.notification.blog.title}"` : `post in the ${props.notification.post.community.teamName} community`}`}</p>
         <small>{formatDistanceToNow(new Date(props.notification.createdAt), { addSuffix: true })}</small>
       </div>
     </Link>
