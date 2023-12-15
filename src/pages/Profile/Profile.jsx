@@ -10,7 +10,7 @@ import Notifications from "../../components/Notifications/Notifications"
 import UsersPosts from "../../components/UsersPosts/UsersPosts"
 import UsersBlogs from "../../components/UsersBlogs/UsersBlogs"
 import InterestForm from "../../components/InterestForm/InterestForm"
-import LeaveCommunitiesForm from "../../components/LeaveCommunitiesForm/LeaveCommunitiesForm"
+import CommunitiesHub from "../../components/CommuntiesHub/CommunitiesHub"
 import ProfileOverview from "../../components/ProfileOverview/ProfileOverview"
 import EditProfileForm from "../../components/EditProfileForm/EditProfileForm"
 
@@ -45,7 +45,7 @@ const Profile = (props) => {
         {activeComponent === 'usersPosts' && <UsersPosts />}
         {activeComponent === 'usersBlogs' && <UsersBlogs />}
         {activeComponent === 'interestForm' && <InterestForm profile={profile}/>}
-        {activeComponent === 'communitiesForm' && <LeaveCommunitiesForm profile={profile}/>}
+        {activeComponent === 'communitiesForm' && <CommunitiesHub profile={profile}/>}
         {activeComponent === 'profileOverview' && <ProfileOverview profile={profile}/>}
         {activeComponent === 'editProfile' && <EditProfileForm profile={profile}/>}
       </div>
