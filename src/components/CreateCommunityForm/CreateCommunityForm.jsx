@@ -18,12 +18,17 @@ const CreateCommunityForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    handleAddCommunity(formData)
     setFormData({teamName: ''})
+  }
+
+  const handleAddCommunity = async (communityFormData) => {
+    await communityService.createCommunity(communityFormData)
   }
 
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <label>Community Name:</label>
         <input 
           type="text"

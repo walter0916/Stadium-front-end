@@ -7,7 +7,7 @@
   width: fit-content;
 }
 
-input {
+.searchContainer input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -33,6 +33,12 @@ input {
   width: 100%;
   text-align: center;
   padding: 5px;
+  text-decoration: none;
+}
+
+.searchDropdown a {
+  text-decoration: none;
+  color: white;
 }
 
 .searchDropdown a:visited {
