@@ -123,7 +123,7 @@ const Signup = ({ handleAuthEvt }) => {
           />
         </label>
         <div>
-          <Link to="/">Cancel</Link>
+          <Link to="/auth/login">Login</Link>
           <button
             className={styles.button}
             disabled={ isFormInvalid() || isSubmitted }
