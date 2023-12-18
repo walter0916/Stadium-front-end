@@ -33,13 +33,22 @@ const Community = (props) => {
 
   return (
     <main>
-      {community.communityMembers? (<div className={styles.container}>
-        <h1 className={styles.header}>{community.teamName}</h1>
-        <p>Community Members: {community.communityMembers.length}</p>
-        <PostForm handleAddPost={handleAddPost}/>
-        {community.posts.map(post => <PostCard key={post._id} post={post} communityId={communityId} user={props.user} />)}
-      </div>) : (
-        <p>loading..</p>
+      {community.communityMembers ? (
+        <div className={styles.container}>
+          <h1 className={styles.header}>{community.teamName}</h1>
+          <p>Community Members: {community.communityMembers.length}</p>
+          <PostForm handleAddPost={handleAddPost} />
+          {community.posts.length ? (
+            community.posts.map((post) => <PostCard key={post._id} post={post} communityId={communityId} user={props.user} />)
+          ) : (
+            <div className={styles.noPostsContainer}>
+              <p>No posts found in this community.</p>
+              <p>Why not be the first to start a conversation?</p>
+            </div>
+          )}
+        </div>
+      ) : (
+        <p>Loading...</p>
       )}
     </main>
   )
