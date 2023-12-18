@@ -88,7 +88,7 @@ const CommentCard = (props) => {
       </div>
       <div className={styles.commentContent}>
         <p className={styles.commentAuthor}>{props.comment.author.name}</p>
-        <p className={styles.commentCreatedAt}>{props.comment.createdAt}</p>
+        <p className={styles.commentCreatedAt}>{formatDistanceToNow(new Date(props.comment.createdAt), { addSuffix: true })}</p>
         <p>{props.comment.content}</p>
         <div className={styles.buttonsContainer}>
         <button className={styles.thumbsUpButton} onClick={handleAddLike}>
@@ -100,9 +100,11 @@ const CommentCard = (props) => {
         <button onClick={toggleReplyForm}>
           {showReplyForm ? 'Cancel' : 'Reply'}
         </button>
-        <button onClick={toggleReplies}>
+        {replies.length > 0 ?
+        (<button onClick={toggleReplies}>
           {showReplies ? 'Hide Replies' : 'See Replies'}
-        </button>
+        </button>) : ('')
+        }
       </div>
         {showReplyForm && <ReplyForm handleAddReply={handleAddReply}/>}
       </div>

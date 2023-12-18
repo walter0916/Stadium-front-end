@@ -35,6 +35,16 @@
   margin-bottom: 20px;
 }
 
+.buttonsContainer button {
+  background: transparent; 
+  border: none;
+  cursor: pointer;
+}
+
+.buttonsContainer button:hover {
+  color: #69b907;
+}
+
 .repliesContainer {
   width: 90%;
   margin-top: 10px;
