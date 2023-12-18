@@ -47,3 +47,87 @@ nav {
   text-decoration: none; 
 }
 
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  width: 100vw;
+}
+
+.loggedInContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.homeLink {
+  margin-right: auto; 
+}
+
+.userProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  margin-left: auto;
+  width: max-content;
+}
+
+.userProfile img {
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style: none;
+  padding: 10px;
+  background-color: #555;
+  position: absolute;
+  top: 55px;
+  right: 0;
+  height: 15vh;
+}
+
+.dropdown li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #777;
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: white;
+}
+
+.dropdown a:visited {
+  color: white;
+}
+
+.homeLink a {
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+
+.homeLink a:visited {
+  color: white;
+}
+
+.homeLink a:hover {
+  color: black;
+  background-color: #89fc00;
+  padding: 10px;
+  border: 2px solid black;
+}
