@@ -88,11 +88,22 @@ const League = (props) => {
 
   return (
     <div className={styles.leagueContainer}>
-      <img src={logo} alt="" className={styles.logo}/>
+      <img src={logo} alt="" className={styles.logo} />
       <h1>{league.leagueName}</h1>
       <div className={styles.leagueBlogCards}>
-        {leagueBlogs.length ? leagueBlogs.map((blog) => (
-        <BlogCard key={blog._Id} blog={blog} handleAddComment={handleAddComment} user={props.user} leagueId={leagueId}/>)) : ''}
+        {leagueBlogs.length ? (
+          leagueBlogs.map((blog) => (
+            <BlogCard key={blog._Id} blog={blog} handleAddComment={handleAddComment} user={props.user} leagueId={leagueId} />
+          ))
+        ) : (
+          <div className={styles.noBlogsContainer}>
+            <p className={styles.noBlogsMessage}>Oops! No blogs found for this league.</p>
+            <p className={styles.noBlogsMessage}>Why not be the first to share your thoughts?</p>
+            <Link to="/blog/new" className={styles.createBlogLink}>
+              Create a Blog
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   )  
