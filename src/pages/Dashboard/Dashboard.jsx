@@ -38,7 +38,9 @@ const Landing = ({ user }) => {
       const unreadNotifications = notificationsData.filter(notification => !notification.read);
       setUnreadNotifications(unreadNotifications)
       const blogsData = await blogsService.getAllBlogs()
-      setBlogs(blogsData)
+      blogsData.sort((a, b) => b.likes - a.likes || new Date(b.createdAt) - new Date(a.createdAt))
+      const topTrendingBlogs = blogsData.slice(0, 4)
+      setBlogs(topTrendingBlogs)
     }
     fetchLeagues()
   }, [profileId])
