@@ -1,24 +1,39 @@
+
 .sideBar {
   display: flex;
   flex-direction: column;
   width: 20vw;
   align-items: center;
   height: 100vh;
+  background-color: #333;
+  padding: 20px; 
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-top: -30px;
 }
 
-.sideBar img {
-  width: 50%;
+.sideBar h2 {
+  margin-top: 10px;
+  color: #a57df8;
 }
 
 .buttonContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 20%;
+  margin-top: 20px;
 }
 
 .buttonContainer button {
-  background-color: transparent;
+  background-color: #4caf50; 
+  color: white; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: bolder;
+  transition: background-color 0.3s ease; 
+}
+
+.buttonContainer button:hover {
+  background-color: #45a049; 
 }

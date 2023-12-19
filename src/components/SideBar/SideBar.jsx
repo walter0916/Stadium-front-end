@@ -12,7 +12,6 @@ import styles from './SideBar.module.css'
 const SideBar = (props) => {
   return (
     <div className={styles.sideBar}>
-      <img src={props.profile.photo} alt="" />
       <h2>{props.profile.name}</h2>
       <div className={styles.buttonContainer}>
         <button onClick={() => props.handleButtonClick('changePassword')}>Change Password</button>
@@ -28,4 +27,4 @@ const SideBar = (props) => {
   )
 }
 
-export default SideBar;
+export default SideBar
