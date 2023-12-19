@@ -32,6 +32,28 @@ async function addPhoto(photoData) {
   }
 }
 
+async function editProfile(formData, photoData) {
+  try {
+    const profileId = tokenService.getUserFromToken().profile
+    const res = await fetch(`${BASE_URL}/${profileId}/edit`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    const result = await res.json()
+    if (photoData) {
+      await addPhoto(photoData)
+    }
+    return result;
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+
 async function editInterests(formData) {
   try {
     const profileId = tokenService.getUserFromToken().profile
@@ -61,4 +83,4 @@ async function getProfileById() {
   }
 }
 
-export { getAllProfiles, addPhoto, getProfileById, editInterests }
+export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile }
