@@ -93,9 +93,11 @@ const CommentCard = (props) => {
         <div className={styles.buttonsContainer}>
         <button className={styles.thumbsUpButton} onClick={handleAddLike}>
           <FontAwesomeIcon icon={faThumbsUp} size='1x'/>
+          {likes > 0 && <span className={styles.likesCount}>{likes}</span>}
         </button>
         <button className={styles.thumbsDownButton} onClick={handleAddDislike}>
           <FontAwesomeIcon icon={faThumbsDown} size='1x'/>
+          {dislikes > 0 && <span className={styles.dislikesCount}>{dislikes}</span>}
         </button>
         <button onClick={toggleReplyForm}>
           {showReplyForm ? 'Cancel' : 'Reply'}
