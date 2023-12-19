@@ -2,10 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import * as blogService from '../../services/blogService'
-import styles from './league.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
-import CommentForm from "../../components/CommentForm/CommentForm";
+import styles from './League.module.css'
 import BlogCard from "../../components/BlogCard/BlogCard"
 import * as notificationService from "../../services/notificationService";
 import * as leagueService from '../../services/leagueService'
