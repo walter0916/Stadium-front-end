@@ -47,12 +47,12 @@ const InterestForm = (props) => {
 
   return (
     <div className={styles.formContainer}>
-      <h2 className={styles.formTitle}>Interest Form</h2>
+      <h2 className={styles.formTitle}>Select the leagues you are interested in</h2>
       <form onSubmit={handleSubmit}>
         {leagues ? <div>
         {leagues.map((league) => (
           <div key={league._id} className={styles.checkboxContainer}>
-            <label htmlFor="">{league.leagueName}</label>
+            <label >{league.leagueName}</label>
             <input
               type="checkbox"
               id={`league-${league._id}`}
