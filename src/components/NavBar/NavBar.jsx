@@ -19,8 +19,10 @@ const NavBar = ({ user, handleLogout }) => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const data = await profileService.getProfileById(user.profile)
-      setProfile(data)
+      if (user) {
+        const data = await profileService.getProfileById(user.profile)
+        setProfile(data)
+      }
     }
     fetchProfile()
   }, [user])

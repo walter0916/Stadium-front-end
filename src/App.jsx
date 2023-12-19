@@ -31,7 +31,7 @@ function App() {
   const handleLogout = () => {
     authService.logout()
     setUser(null)
-    navigate('/')
+    navigate('/auth/login')
   }
 
   const handleAuthEvt = () => {
