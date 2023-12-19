@@ -31,7 +31,7 @@ const Landing = ({ user }) => {
   useEffect(() => {
     const fetchLeagues = async () => {
       const data = await leagueService.getAllLeagues()
-      const profileData = await profileService.getProfileById()
+      const profileData = await profileService.getProfileById(profileId)
       setLeagues(data)
       setProfile(profileData)
       const notificationsData = await notificationsService.getUserNotifications(profileId)

@@ -42,7 +42,14 @@ function App() {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Dashboard user={user} />} />
+        <Route 
+          path="/" 
+          element={
+            <ProtectedRoute user={user}> 
+              <Dashboard user={user} />
+            </ProtectedRoute>  
+          } 
+        />
         <Route
           path="/profile"
           element={
