@@ -56,4 +56,4 @@ const NotificationCard = (props) => {
   )
 }
 
-export default NotificationCard;
+export default NotificationCard

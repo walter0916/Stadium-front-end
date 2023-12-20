@@ -1,3 +1,7 @@
+// npm modules
+import { Link } from 'react-router-dom'
+
+// images
 import laliga from '../../assets/laliga.svg'
 import premierLeagueLogo from '../../assets/premier-league.svg'
 import serieALogo from '../../assets/serieA.svg'
@@ -6,15 +10,13 @@ import mlsLogo from '../../assets/mls.svg'
 import ligue1Logo from '../../assets/ligue-1.svg'
 import europaLogo from '../../assets/europa.svg'
 import championsLogo from '../../assets/champions.svg'
+
+// styles
 import styles from './LeagueCard.module.css'
-import { Link } from 'react-router-dom'
 
 const LeagueCard = (props) => {
-  console.log(props)
-  console.log('League Name:', props.interest.leagueName)
   let logo = null
 
-  // Check if props.leagueName is defined before calling toLowerCase()
   if (props.interest.leagueName && typeof props.interest.leagueName === 'string') {
     switch (props.interest.leagueName.toLowerCase()) {
       case 'laliga':
@@ -54,7 +56,7 @@ const LeagueCard = (props) => {
       <img src={logo} alt="" className={styles.logo}/>  
       </Link>
     </div>
-  );
+  )
 }
 
-export default LeagueCard;
+export default LeagueCard

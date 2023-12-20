@@ -8,7 +8,6 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import ReplyForm from '../ReplyForm/ReplyForm'
 
 // services
-import * as communityService from '../../services/communityService'
 import * as notificationService from '../../services/notificationService'
 import * as postService from '../../services/postService'
 

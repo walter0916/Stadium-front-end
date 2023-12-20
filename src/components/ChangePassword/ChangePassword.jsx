@@ -2,13 +2,10 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-// components 
-import SideBar from '../../components/SideBar/SideBar'
-
 // services
 import * as authService from '../../services/authService'
 
-// css
+// styles
 import styles from './ChangePassword.module.css'
 
 const ChangePassword = ({ handleAuthEvt }) => {

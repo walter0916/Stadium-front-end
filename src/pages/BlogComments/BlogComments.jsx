@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 // services
 import * as blogService from '../../services/blogService'
@@ -11,7 +9,7 @@ import * as notificationService from '../../services/notificationService'
 import * as commentService from '../../services/commentService'
 
 // components
-import CommentForm from "../../components/CommentForm/CommentForm";
+import CommentForm from "../../components/CommentForm/CommentForm"
 import CommentCard from "../../components/CommentCard/CommentCard"
 
 // styles

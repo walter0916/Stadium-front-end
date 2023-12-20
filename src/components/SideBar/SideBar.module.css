@@ -2,7 +2,7 @@
 .sideBar {
   display: flex;
   flex-direction: column;
-  width: 20vw;
+  width: 300px;
   align-items: center;
   height: 100vh;
   background-color: #333;

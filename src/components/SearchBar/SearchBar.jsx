@@ -1,6 +1,11 @@
+// npm modules
 import { useState, useEffect } from 'react'
-import * as communityService from '../../services/communityService'
 import { Link } from 'react-router-dom'
+
+// services
+import * as communityService from '../../services/communityService'
+
+// styles
 import styles from './SearchBar.module.css'
 
 const SearchBar = () => {

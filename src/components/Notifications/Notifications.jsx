@@ -1,11 +1,11 @@
 // npm modules
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 // components 
-import NotificationCard from '../NotificationCard/NotificationCard';
+import NotificationCard from '../NotificationCard/NotificationCard'
 
 // services
-import * as notificationService from '../../services/notificationService';
+import * as notificationService from '../../services/notificationService'
 
 const Notifications = (props) => {
   const [notifications, setNotifications] = useState({})

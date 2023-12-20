@@ -1,11 +1,3 @@
-nav {
-  background-color: #242E4C; 
-  padding: 10px; 
-  position: fixed; 
-  width: 100%; 
-  top: 0; 
-  z-index: 1000;
-}
 
 .links {
   list-style: none; 
@@ -76,7 +68,8 @@ nav {
 }
 
 .userProfile img {
-  height: 30px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   margin-left: 10px;
 }

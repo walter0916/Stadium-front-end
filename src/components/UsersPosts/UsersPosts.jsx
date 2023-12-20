@@ -1,9 +1,10 @@
 // npm modules
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+import { formatDistanceToNow } from 'date-fns'
 
 //services 
-import * as postService from '../../services/postService';
+import * as postService from '../../services/postService'
 
 // styles
 import styles from './UsersPosts.module.css'
@@ -19,7 +20,6 @@ const UsersPosts = (props) => {
     fetchUserPosts()
   }, [props.profile._id])
 
-  console.log(posts)
 
   return (
     <div  className={styles.container}>
@@ -28,6 +28,7 @@ const UsersPosts = (props) => {
           {posts.map((post) => 
             <Link to={`/community/${post.community}`} key={post._id} className={styles.postCard}>
               <div className={styles.overlay}>
+                <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>
                 <h3>{post.content}</h3>
               </div>
               <img src={post.photo} alt="" />
@@ -37,4 +38,4 @@ const UsersPosts = (props) => {
   )
 }
 
-export default UsersPosts;
+export default UsersPosts

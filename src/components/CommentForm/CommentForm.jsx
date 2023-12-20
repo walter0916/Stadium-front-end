@@ -1,6 +1,11 @@
+// npm modules 
 import { useState, useEffect } from "react"
-import styles from './CommentForm.module.css'
+
+// services
 import * as profileService from '../../services/profileService'
+
+// styles
+import styles from './CommentForm.module.css'
 
 const CommentForm = (props) => {
   const [formData, setFormData] = useState({

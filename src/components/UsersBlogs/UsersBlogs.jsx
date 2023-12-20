@@ -10,7 +10,6 @@ import styles from './UsersBlogs.module.css'
 
 const UsersBlogs = (props) => {
   const [blogs, setBlogs] = useState({})
-  console.log(props.profile)
 
   useEffect(() => {
     const fetchUserBlogs = async () => {
@@ -40,4 +39,4 @@ const UsersBlogs = (props) => {
   )
 }
 
-export default UsersBlogs;
+export default UsersBlogs

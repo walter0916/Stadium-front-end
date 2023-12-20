@@ -1,11 +1,3 @@
-// npm modules
-import { Link } from 'react-router-dom';
-// pages
-
-// components
-
-// services
-
 // styles
 import styles from './SideBar.module.css'
 
@@ -17,10 +9,7 @@ const SideBar = (props) => {
         <button onClick={() => props.handleButtonClick('changePassword')}>Change Password</button>
         <button onClick={() => props.handleButtonClick('interestForm')}>Change Interested Leagues</button>
         <button onClick={() => props.handleButtonClick('editProfile')}>Edit Profile</button>
-        {/* <button onClick={() => props.handleButtonClick('notifications')}>See Notifications</button> */}
         <button onClick={() => props.handleButtonClick('communitiesForm')}>Communities Hub</button>
-        {/* <button onClick={() => props.handleButtonClick('usersPosts')}>See Posts</button>
-        <button onClick={() => props.handleButtonClick('usersBlogs')}>See Blogs</button> */}
         <button onClick={() => props.handleButtonClick('profileOverview')}>Profile Overview</button>
       </div>
     </div>

@@ -1,4 +1,7 @@
-import { useState } from 'react';
+// npm modules
+import { useState } from 'react'
+
+// styles
 import styles from './ReplyForm.module.css'
 
 const ReplyForm = (props) => {

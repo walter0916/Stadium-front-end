@@ -3,9 +3,6 @@
   src: url('../../assets/Fonts/sports-night.ttf') format('truetype');
 }
 
-body {
-  overflow: hidden;
-}
 
 .container {
   display: flex;

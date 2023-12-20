@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 
 // services
-import * as leagueService from '../../services/leagueService'
 import * as profileService from '../../services/profileService'
 import * as notificationsService from '../../services/notificationService'
 import * as blogsService from '../../services/blogService'
@@ -18,24 +17,19 @@ import SearchBar from '../../components/SearchBar/SearchBar'
 // styles
 import styles from './Dashboard.module.css'
 
-const Landing = ({ user }) => {
+const Dashboard = ({ user }) => {
   const profileId = user.profile
-  const [leagues, setLeagues] = useState([])
   const [profile, setProfile] = useState([])
   const [blogs, setBlogs] = useState([])
   const [unreadNotifications, setUnreadNotifications] = useState([])
-
-  console.log(profileId)
   library.add(fas)
 
   useEffect(() => {
     const fetchLeagues = async () => {
-      const data = await leagueService.getAllLeagues()
       const profileData = await profileService.getProfileById(profileId)
-      setLeagues(data)
       setProfile(profileData)
       const notificationsData = await notificationsService.getUserNotifications(profileId)
-      const unreadNotifications = notificationsData.filter(notification => !notification.read);
+      const unreadNotifications = notificationsData.filter(notification => !notification.read)
       setUnreadNotifications(unreadNotifications)
       const blogsData = await blogsService.getAllBlogs()
       blogsData.sort((a, b) => b.likes - a.likes || new Date(b.createdAt) - new Date(a.createdAt))
@@ -55,7 +49,7 @@ const Landing = ({ user }) => {
       <div className={styles.interests}>
         {profile.interests ? (
           profile.interests.map((interest) => (
-            <LeagueCard key={interest.id} interest={interest} />           
+            <LeagueCard key={interest._id} interest={interest} />           
           ))
         ) : (
           <p>No interests available</p>
@@ -102,4 +96,4 @@ const Landing = ({ user }) => {
   )
 }
 
-export default Landing
+export default Dashboard

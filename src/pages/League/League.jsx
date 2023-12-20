@@ -1,12 +1,21 @@
+// npm modules
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
+
+// services
 import * as blogService from '../../services/blogService'
-import styles from './League.module.css'
-import BlogCard from "../../components/BlogCard/BlogCard"
-import * as notificationService from "../../services/notificationService";
+import * as notificationService from "../../services/notificationService"
 import * as leagueService from '../../services/leagueService'
 import * as commentsService from '../../services/commentService'
+
+// styles
+import styles from './League.module.css'
+
+// components
+import BlogCard from "../../components/BlogCard/BlogCard"
+
+// images
 import laliga from '../../assets/laliga.svg'
 import premierLeagueLogo from '../../assets/premier-league.svg'
 import serieALogo from '../../assets/serieA.svg'
@@ -90,7 +99,7 @@ const League = (props) => {
       <div className={styles.leagueBlogCards}>
         {leagueBlogs.length ? (
           leagueBlogs.map((blog) => (
-            <BlogCard key={blog._Id} blog={blog} handleAddComment={handleAddComment} user={props.user} leagueId={leagueId} />
+            <BlogCard key={blog._id} blog={blog} handleAddComment={handleAddComment} user={props.user} leagueId={leagueId} />
           ))
         ) : (
           <div className={styles.noBlogsContainer}>

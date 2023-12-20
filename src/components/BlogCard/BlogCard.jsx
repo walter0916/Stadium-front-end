@@ -1,10 +1,17 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFire } from '@fortawesome/free-solid-svg-icons';
-import * as notificationService from "../../services/notificationService";
+// npm modules
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFire } from '@fortawesome/free-solid-svg-icons'
+
+// services
+import * as notificationService from "../../services/notificationService"
 import * as blogService from '../../services/blogService'
-import CommentForm from '../CommentForm/CommentForm';
+
+// components
+import CommentForm from '../CommentForm/CommentForm'
+
+// styles
 import styles from './BlogCard.module.css'
 
 const BlogCard = (props) => {

@@ -1,7 +1,10 @@
+// npm modules
 import { useState, useRef } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
+
+// styles
 import styles from './PostForm.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 
 const PostForm = (props) => {
   const imgInputRef = useRef(null)
@@ -10,8 +13,7 @@ const PostForm = (props) => {
     content: '',
   })
   const [photoData, setPhotoData] = useState({ photo: null })
-  const [selectedFileName, setSelectedFileName] = useState('');
-  console.log(selectedFileName)
+  const [selectedFileName, setSelectedFileName] = useState('')
 
 
   const handleChange = (evt) => {

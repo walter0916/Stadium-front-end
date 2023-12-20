@@ -1,7 +1,12 @@
+// npm modules
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+
+// services
 import * as blogService from '../../services/blogService'
+
+// styles
 import styles from './Blog.module.css'
 
 const Blog = () => {

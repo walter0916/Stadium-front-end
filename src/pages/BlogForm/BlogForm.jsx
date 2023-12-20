@@ -1,7 +1,7 @@
 // npm modeuls
 import { useState, useRef, useEffect } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 
 // services
@@ -22,7 +22,7 @@ const BlogForm = () => {
     leagueId: 0
   })
   const [photoData, setPhotoData] = useState({ photo: null })
-  const [selectedFileName, setSelectedFileName] = useState('');
+  const [selectedFileName, setSelectedFileName] = useState('')
 
   useEffect(() => {
     const fetchLeagues = async () => {

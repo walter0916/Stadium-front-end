@@ -71,4 +71,4 @@ const InterestForm = (props) => {
   )
 }
 
-export default InterestForm;
+export default InterestForm

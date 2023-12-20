@@ -5,7 +5,7 @@ import { useState } from "react"
 import  * as communityService from '../../services/communityService'
 
 // styles 
-import style from './CreateCommunityForm.module.css'
+import styles from './CreateCommunityForm.module.css'
 
 const CreateCommunityForm = () => {
   const [formData, setFormData] = useState({
