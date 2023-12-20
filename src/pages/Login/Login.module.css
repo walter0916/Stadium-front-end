@@ -15,7 +15,7 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  --u:  1.52vmin;
+  /* --u:  1.52vmin;
   --c1: #888888;
   --c2: #6b6b6b;
   --c3: #4e4e4e;
@@ -35,7 +35,8 @@ input[type="file"] {
     var(--bg), var(--bg), var(--c1);
   background-position: 
     var(--bp), var(--bp), var(--bp), var(--bp), var(--bp), var(--bp),
-    0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+    0 0, 0 0, 0 0, 0 0, 0 0, 0 0; */
+  background: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3286430.jpg');
 }
 
 .formContainer {

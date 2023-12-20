@@ -1,7 +1,13 @@
 @font-face {
   font-family: 'sport-font';
-  src: url('../../assets/Fonts/sports-night.ttf') format('truetype');
+  src: url('../../assets/Fonts/airstrike.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'sport-header';
+  src: url('../../assets/Fonts/CollegiateBlackFLF.ttf') format('truetype');
+}
+
 
 
 .container {
@@ -15,14 +21,13 @@
   width: 100vw;
   background-color: gray;
   padding: 20px;
-  overflow: hidden;
   z-index: 998;
 }
 
 .header {
   font-family: 'sport-font', sans-serif;
   position: relative;
-  font-size: 44px;
+  font-size: 75px;
   display: inline-block;
   color: #a57df8;
   -webkit-text-stroke: 1.5px black;
@@ -77,6 +82,15 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
 }
+
+.joinedCommunities h2 {
+  font-family: 'sport-font', sans-serif;
+}
+
+.notifications h2 {
+  font-family: 'sport-font', sans-serif;
+}
+
 
 
 .joinedCommunities {
@@ -221,6 +235,7 @@
 }
 
 .trendingBlogs h1 {
+  font-family: 'sport-font', sans-serif;
   margin-top: 80px;
 }
 
@@ -291,6 +306,7 @@
   text-decoration: none;
   color: white;
   font-size: 30px;
+  font-family: 'sport-font', sans-serif;
 }
 
 .blogFormLink a:visited{
