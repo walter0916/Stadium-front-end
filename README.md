@@ -6,7 +6,7 @@ Welcome to Stadium, the ultimate app for soccer fans to connect, share, and enga
 
 ## Overview
 
-Stadium is a feature-rich platform where soccer enthusiasts can personalize their experience, join team communities, read and create blogs, and much more. This README provides an overview of the app's functionality and guides you through its usage.
+Stadium is a feature-rich platform where soccer enthusiasts can personalize their experience, join team communities, read and create blogs, and much more. 
 
 ## Features
 
@@ -25,6 +25,7 @@ Stadium is a feature-rich platform where soccer enthusiasts can personalize thei
 - **Frontend:** React.js
 - **Backend:** Node.js, Express
 - **Database:** MongoDB
+- **Authentication:** JWT
 
 ## Back End Repository
 
