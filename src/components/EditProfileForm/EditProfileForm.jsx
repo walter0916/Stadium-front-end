@@ -59,7 +59,7 @@ const EditProfileForm = (props) => {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.imgContainer}>
-        <label htmlFor="photo" className={styles.photoLabel}>
+        <label className={styles.photoLabel}>
           <img
             src={profilePhoto}
             alt="Profile"
@@ -77,7 +77,7 @@ const EditProfileForm = (props) => {
         />
       </div>
       <div>
-        <label>Name:</label>
+        <label>Name:
         <input
           type="text"
           id="name"
@@ -85,6 +85,7 @@ const EditProfileForm = (props) => {
           value={formData.name}
           onChange={handleChange}
         />
+        </label>
       </div>
       <button type="submit">Update Profile</button>
     </form>

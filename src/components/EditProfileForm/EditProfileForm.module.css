@@ -1,3 +1,5 @@
+/* styles/EditProfileForm.module.css */
+
 .form {
   display: flex;
   flex-direction: column;
@@ -7,6 +9,7 @@
 
 .imgContainer {
   position: relative;
+  margin-bottom: 20px;
 }
 
 .profilePhoto {
@@ -15,7 +18,7 @@
   object-fit: cover;
   border-radius: 50%;
   cursor: pointer;
-  transition: opacity 0.3s;
+  transition: filter 0.3s;
 }
 
 .tooltip {
@@ -45,4 +48,27 @@
 
 .photoLabel {
   cursor: pointer;
+}
+
+.form input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form button:hover {
+  background-color: #45a049;
 }
