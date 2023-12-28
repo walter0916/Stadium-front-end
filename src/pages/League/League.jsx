@@ -8,7 +8,6 @@ import * as blogService from '../../services/blogService'
 import * as notificationService from "../../services/notificationService"
 import * as leagueService from '../../services/leagueService'
 import * as commentsService from '../../services/commentService'
-import * as apiService from '../../services/apiService'
 
 // styles
 import styles from './League.module.css'
@@ -91,7 +90,7 @@ const League = (props) => {
   useEffect(() => {
     const fetchStandings = async () => {
       if (standingsId !== null) {
-        const standingsData = await apiService.getLeagueById(standingsId)
+        const standingsData = await leagueService.getStandings(standingsId)
         setStandings(standingsData)
       }
     }
