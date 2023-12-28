@@ -8,6 +8,7 @@ import * as blogService from '../../services/blogService'
 import * as notificationService from "../../services/notificationService"
 import * as leagueService from '../../services/leagueService'
 import * as commentsService from '../../services/commentService'
+import * as apiService from '../../services/apiService'
 
 // styles
 import styles from './League.module.css'
@@ -29,6 +30,7 @@ const League = (props) => {
   const { leagueId } = useParams()
   const [league, setLeague] = useState({})
   const [leagueBlogs, setLeagueBlogs] = useState({})
+  const [standings, setStandings] = useState({})
 
   let logo = null
 
@@ -72,6 +74,8 @@ const League = (props) => {
       const filteredData = data.filter(blog => blog.league._id === leagueId)
       setLeagueBlogs(filteredData)
       setLeague(leagueData)
+      const standingsData = await apiService.getLeagueById(61)
+      setStandings(standingsData)
     }
     fetchBlogs()
   },[leagueId])
