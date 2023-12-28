@@ -33,32 +33,41 @@ const League = (props) => {
   const [standings, setStandings] = useState({})
 
   let logo = null
+  let standingsId = null
 
   if (league.leagueName && typeof league.leagueName === 'string') {
     switch (league.leagueName.toLowerCase()) {
       case 'laliga':
         logo = laliga
+        standingsId = 140
         break
       case 'premier league':
         logo = premierLeagueLogo
+        standingsId = 39
         break
       case 'serie a':
         logo = serieALogo
+        standingsId = 71
         break
       case 'bundesliga':
         logo = bundesligaLogo
+        standingsId = 78
         break
       case 'mls':
         logo = mlsLogo
+        standingsId = 253
         break
       case 'ligue 1':
         logo = ligue1Logo
+        standingsId = 61
         break
       case 'champions league':
         logo = championsLogo
+        standingsId = 2
         break
       case 'europa league':
         logo = europaLogo
+        standingsId = 3
         break
       default:
         logo = laliga
@@ -74,11 +83,22 @@ const League = (props) => {
       const filteredData = data.filter(blog => blog.league._id === leagueId)
       setLeagueBlogs(filteredData)
       setLeague(leagueData)
-      const standingsData = await apiService.getLeagueById(61)
-      setStandings(standingsData)
     }
+
     fetchBlogs()
-  },[leagueId])
+  }, [leagueId])
+
+  useEffect(() => {
+    const fetchStandings = async () => {
+      if (standingsId !== null) {
+        const standingsData = await apiService.getLeagueById(standingsId)
+        setStandings(standingsData)
+      }
+    }
+
+    fetchStandings()
+  }, [standingsId])
+
 
   const handleAddComment = async (blogId, blogFormData) => {
     const newComment = await commentsService.createComment(blogId, blogFormData)
