@@ -12,6 +12,7 @@ import League from './pages/League/League'
 import BlogComments from './pages/BlogComments/BlogComments'
 import Blog from './pages/Blog/Blog'
 import Profile from './pages/Profile/Profile'
+import Standings from './pages/Standings/Standings'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -86,6 +87,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <League user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/league/:leagueId/standings"
+          element={
+            <ProtectedRoute user={user}>
+              <Standings user={user}/>
             </ProtectedRoute>
           }
         />
