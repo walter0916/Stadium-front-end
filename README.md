@@ -1,6 +1,6 @@
 # Stadium - Your All-in-One Soccer Fan Platform
 
-![Dashboard Preview](./src/assets/stadium.png)
+![Dashboard Preview](./src/assets/stadiumDashboard.png)
 
 Welcome to Stadium, the ultimate app for soccer fans to connect, share, and engage with their favorite teams and leagues.
 
