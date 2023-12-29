@@ -7,6 +7,9 @@ import NotificationCard from '../NotificationCard/NotificationCard'
 // services
 import * as notificationService from '../../services/notificationService'
 
+// styles 
+import styles from './Notifications.module.css'
+
 const Notifications = (props) => {
   const [notifications, setNotifications] = useState({})
 
@@ -25,7 +28,7 @@ const Notifications = (props) => {
   return (
     <div>
       {notifications.length ? (
-        <div>
+        <div className={styles.notificationsContainer}>
           {notifications.map((notification) => 
           <NotificationCard key={notification._id} notification={notification} />)}
         </div>
