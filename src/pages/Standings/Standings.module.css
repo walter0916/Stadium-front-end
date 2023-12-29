@@ -1,0 +1,29 @@
+/* styles.module.css */
+
+.standingsContainer {
+  margin: 20px;
+}
+
+.standingsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.headerCell, .cell {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.headerCell {
+  background-color: #f2f2f2;
+}
+
+.cell:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.cell:nth-child(even) {
+  background-color: #e6e6e6;
+}

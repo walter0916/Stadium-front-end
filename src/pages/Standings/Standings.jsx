@@ -1,6 +1,9 @@
 // npm modules 
 import { useLocation } from "react-router-dom"
 
+// styles 
+import styles from './Standings.module.css'
+
 const Standings = () => {
   const location = useLocation()
   const standingsData = location.state?.standings
@@ -9,29 +12,29 @@ const Standings = () => {
   console.log(flattenedStandings)
 
   return (
-    <div>
-      <table>
+    <div className={styles.standingsContainer}>
+      <table className={styles.standingsTable}>
         <thead>
           <tr>
-            <th>Team Name</th>
-            <th>Wins</th>
-            <th>Draws</th>
-            <th>Losses</th>
-            <th>Goals Scored</th>
-            <th>Goals Against</th>
-            <th>Goal Differential</th>
+            <th className={styles.headerCell}>Team Name</th>
+            <th className={styles.headerCell}>Wins</th>
+            <th className={styles.headerCell}>Draws</th>
+            <th className={styles.headerCell}>Losses</th>
+            <th className={styles.headerCell}>Goals Scored</th>
+            <th className={styles.headerCell}>Goals Against</th>
+            <th className={styles.headerCell}>Goal Differential</th>
           </tr>
         </thead>
         <tbody>
           {flattenedStandings.map((standing, index) => (
             <tr key={index}>
-              <td>{standing.team.name}</td>
-              <td>{standing.all.win}</td>
-              <td>{standing.all.draw}</td>
-              <td>{standing.all.lose}</td>
-              <td>{standing.all.goals.for}</td>
-              <td>{standing.all.goals.against}</td>
-              <td>{standing.goalsDiff}</td>
+              <td className={styles.cell}>{standing.team.name}</td>
+              <td className={styles.cell}>{standing.all.win}</td>
+              <td className={styles.cell}>{standing.all.draw}</td>
+              <td className={styles.cell}>{standing.all.lose}</td>
+              <td className={styles.cell}>{standing.all.goals.for}</td>
+              <td className={styles.cell}>{standing.all.goals.against}</td>
+              <td className={styles.cell}>{standing.goalsDiff}</td>
             </tr>
           ))}
         </tbody>
