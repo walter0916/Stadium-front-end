@@ -73,9 +73,11 @@ const EditProfileForm = (props) => {
           name="photo"
           accept="image/*"
           onChange={handleChangePhoto}
+          ref={imgInputRef}
           className={styles.photoInput}
         />
       </div>
+      {message && <div className={styles.errorMessage}>{message}</div>}
       <div>
         <label>Name:
         <input

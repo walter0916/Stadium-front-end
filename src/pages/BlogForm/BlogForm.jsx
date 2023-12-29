@@ -1,4 +1,4 @@
-// npm modeuls
+// npm modules
 import { useState, useRef, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
@@ -106,6 +106,7 @@ const BlogForm = () => {
               />
             </label>
           </div>
+          {message && (<div className={styles.errorMessage}>{message}</div>)}
         <label>Content:</label>
         <textarea
           type="text"

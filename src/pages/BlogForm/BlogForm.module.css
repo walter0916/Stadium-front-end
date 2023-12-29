@@ -113,3 +113,9 @@
   border-color: #0056b3;
   box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
 }
+
+.errorMessage {
+  color: #ff0000;
+  margin-top: 5px;
+  font-size: 14px;
+}

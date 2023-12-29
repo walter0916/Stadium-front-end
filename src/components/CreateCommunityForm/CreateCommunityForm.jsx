@@ -43,4 +43,4 @@ const CreateCommunityForm = () => {
   )
 }
 
-export default CreateCommunityForm;
+export default CreateCommunityForm

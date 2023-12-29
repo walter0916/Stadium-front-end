@@ -121,7 +121,7 @@ const Signup = ({ handleAuthEvt }) => {
           >
             {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
           </button>
-          <Link to="/auth/login">Already have an account? Log in here</Link>
+          <Link to="/auth/login">Already have an account?</Link>
         </div>
       </form>
       </div>
