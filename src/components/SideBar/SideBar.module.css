@@ -13,7 +13,7 @@
 
 .sideBar h2 {
   margin-top: 10px;
-  color: #a57df8;
+  color: white;
 }
 
 .buttonContainer {
@@ -23,8 +23,8 @@
 }
 
 .buttonContainer button {
-  background-color: #4caf50; 
-  color: white; 
+  background-color: #89fc00; 
+  color: black; 
   padding: 10px;
   margin-bottom: 10px;
   border: none;

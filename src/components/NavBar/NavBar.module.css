@@ -84,7 +84,9 @@
   position: absolute;
   top: 55px;
   right: 0;
-  height: 15vh;
+  height: 10vh;
+  width: 12vw;
+  text-align: center;
 }
 
 .dropdown li {

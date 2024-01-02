@@ -44,7 +44,6 @@ const NavBar = ({ user, handleLogout }) => {
           {dropdownOpen && (
             <ul className={styles.dropdown}>
               <li><NavLink to="/profile">My Profile</NavLink></li>
-              <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
               <li onClick={handleLogout}>Log Out</li>
             </ul>
           )}
