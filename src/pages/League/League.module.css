@@ -80,7 +80,7 @@
   color: #1f618d;
 }
 
-noBlogsContainer {
+.noBlogsContainer {
   text-align: center;
   padding: 20px;
   background-color: #f8f8f8;
@@ -108,4 +108,18 @@ noBlogsContainer {
 
 .createBlogLink:hover {
   background-color: #2980b9;
+}
+
+.standingsLink {
+  text-decoration: none;
+  color: black;
+}
+
+.standingsLink:visited {
+  color: black;
+}
+
+.standingsLink:hover {
+  color: orange;
+  font-weight: bolder;
 }

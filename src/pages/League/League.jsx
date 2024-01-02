@@ -120,7 +120,7 @@ const League = (props) => {
     <div className={styles.leagueContainer}>
       <img src={logo} alt="" className={styles.logo} />
       <h1>{league.leagueName}</h1>
-      <Link to={`/league/${league._id}/standings`} state={{ standings }} >see standings</Link>
+      <Link to={`/league/${league._id}/standings`} state={{ standings }} className={styles.standingsLink}>League Standings</Link>
       <div className={styles.leagueBlogCards}>
         {leagueBlogs.length ? (
           leagueBlogs.map((blog) => (

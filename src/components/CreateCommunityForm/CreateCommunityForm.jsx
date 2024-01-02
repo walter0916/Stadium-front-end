@@ -28,18 +28,19 @@ const CreateCommunityForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Community Name:</label>
-        <input 
-          type="text"
-          required
-          name="teamName"
-          value={formData.teamName}
-          onChange={handleChange}
-        />
-        <button type="submit">Create</button>
-      </form>
-    </div>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <label className={styles.label}>Community Name:</label>
+      <input 
+        type="text"
+        required
+        name="teamName"
+        value={formData.teamName}
+        onChange={handleChange}
+        className={styles.input}
+      />
+      <button type="submit" className={styles.button}>Create</button>
+    </form>
+  </div>
   )
 }
 
