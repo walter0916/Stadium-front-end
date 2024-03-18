@@ -4,6 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 
 // services
 import * as profileService from '../../services/profileService'
@@ -42,7 +43,7 @@ const Dashboard = ({ user }) => {
 
   return (
     <main className={styles.container}>
-      <h1 className={styles.header}>{user ? `${user.name}'s` : "Friend's"} Dashboard</h1>
+      {/* <h1 className={styles.header}>{user ? `${user.name}'s` : "Friend's"} Dashboard</h1>
       <div className={styles.searchBarContainer}>
         <SearchBar />
       </div>
@@ -83,6 +84,65 @@ const Dashboard = ({ user }) => {
         </Link>
       </div>
         </div>
+      <div className={styles.trendingBlogs}>
+        <h1>Trending Blogs</h1>
+          <div className={styles.blogCards}>
+        {blogs.length ? blogs.map((blog) => (<Link to={`/league/${blog.league._id}/blog/${blog._id}`} key={blog._id} className={styles.blogCard}>
+          <img src={blog.photo} alt="" />
+          <h2>{blog.title}</h2>
+        </Link>)) : ''}
+          </div>
+      </div> */}
+      <div className={styles.headerContainer}>
+        <h1 className={styles.header}>Stadium</h1>
+      </div>
+      <div className={styles.leagueLinksContainer}>
+        <h1>Links To League Page</h1>
+      <div className={styles.interests}>
+        {profile.interests ? (
+          profile.interests.map((interest) => (
+            <LeagueCard key={interest._id} interest={interest} />           
+            ))
+            ) : (
+              <p>No interests available</p>
+              )}
+      </div>
+      </div>
+      <div className={styles.mainContainer}>
+      <div className={styles.communitiesNotificationContainer}>
+      <div className={styles.blogFormLink}>
+        <h1>Create a blog</h1>
+        <Link to={'/blog/new'}><FontAwesomeIcon icon={faPencilAlt} className={`${styles.pencil} fa-3x`} /></Link>
+      </div>
+      <div className={styles.notifications}>
+        <h1>Notifications</h1>
+        <Link to={'/profile'} className={styles.iconWrapper} data-number={unreadNotifications.length}>
+        <FontAwesomeIcon icon={['fas', 'bell']} className={styles.bell} />
+        </Link>
+      </div>
+      </div>
+      <div className={styles.communityContainer}>
+      <div className={styles.joinedCommunities}>
+        <h2>Joined Communities</h2>
+        {profile.joinedCommunities ? (
+          <ul className={styles.communitiesList}>
+            {profile.joinedCommunities.map((community) => (
+              <li key={community.id}>
+                <div className={styles.circle}>
+                  <Link to={`/community/${community._id}`}>{community.teamName}</Link>
+                </div>
+              </li>
+              ))}
+          </ul>
+        ) : (
+          <p>No communities joined</p>
+          )}
+      </div>
+      <div className={styles.searchBarContainer}>
+        <SearchBar />
+      </div>
+      </div>
+      </div>
       <div className={styles.trendingBlogs}>
         <h1>Trending Blogs</h1>
           <div className={styles.blogCards}>

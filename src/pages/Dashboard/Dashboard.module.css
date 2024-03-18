@@ -12,16 +12,19 @@
 
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-around;
   flex-direction: column;
-  margin: 0 auto;
   color: black;
-  height: 100vh;
+  height: max-content;
+  min-height: 100vh;
   width: 100vw;
-  background-color: gray;
-  padding: 20px;
+  background: url("https://i.imgur.com/U4iATLy.png");
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
   z-index: 998;
+  overflow-y: auto;
 }
 
 .header {
@@ -29,26 +32,53 @@
   position: relative;
   font-size: 75px;
   display: inline-block;
-  color: #a57df8;
-  -webkit-text-stroke: 1.5px black;
-  margin-top: 100px;
+  color: black;
+  -webkit-text-stroke: 1.5px white;
+  margin: 1px;
 }
 
+.headerContainer {
+  height: max-content;
+  width:100vw;
+  text-align: center;
+}
+
+.leagueLinksContainer {
+  font-family: 'sport-font', sans-serif;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
+  padding: 10px;
+  color: white;
+}
 
 .interests {
   display: flex;
-  width: 100%;
+  width: 95%;
   overflow-y: auto;
   background-color: white;
-  height: 200px;
+  height: 20vh;
+  max-height: 200px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .searchBarContainer {
-  margin-left: auto;
-  margin-top: -60px;
+  width: 50%;
+  height: 100%;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .searchBarContainer ul {
@@ -61,21 +91,6 @@
   margin: auto;
 }
 
-.secondContainer {
-  display: flex;
-  height: 400px;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 20px;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.trendingBlogs {
-  width: 50%;
-}
-
-.joinedCommunities,
 .notifications,
 .trendingBlogs,
 .blogFormLink {
@@ -95,11 +110,11 @@
 
 .joinedCommunities {
   height: 100% ;
-  padding: 20px;
-  background-color: #003049;
-  border-radius: 10px;
+  padding: 5px;
   color: white;
-  width: 50vw;
+  width: 50%;
+  overflow-y: auto;
+  text-align: center;
 }
 
 .notifications,
@@ -110,13 +125,16 @@
 }
 
 .notifications {
-  padding: 20px;
+  padding: 5px;
   background-color: #003049;
   border-radius: 10px;
   color: white;
-  height: 100%;
-  width: 20vw;
-  margin-left: 10px;
+  height: 70%;
+  width: 40%;
+}
+
+.notifications h1 {
+  color: white;
 }
 
 .communitiesNotificationContainer {
@@ -124,10 +142,12 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width: 100vw ;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  padding: 30px;
+  width: 45% ;
+  padding: 5px;
+  height: 35vh;
+  max-height: 300px;
+  background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
+  border-radius: 10px;
 }
 
 .communitiesList {
@@ -135,6 +155,8 @@
   text-align: center;
   padding: 0;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
 }
 
@@ -187,7 +209,6 @@
   content: attr(data-number);
   width: 40px; 
   height: 40px;
-  /* background-color: #89fc00; */
   background-color: #89fc00 ;
   color: black;
   display: grid;
@@ -228,22 +249,22 @@
 }
 
 .trendingBlogs {
-  color: #a57df8;
+  color: white;
   width: 100vw;
-  height: 55vh;
+  height: 40vh;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .trendingBlogs h1 {
   font-family: 'sport-font', sans-serif;
-  margin-top: 80px;
 }
 
 .blogCards {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   flex-wrap: nowrap;
+  justify-content: center;
   width: 100%;
   height: 90%;
   overflow-x: auto;
@@ -254,10 +275,10 @@
   background-color: transparent;
   color: white;
   width: 25vw;
-  min-width:400px;
+  min-width:200px;
   margin-left: 20px;
   margin-right: 20px;
-  height: max-content;
+  height: 80%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -278,7 +299,7 @@
 .blogCard img {
   width: 100%;
   margin-bottom: 0;
-  height: 400px;
+  height: 75%;
 }
 
 .blogCard h2 {
@@ -289,15 +310,13 @@
 
 .blogFormLink {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  /* background-color: #086788; */
+  justify-content: flex-start;
   background-color: #003049;
   color: white;
-  height: 100%;
-  width: 15vw;
-  left: 10px;
-  right: 5px;
+  height: 70%;
+  width: 40%;
   border-radius: 10px;
   text-align: center;
 }
@@ -311,4 +330,29 @@
 
 .blogFormLink a:visited{
   color: white;
+}
+
+.blogFormLink a:hover {
+  color: #89fc00
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: space-around;
+  margin-bottom: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.communityContainer {
+  display: flex;
+  background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
+  width: 40vw;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 10px;
+  height: 35vh;
+  max-height: 300px;
 }
