@@ -35,4 +35,15 @@ async function getStandings(standingId) {
   }
 }
 
-export { getAllLeagues, getLeagueById, getStandings }
+async function getFixtures(leagueId) {
+  try {
+    const res = await fetch(`${BASE_URL}/fixtures/${leagueId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export { getAllLeagues, getLeagueById, getStandings, getFixtures }

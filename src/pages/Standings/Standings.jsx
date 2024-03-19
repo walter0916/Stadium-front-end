@@ -27,7 +27,12 @@ const Standings = () => {
           <tbody>
             {flattenedStandings.map((standing) => (
               <tr key={standing.team.id} className={styles.standingRow}>
-                <td className={styles.cell}>{standing.team.name}</td>
+                <td className={styles.cell}>
+                  <div className={styles.teamLogo}>
+                    <img src={standing.team.logo} className={styles.logo} alt={standing.team.name} />
+                  </div>
+                  <span>{standing.team.name}</span>
+                </td>
                 <td className={styles.cell}>{standing.all.win}</td>
                 <td className={styles.cell}>{standing.all.draw}</td>
                 <td className={styles.cell}>{standing.all.lose}</td>
@@ -69,7 +74,12 @@ const Standings = () => {
             <tbody>
               {groupStandings.map((standing) => (
                 <tr key={standing.team.id} className={styles.standingRow}>
-                  <td className={styles.cell}>{standing.team.name}</td>
+                  <td className={styles.cell}>
+                    <div className={styles.teamLogo}>
+                      <img src={standing.team.logo} className={styles.logo} alt='Team logo' />
+                    </div>
+                    <span>{standing.team.name}</span>
+                  </td>
                   <td className={styles.cell}>{standing.all.win}</td>
                   <td className={styles.cell}>{standing.all.draw}</td>
                   <td className={styles.cell}>{standing.all.lose}</td>
