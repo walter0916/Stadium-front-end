@@ -99,4 +99,21 @@ async function getTeamInfo(formData) {
   }
 }
 
-export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile, getTeamInfo }
+async function addTeamToFavorites(formData) {
+  try {
+    const profileId = tokenService.getUserFromToken().profile
+    const res = await fetch(`${BASE_URL}/${profileId}/favoriteTeam`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile, getTeamInfo, addTeamToFavorites }

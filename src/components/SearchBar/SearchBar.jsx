@@ -34,8 +34,20 @@ const SearchBar = () => {
     }
   }
 
-  const handleAddToFavorites = (teamId) => {
-
+  const handleAddToFavorites = async (teamId) => {
+    const teamInfo = searchResults.find(result => result.team.id === teamId)
+    const teamFormData = {
+      teamId: teamInfo.team.id,
+      name: teamInfo.team.name,
+      logo: teamInfo.team.logo,
+      country: teamInfo.team.country,
+      founded: teamInfo.team.founded,
+      venueName: teamInfo.venue.name,
+      venueCity: teamInfo.venue.city,
+      venueCapacity: teamInfo.venue.capacity,
+      venueImage: teamInfo.venue.image,
+    }
+    await profileService.addTeamToFavorites(teamFormData)
   }
 
   return (
@@ -48,7 +60,7 @@ const SearchBar = () => {
           value={formData.teamName}
           onChange={handleChange}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className={styles.searchButton}>Search</button>
       </form>
       {error && <p className={styles.error}>{error}</p>}
       <ul className={styles.searchDropdown}>
