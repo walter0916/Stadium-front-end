@@ -71,9 +71,15 @@ const League = (props) => {
     <div className={styles.leagueContainer}>
       <img src={league.logo} alt="" className={styles.logo} />
       <h1>{league.name}</h1>
-      <Link to={`/league/${league._id}/standings`} state={{ standings }} className={styles.standingsLink}>League Standings</Link>
-      <Link to={`/league/${league._id}/fixtures`} state={{ fixtures }} className={styles.standingsLink}>League Fixtures</Link>
-      <Link to={`/league/${league._id}/playerStats`} state={{ leagueStats }} className={styles.standingsLink}>League Player Stats</Link>
+      {standings.length > 0 && (
+        <Link to={`/league/${league._id}/standings`} state={{ standings }} className={styles.standingsLink}>League Standings</Link>
+      )}
+      {fixtures.length > 0 && (
+        <Link to={`/league/${league._id}/fixtures`} state={{ fixtures }} className={styles.standingsLink}>League Fixtures</Link>
+      )}
+      {leagueStats.length > 0 && (
+        <Link to={`/league/${league._id}/playerStats`} state={{ leagueStats }} className={styles.standingsLink}>League Player Stats</Link>
+      )}
       <div className={styles.leagueBlogCards}>
         {leagueBlogs.length ? (
           leagueBlogs.map((blog) => (
