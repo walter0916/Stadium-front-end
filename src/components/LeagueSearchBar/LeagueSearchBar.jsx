@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 // services
 import * as leagueService from '../../services/leagueService'
+import * as profileService from '../../services/profileService'
 
 // styles
 import styles from './leagueSearchBar.module.css'
@@ -32,8 +33,15 @@ const LeagueSearchBar = () => {
     }
   }
 
-  const handleAddToFavorites = async (teamId) => {
-    const leagueInfo = searchResults.find(result => result.team.id === teamId)
+  const handleAddToFavorites = async (leagueId) => {
+    const leagueInfo = searchResults.find(result => result.league.id === leagueId)
+    const leagueFormData = {
+      leagueId: leagueInfo.league.id,
+      name: leagueInfo.league.name,
+      logo: leagueInfo.league.logo,
+      country: leagueInfo.country.name,
+    }
+    await profileService.addLeagueToInterests(leagueFormData)
   }
 
   return (
@@ -56,7 +64,7 @@ const LeagueSearchBar = () => {
             <img className={styles.logo} src={result.league.logo} alt={result.league.name} />
             {result.league.name}
           </div>
-          <button onClick={() => handleAddToFavorites(result.team.id)}>Add to Favorites</button>
+          <button onClick={() => handleAddToFavorites(result.league.id)}>Add to Favorites</button>
         </li>
       ))}
     </ul>
