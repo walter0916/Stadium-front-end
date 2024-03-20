@@ -14,6 +14,7 @@ import Blog from './pages/Blog/Blog'
 import Profile from './pages/Profile/Profile'
 import Standings from './pages/Standings/Standings'
 import Fixtures from './pages/Fixtures/Fixtures'
+import LeaguePlayerStats from './pages/LeaguePlayerStats/LeaguePlayerStats'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -104,6 +105,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <Fixtures user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/league/:leagueId/playerStats"
+          element={
+            <ProtectedRoute user={user}>
+              <LeaguePlayerStats user={user}/>
             </ProtectedRoute>
           }
         />

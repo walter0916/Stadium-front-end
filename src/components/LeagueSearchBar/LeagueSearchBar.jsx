@@ -12,7 +12,6 @@ const LeagueSearchBar = () => {
   const [searchResults, setSearchResults] = useState([])
   const [formData, setFormData] = useState({ leagueName: ''})
   const [error, setError] = useState('')
-  const [leagueInfo, setLeagueInfo] = useState(null)
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -45,30 +44,32 @@ const LeagueSearchBar = () => {
   }
 
   return (
-    <div className={styles.searchContainer}>
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Search league by name..."
-        name='leagueName'
-        value={formData.leagueName}
-        onChange={handleChange}
-      />
-      <button type="submit" className={styles.searchButton}>Search</button>
-    </form>
-    {error && <p className={styles.error}>{error}</p>}
-    <ul className={styles.searchDropdown}>
-      {searchResults.map((result) => (
-        <li key={result.league.id} className={styles.searchResultContainer}>
-          <div className={styles.teamInfo}>
-            <img className={styles.logo} src={result.league.logo} alt={result.league.name} />
-            {result.league.name}
-          </div>
-          <button onClick={() => handleAddToFavorites(result.league.id)}>Add to Favorites</button>
-        </li>
-      ))}
-    </ul>
-  </div>
+    <div className={styles.container}>
+      <div className={styles.searchContainer}>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Search league by name..."
+            name='leagueName'
+            value={formData.leagueName}
+            onChange={handleChange}
+          />
+          <button type="submit" className={styles.searchButton}>Search</button>
+        </form>
+        {error && <p className={styles.error}>{error}</p>}
+        <ul className={styles.searchDropdown}>
+          {searchResults.map((result) => (
+            <li key={result.league.id} className={styles.searchResultContainer}>
+              <div className={styles.teamInfo}>
+                <img className={styles.logo} src={result.league.logo} alt={result.league.name} />
+                {result.league.name}
+              </div>
+              <button onClick={() => handleAddToFavorites(result.league.id)}>Add to Favorites</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   )
 }
 

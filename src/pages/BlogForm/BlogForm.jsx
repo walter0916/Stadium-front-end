@@ -129,7 +129,7 @@ const BlogForm = () => {
           <option value="">Select League</option>
           {leagues.length ? (leagues.map(league => (
             <option value={league._id} key={league._id}>
-              {league.leagueName}
+              {league.name}
             </option>
           ))) : ''}
         </select>

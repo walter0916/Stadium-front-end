@@ -71,6 +71,7 @@ const League = (props) => {
       <h1>{league.name}</h1>
       <Link to={`/league/${league._id}/standings`} state={{ standings }} className={styles.standingsLink}>League Standings</Link>
       <Link to={`/league/${league._id}/fixtures`} state={{ fixtures }} className={styles.standingsLink}>League Fixtures</Link>
+      <Link to={`/league/${league._id}/playerStats`} state={{ fixtures }} className={styles.standingsLink}>League Player Stats</Link>
       <div className={styles.leagueBlogCards}>
         {leagueBlogs.length ? (
           leagueBlogs.map((blog) => (
