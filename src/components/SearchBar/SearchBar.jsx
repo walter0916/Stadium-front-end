@@ -1,57 +1,64 @@
 // npm modules
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 // services
-import * as communityService from '../../services/communityService'
 import * as profileService from '../../services/profileService'
 
 // styles
 import styles from './SearchBar.module.css'
 
-const SearchBar = (props) => {
-  const [searchQuery, setSearchQuery] = useState('')
+const SearchBar = () => {
   const [searchResults, setSearchResults] = useState([])
-  const [communities, setCommunities] = useState([])
+  const [formData, setFormData] = useState({
+    teamName: ''
+  })
+  const [error, setError] = useState('')
+  const [teamInfo, setTeamInfo] = useState(null)
 
-  useEffect(() => {
-    const fetchCommunities = async () => {
-      const data = await communityService.getAllCommunities()
-      setCommunities(data)
-    }
-    fetchCommunities()
-  }, [])
-
-
-  const handleSearchChange = (event) => {
-    const query = event.target.value
-    setSearchQuery(query)
-    if (query === '') {
-      setSearchResults([])
-      return
-    }
-    const filteredCommunities = communities.filter((community) =>
-      community.teamName.toLowerCase().includes(query.toLowerCase())
-    )
-    setSearchResults(filteredCommunities)
+  const handleChange = (evt) => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
-  const handleJoinCommunity = async (communityId) => {
-    await communityService.joinCommunity(communityId)
+
+  const handleSubmit = async(evt) => {
+    evt.preventDefault()
+    try {
+      const data = await profileService.getTeamInfo(formData)
+      if (data.response.length === 0) {
+        setError('No team found with that name.')
+      } else {
+        setSearchResults(data.response)
+        setError('')
+      }
+    } catch (error) {
+      setError('An error occurred while fetching team information.')
+    }
+  }
+
+  const handleAddToFavorites = (teamId) => {
+
   }
 
   return (
     <div className={styles.searchContainer}>
-      <input
-        type="text"
-        placeholder="Search communities..."
-        value={searchQuery}
-        onChange={handleSearchChange}
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search team by name..."
+          name='teamName'
+          value={formData.teamName}
+          onChange={handleChange}
+        />
+        <button type="submit">Search</button>
+      </form>
+      {error && <p className={styles.error}>{error}</p>}
       <ul className={styles.searchDropdown}>
         {searchResults.map((result) => (
-          <li key={result._id}>
-            <Link to={`/community/${result._id}`}>{result.teamName}</Link>
-            <button onClick={() => handleJoinCommunity(result._id)}>Join</button>
+          <li key={result.team.id} className={styles.searchResultContainer}>
+            <div className={styles.teamInfo}>
+              <img className={styles.logo} src={result.team.logo} alt={result.team.name} />
+              {result.team.name}
+            </div>
+            <button onClick={() => handleAddToFavorites(result.team.id)}>Add to Favorites</button>
           </li>
         ))}
       </ul>
@@ -60,4 +67,5 @@ const SearchBar = (props) => {
 }
 
 export default SearchBar
+
 
