@@ -83,6 +83,17 @@ async function getProfileById() {
   }
 }
 
+async function getUpcomingFixture(teamId) {
+  try {
+    const res = await fetch(`${BASE_URL}/getUpcomingFixtures/${teamId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
 async function getTeamInfo(formData) {
   try {
     const res = await fetch(`${BASE_URL}/getTeamInfo`, {
@@ -116,4 +127,4 @@ async function addTeamToFavorites(formData) {
   }
 }
 
-export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile, getTeamInfo, addTeamToFavorites }
+export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile, getTeamInfo, addTeamToFavorites, getUpcomingFixture}
