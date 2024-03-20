@@ -138,7 +138,7 @@ const Dashboard = ({ user }) => {
             {profile.joinedCommunities.map((community) => (
               <li key={community._id}>
                 <div className={styles.circle}>
-                  <Link to={`/community/${community._id}`}>{community.teamName}</Link>
+                  <Link to={`/community/${community._id}`}><img src={community.logo} alt={community.teamName} /></Link>
                 </div>
               </li>
               ))}

@@ -179,21 +179,6 @@
   color: black;
 }
 
-.circle {
-  width: 80px; 
-  height: 80px; 
-  background-color: white;
-  border-radius: 50%; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.circle:hover {
-  background-color: #89fc00;
-}
 
 
 .bell {

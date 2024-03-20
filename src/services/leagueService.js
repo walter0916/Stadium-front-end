@@ -46,4 +46,21 @@ async function getFixtures(leagueId) {
   }
 }
 
-export { getAllLeagues, getLeagueById, getStandings, getFixtures }
+
+async function getLeagueInfo(formData) {
+  try {
+    const res = await fetch(`${BASE_URL}/getLeagueInfo`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+export { getAllLeagues, getLeagueById, getStandings, getFixtures, getLeagueInfo }

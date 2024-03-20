@@ -19,6 +19,7 @@ import * as profileService from '../../services/profileService'
 
 // styles
 import styles from './Profile.module.css'
+import LeagueSearchBar from "../../components/LeagueSearchBar/LeagueSearchBar"
 
 const Profile = (props) => {
   const [profile, setProfile] = useState({})
@@ -44,7 +45,7 @@ const Profile = (props) => {
         {activeComponent === 'notifications' && <Notifications profile={profile}/>}
         {activeComponent === 'usersPosts' && <UsersPosts />}
         {activeComponent === 'usersBlogs' && <UsersBlogs />}
-        {activeComponent === 'interestForm' && <InterestForm profile={profile}/>}
+        {activeComponent === 'interestForm' && <LeagueSearchBar profile={profile}/>}
         {activeComponent === 'communitiesForm' && <CommunitiesHub profile={profile}/>}
         {activeComponent === 'profileOverview' && <ProfileOverview profile={profile}/>}
         {activeComponent === 'editProfile' && <EditProfileForm profile={profile}/>}

@@ -35,6 +35,7 @@ const Community = (props) => {
     <main>
       {community.communityMembers ? (
         <div className={styles.container}>
+          <img src={community.logo} alt="Team Logo" />
           <h1 className={styles.header}>{community.teamName}</h1>
           <p>Community Members: {community.communityMembers.length}</p>
           <PostForm handleAddPost={handleAddPost} />
