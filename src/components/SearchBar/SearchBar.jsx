@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom'
 
 // services
 import * as communityService from '../../services/communityService'
+import * as profileService from '../../services/profileService'
 
 // styles
 import styles from './SearchBar.module.css'
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [communities, setCommunities] = useState([])

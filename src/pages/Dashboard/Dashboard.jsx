@@ -139,7 +139,7 @@ const Dashboard = ({ user }) => {
           )}
       </div>
       <div className={styles.searchBarContainer}>
-        <SearchBar />
+        <SearchBar user={user} />
       </div>
       </div>
       </div>

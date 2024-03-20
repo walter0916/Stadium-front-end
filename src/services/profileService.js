@@ -83,4 +83,20 @@ async function getProfileById() {
   }
 }
 
-export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile }
+async function getTeamInfo(formData) {
+  try {
+    const res = await fetch(`${BASE_URL}/getTeamInfo`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile, getTeamInfo }
