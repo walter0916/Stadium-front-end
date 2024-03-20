@@ -46,6 +46,17 @@ async function getFixtures(leagueId) {
   }
 }
 
+async function getLeagueStats(leagueId) {
+  try {
+    const res = await fetch(`${BASE_URL}/leagueStats/${leagueId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 
 async function getLeagueInfo(formData) {
   try {
@@ -63,4 +74,4 @@ async function getLeagueInfo(formData) {
   }
 }
 
-export { getAllLeagues, getLeagueById, getStandings, getFixtures, getLeagueInfo }
+export { getAllLeagues, getLeagueById, getStandings, getFixtures, getLeagueInfo, getLeagueStats }
