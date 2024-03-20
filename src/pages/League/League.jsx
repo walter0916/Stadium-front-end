@@ -15,65 +15,12 @@ import styles from './League.module.css'
 // components
 import BlogCard from "../../components/BlogCard/BlogCard"
 
-// images
-import laliga from '../../assets/laliga.svg'
-import premierLeagueLogo from '../../assets/premier-league.svg'
-import serieALogo from '../../assets/serieA.svg'
-import bundesligaLogo from '../../assets/bundesliga.svg'
-import mlsLogo from '../../assets/mls.svg'
-import ligue1Logo from '../../assets/ligue-1.svg'
-import europaLogo from '../../assets/europa.svg'
-import championsLogo from '../../assets/champions.svg'
-
 const League = (props) => {
   const { leagueId } = useParams()
   const [league, setLeague] = useState({})
   const [leagueBlogs, setLeagueBlogs] = useState({})
   const [standings, setStandings] = useState({})
   const [fixtures, setFixtures] = useState({})
-
-  let logo = null
-  let standingsId = null
-
-  if (league.leagueName && typeof league.leagueName === 'string') {
-    switch (league.leagueName.toLowerCase()) {
-      case 'laliga':
-        logo = laliga
-        standingsId = 140
-        break
-      case 'premier league':
-        logo = premierLeagueLogo
-        standingsId = 39
-        break
-      case 'serie a':
-        logo = serieALogo
-        standingsId = 71
-        break
-      case 'bundesliga':
-        logo = bundesligaLogo
-        standingsId = 78
-        break
-      case 'mls':
-        logo = mlsLogo
-        standingsId = 253
-        break
-      case 'ligue 1':
-        logo = ligue1Logo
-        standingsId = 61
-        break
-      case 'champions league':
-        logo = championsLogo
-        standingsId = 2
-        break
-      case 'europa league':
-        logo = europaLogo
-        standingsId = 3
-        break
-      default:
-        logo = laliga
-        break
-    }
-  }
 
 
   useEffect(() => {
@@ -90,18 +37,16 @@ const League = (props) => {
 
   useEffect(() => {
     const fetchLeagueInfo = async () => {
-      if (standingsId !== null) {
-        const standingsData = await leagueService.getStandings(standingsId)
+        const standingsData = await leagueService.getStandings(league.leagueId)
         const filteredData = standingsData.response[0].league.standings
-        const fixturesData = await leagueService.getFixtures(standingsId)
+        const fixturesData = await leagueService.getFixtures(league.leagueId)
         const filteredFixtures = fixturesData.response
         setFixtures(filteredFixtures)
         setStandings(filteredData)
-      }
     }
 
     fetchLeagueInfo()
-  }, [standingsId])
+  }, [league.leagueId])
 
 
   const handleAddComment = async (blogId, blogFormData) => {
@@ -122,8 +67,8 @@ const League = (props) => {
 
   return (
     <div className={styles.leagueContainer}>
-      <img src={logo} alt="" className={styles.logo} />
-      <h1>{league.leagueName}</h1>
+      <img src={league.logo} alt="" className={styles.logo} />
+      <h1>{league.name}</h1>
       <Link to={`/league/${league._id}/standings`} state={{ standings }} className={styles.standingsLink}>League Standings</Link>
       <Link to={`/league/${league._id}/fixtures`} state={{ fixtures }} className={styles.standingsLink}>League Fixtures</Link>
       <div className={styles.leagueBlogCards}>
