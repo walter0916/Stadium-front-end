@@ -1,0 +1,75 @@
+.fixturesContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+  overflow-y: auto;
+  gap: 10px;
+  padding:10px;
+}
+
+.fixtureCard {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 10px;
+  height: 10vh;
+}
+
+.fixtureDate {
+  font-size: .8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.teamContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.awayTeam {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 30%;
+}
+.homeTeam {
+  display: flex;
+  align-items: flex-start;
+  width: 30%;
+  justify-content: center;
+}
+
+.awayTeamName {
+  width: max-content;
+  text-align: right;
+  flex-grow: 1;
+}
+
+.homeTeamName {
+  width: max-content;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.teamLogo {
+  width: 30px; 
+  height: auto;
+}
+
+.scoreContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+}
+
+.teamScore {
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.scoreSeparator {
+  font-weight: bold;
+}

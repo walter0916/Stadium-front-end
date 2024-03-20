@@ -14,6 +14,7 @@ import * as blogsService from '../../services/blogService'
 // components
 import LeagueCard from '../../components/LeagueCard/LeagueCard'
 import SearchBar from '../../components/SearchBar/SearchBar'
+import FavoriteTeamsFixtures from '../../components/FavoriteTeamsFixtures/FavoriteTeamsFixtures'
 
 // styles
 import styles from './Dashboard.module.css'
@@ -22,6 +23,7 @@ const Dashboard = ({ user }) => {
   const profileId = user.profile
   const [profile, setProfile] = useState([])
   const [blogs, setBlogs] = useState([])
+  const [teamIds, setTeamIds] = useState([])
   const [unreadNotifications, setUnreadNotifications] = useState([])
   library.add(fas)
 
@@ -29,6 +31,8 @@ const Dashboard = ({ user }) => {
     const fetchLeagues = async () => {
       const profileData = await profileService.getProfileById(profileId)
       setProfile(profileData)
+      const favoriteTeamData = profileData.favoriteTeams.map(team => team.teamId )
+      setTeamIds(favoriteTeamData)
       const notificationsData = await notificationsService.getUserNotifications(profileId)
       const unreadNotifications = notificationsData.filter(notification => !notification.read)
       setUnreadNotifications(unreadNotifications)
@@ -109,8 +113,8 @@ const Dashboard = ({ user }) => {
       </div>
       </div>
       <div className={styles.mainContainer}>
-      <div className={styles.communitiesNotificationContainer}>
-      <div className={styles.blogFormLink}>
+      <div className={styles.upcomingFixturesContainer}>
+      {/* <div className={styles.blogFormLink}>
         <h1>Create a blog</h1>
         <Link to={'/blog/new'}><FontAwesomeIcon icon={faPencilAlt} className={`${styles.pencil} fa-3x`} /></Link>
       </div>
@@ -119,7 +123,12 @@ const Dashboard = ({ user }) => {
         <Link to={'/profile'} className={styles.iconWrapper} data-number={unreadNotifications.length}>
         <FontAwesomeIcon icon={['fas', 'bell']} className={styles.bell} />
         </Link>
-      </div>
+      </div> */}
+      <h2>Upcoming Fixtures</h2>
+      <FavoriteTeamsFixtures 
+        teamIds={teamIds} 
+        user={user}
+      />
       </div>
       <div className={styles.communityContainer}>
       <div className={styles.joinedCommunities}>
@@ -127,7 +136,7 @@ const Dashboard = ({ user }) => {
         {profile.joinedCommunities ? (
           <ul className={styles.communitiesList}>
             {profile.joinedCommunities.map((community) => (
-              <li key={community.id}>
+              <li key={community._id}>
                 <div className={styles.circle}>
                   <Link to={`/community/${community._id}`}>{community.teamName}</Link>
                 </div>
