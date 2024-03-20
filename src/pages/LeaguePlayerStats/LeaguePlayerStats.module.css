@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.TopScorersList {
+  padding: 0;
+  width: 30%;
+}
+
+.PlayerStatsItem {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  counter-increment: list-counter;
+  position: relative; 
+}
+
+.PlayerStatsItem::before {
+  content: counter(list-counter); 
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.PlayerPhoto {
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.PlayerName {
+  font-weight: bold;
+}
+
+.PlayerGoals {
+  color: #007bff;
+}
+

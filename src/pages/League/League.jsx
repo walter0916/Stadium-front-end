@@ -21,7 +21,7 @@ const League = (props) => {
   const [leagueBlogs, setLeagueBlogs] = useState({})
   const [standings, setStandings] = useState({})
   const [fixtures, setFixtures] = useState({})
-
+  const [leagueStats, setLeagueStats] = useState({})
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -41,8 +41,10 @@ const League = (props) => {
         const filteredData = standingsData.response[0].league.standings
         const fixturesData = await leagueService.getFixtures(league.leagueId)
         const filteredFixtures = fixturesData.response
+        const leagueStatsData = await leagueService.getLeagueStats(league.leagueId)
         setFixtures(filteredFixtures)
         setStandings(filteredData)
+        setLeagueStats(leagueStatsData)
     }
 
     fetchLeagueInfo()
@@ -71,7 +73,7 @@ const League = (props) => {
       <h1>{league.name}</h1>
       <Link to={`/league/${league._id}/standings`} state={{ standings }} className={styles.standingsLink}>League Standings</Link>
       <Link to={`/league/${league._id}/fixtures`} state={{ fixtures }} className={styles.standingsLink}>League Fixtures</Link>
-      <Link to={`/league/${league._id}/playerStats`} state={{ fixtures }} className={styles.standingsLink}>League Player Stats</Link>
+      <Link to={`/league/${league._id}/playerStats`} state={{ leagueStats }} className={styles.standingsLink}>League Player Stats</Link>
       <div className={styles.leagueBlogCards}>
         {leagueBlogs.length ? (
           leagueBlogs.map((blog) => (
