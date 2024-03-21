@@ -46,9 +46,9 @@ async function getFixtures(leagueId, year) {
   }
 }
 
-async function getLeagueStats(leagueId) {
+async function getLeagueStats(leagueId, year) {
   try {
-    const res = await fetch(`${BASE_URL}/leagueStats/${leagueId}`, {
+    const res = await fetch(`${BASE_URL}/leagueStats/${leagueId}/${year}`, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
     return await res.json()

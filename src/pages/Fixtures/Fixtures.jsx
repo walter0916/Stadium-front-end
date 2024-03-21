@@ -26,7 +26,7 @@ const Fixtures = () => {
       setFixtures(sortedFixtures)
     }
     fetchFixtures()
-  },[leagueId])
+  },[leagueId, selectedSeason])
 
 
   const formatDate = (date) => moment(date).format("MMMM Do YYYY")
@@ -51,11 +51,6 @@ const Fixtures = () => {
   const handleSeasonChange = async (e) => {
     const selectedYear = parseInt(e.target.value)
     setSelectedSeason(selectedYear)
-    const fixturesData = await leagueService.getFixtures(leagueId, selectedYear)
-    const sortedFixtures = fixturesData.response.sort((a, b) =>
-      moment(a.fixture.date).diff(moment(b.fixture.date))
-      )
-    setFixtures(sortedFixtures)
   }
 
   return (
@@ -70,7 +65,7 @@ const Fixtures = () => {
       <div className={styles.fixturesContainer}>
         {fixtures.map((fixture, index) => (
           <div 
-            key={fixture._id}
+            key={fixture.fixture.id}
             id={`fixture_${index}`}
             className={styles.fixtureCard}
           >

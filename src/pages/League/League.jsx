@@ -65,9 +65,7 @@ const League = (props) => {
       <h1>{league.name}</h1>
       <Link to={`/league/${league._id}/standings`} state={{ league }} className={styles.standingsLink}>League Standings</Link>
       <Link to={`/league/${league._id}/fixtures`} state={{ league }} className={styles.standingsLink}>League Fixtures</Link>
-      {leagueStats.length > 0 && (
-        <Link to={`/league/${league._id}/playerStats`} state={{ leagueStats }} className={styles.standingsLink}>League Player Stats</Link>
-      )}
+      <Link to={`/league/${league._id}/playerStats`} state={{ league }} className={styles.standingsLink}>League Player Stats</Link>
       <div className={styles.leagueBlogCards}>
         {leagueBlogs.length ? (
           leagueBlogs.map((blog) => (
