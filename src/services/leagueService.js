@@ -35,9 +35,9 @@ async function getStandings(standingId) {
   }
 }
 
-async function getFixtures(leagueId) {
+async function getFixtures(leagueId, year) {
   try {
-    const res = await fetch(`${BASE_URL}/fixtures/${leagueId}`, {
+    const res = await fetch(`${BASE_URL}/fixtures/${leagueId}/${year}`, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
     return await res.json()

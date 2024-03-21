@@ -22,7 +22,8 @@
   height: max-content;
   min-height: 100vh;
   width: 100vw;
-  background: url("https://i.imgur.com/U4iATLy.png");
+  /* background: url("https://i.imgur.com/U4iATLy.png"); */
+  background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
   background-size: cover;
   background-position: center;
   padding: 10px;
@@ -150,6 +151,7 @@
   height: 35vh;
   max-height: 300px;
   background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
 }
 

@@ -74,9 +74,7 @@ const League = (props) => {
       {standings.length > 0 && (
         <Link to={`/league/${league._id}/standings`} state={{ standings }} className={styles.standingsLink}>League Standings</Link>
       )}
-      {fixtures.length > 0 && (
-        <Link to={`/league/${league._id}/fixtures`} state={{ fixtures }} className={styles.standingsLink}>League Fixtures</Link>
-      )}
+        <Link to={`/league/${league._id}/fixtures`} state={{ league }} className={styles.standingsLink}>League Fixtures</Link>
       {leagueStats.length > 0 && (
         <Link to={`/league/${league._id}/playerStats`} state={{ leagueStats }} className={styles.standingsLink}>League Player Stats</Link>
       )}
