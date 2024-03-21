@@ -2,6 +2,7 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import moment from 'moment'
+import { Link } from 'react-router-dom'
 
 // styles 
 import styles from './Standings.module.css'
@@ -60,7 +61,9 @@ const Standings = () => {
                     <div className={styles.teamLogo}>
                       <img src={standing.team.logo} className={styles.logo} alt={standing.team.name} />
                     </div>
-                    <span>{standing.team.name}</span>
+                    <Link to={`/league/${leagueId}/${standing.team.id}/statistics`} className={styles.link}>
+                      {standing.team.name}
+                    </Link>
                   </td>
                   <td className={styles.cell}>{standing.all.win}</td>
                   <td className={styles.cell}>{standing.all.draw}</td>

@@ -70,6 +70,7 @@ const LeagueFixtures = () => {
             className={styles.fixtureCard}
           >
             <p className={styles.fixtureDate}> {formatDate(fixture.fixture.date)}</p>
+            <p>{fixture.fixture.status.short}</p>
             <div className={styles.teamContainer}>
               <div className={styles.awayTeam}>
                 <span className={styles.awayTeamName}>{fixture.teams.away.name}</span>

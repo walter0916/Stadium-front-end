@@ -39,7 +39,9 @@ const Community = (props) => {
           <img src={community.logo} alt="Team Logo" />
           <h1 className={styles.header}>{community.teamName}</h1>
           <p>Community Members: {community.communityMembers.length}</p>
-          <Link to={`/team/${community.teamId}/fixtures`} className={styles.link}>League Standings</Link>
+          <Link to={`/team/${community.teamId}/fixtures`} className={styles.link}>
+            Team Fixtures
+          </Link>
           <PostForm handleAddPost={handleAddPost} />
           {community.posts.length ? (
             community.posts.map((post) => <PostCard key={post._id} post={post} communityId={communityId} user={props.user} />)

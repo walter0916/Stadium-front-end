@@ -24,13 +24,13 @@ const LeaguePlayerStats = () => {
     fetchLeaguePlayerStats()
   },[leagueId, selectedSeason])
 
-  if (leagueStats.length === 0) {
-    return <div className={styles.container}>Loading...</div>;
-  }
-
+  
   const handleSeasonChange = async (e) => {
     const selectedYear = parseInt(e.target.value)
     setSelectedSeason(selectedYear)
+  }
+  if (leagueStats.length === 0) {
+    return <div className={styles.container}>Loading...</div>;
   }
 
   return (
