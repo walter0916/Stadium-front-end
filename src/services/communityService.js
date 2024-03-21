@@ -71,5 +71,15 @@ async function createCommunity(communityFormData) {
   }
 }
 
+async function getTeamFixtures(teamId, year) {
+  try {
+    const res = await fetch(`${BASE_URL}/${teamId}/${year}/fixtures`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
 
-export { getAllCommunities, getCommunityById, leaveCommunity, joinCommunity, createCommunity }
+export { getAllCommunities, getCommunityById, leaveCommunity, joinCommunity, createCommunity, getTeamFixtures }
