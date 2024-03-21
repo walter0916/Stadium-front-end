@@ -16,6 +16,7 @@ import Standings from './pages/Standings/Standings'
 import LeagueFixtures from './pages/LeagueFixtures/LeagueFixtures'
 import LeaguePlayerStats from './pages/LeaguePlayerStats/LeaguePlayerStats'
 import TeamFixtures from './pages/TeamFixtures/TeamFixtures'
+import TeamStatistics from './pages/TeamStatistics/TeamStatistics'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -106,6 +107,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <LeagueFixtures user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/league/:leagueId/:teamId/statistics"
+          element={
+            <ProtectedRoute user={user}>
+              <TeamStatistics user={user}/>
             </ProtectedRoute>
           }
         />

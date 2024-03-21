@@ -110,16 +110,16 @@
   background-color: #2980b9;
 }
 
-.standingsLink {
+.link {
   text-decoration: none;
   color: black;
 }
 
-.standingsLink:visited {
+.link:visited {
   color: black;
 }
 
-.standingsLink:hover {
+.link:hover {
   color: orange;
   font-weight: bolder;
 }
