@@ -1,6 +1,7 @@
 // npm modules
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // services
 import * as communityService from '../../services/communityService'
@@ -38,6 +39,7 @@ const Community = (props) => {
           <img src={community.logo} alt="Team Logo" />
           <h1 className={styles.header}>{community.teamName}</h1>
           <p>Community Members: {community.communityMembers.length}</p>
+          <Link to={`/team/${community.teamId}/fixtures`} className={styles.standingsLink}>League Standings</Link>
           <PostForm handleAddPost={handleAddPost} />
           {community.posts.length ? (
             community.posts.map((post) => <PostCard key={post._id} post={post} communityId={communityId} user={props.user} />)
