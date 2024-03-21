@@ -13,8 +13,9 @@ import BlogComments from './pages/BlogComments/BlogComments'
 import Blog from './pages/Blog/Blog'
 import Profile from './pages/Profile/Profile'
 import Standings from './pages/Standings/Standings'
-import Fixtures from './pages/Fixtures/Fixtures'
+import LeagueFixtures from './pages/LeagueFixtures/LeagueFixtures'
 import LeaguePlayerStats from './pages/LeaguePlayerStats/LeaguePlayerStats'
+import TeamFixtures from './pages/TeamFixtures/TeamFixtures'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -104,7 +105,15 @@ function App() {
           path="/league/:leagueId/fixtures"
           element={
             <ProtectedRoute user={user}>
-              <Fixtures user={user}/>
+              <LeagueFixtures user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/team/:teamId/fixtures"
+          element={
+            <ProtectedRoute user={user}>
+              <TeamFixtures user={user}/>
             </ProtectedRoute>
           }
         />

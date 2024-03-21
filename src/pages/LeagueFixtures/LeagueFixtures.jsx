@@ -4,12 +4,12 @@ import { useEffect, useState } from "react"
 import moment from "moment"
 
 // styles
-import styles from './Fixtures.module.css'
+import styles from './LeagueFixtures.module.css'
 
 // services
 import * as leagueService from '../../services/leagueService'
 
-const Fixtures = () => {
+const LeagueFixtures = () => {
   const location = useLocation()
   const leagueId = location.state?.league.leagueId
   const [fixtures, setFixtures] = useState([])
@@ -92,4 +92,4 @@ const Fixtures = () => {
   )
 }
 
-export default Fixtures
+export default LeagueFixtures
