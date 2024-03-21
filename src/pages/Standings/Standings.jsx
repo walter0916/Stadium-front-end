@@ -1,53 +1,83 @@
 // npm modules
 import { useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import moment from 'moment'
 
 // styles 
 import styles from './Standings.module.css'
 
+// services
+import * as leagueService from '../../services/leagueService'
+
 const Standings = () => {
   const location = useLocation()
-  const standingsData = location.state?.standings
-  const flattenedStandings = standingsData.flat()
+  const leagueId = location.state?.league.leagueId
+  const [standings, setStandings] = useState([])
+  const [selectedSeason, setSelectedSeason] = useState(moment().year()-1)
 
-  if (flattenedStandings.length <= 30) {
+  useEffect(() => {
+    const fetchStandings = async () => {
+      const standingsData = await leagueService.getStandings(leagueId, selectedSeason)
+      const filteredData = standingsData.response[0].league.standings
+      const flattenedStandings = filteredData.flat()
+      setStandings(flattenedStandings)
+    }
+    fetchStandings()
+  },[leagueId, selectedSeason])
+
+  const handleSeasonChange = async (e) => {
+    const selectedYear = parseInt(e.target.value)
+    setSelectedSeason(selectedYear)
+  }
+
+  if (standings.length <= 30) {
     return (
-      <div className={styles.standingsContainer}>
-        <table className={styles.standingsTable}>
-          <thead>
-            <tr>
-              <th className={styles.headerCell}>Team</th>
-              <th className={styles.headerCell}>Wins</th>
-              <th className={styles.headerCell}>Draws</th>
-              <th className={styles.headerCell}>Losses</th>
-              <th className={styles.headerCell}>Goals Scored</th>
-              <th className={styles.headerCell}>Goals Allowed</th>
-              <th className={styles.headerCell}>Goal Differential</th>
-            </tr>
-          </thead>
-          <tbody>
-            {flattenedStandings.map((standing) => (
-              <tr key={standing.team.id} className={styles.standingRow}>
-                <td className={styles.cell}>
-                  <div className={styles.teamLogo}>
-                    <img src={standing.team.logo} className={styles.logo} alt={standing.team.name} />
-                  </div>
-                  <span>{standing.team.name}</span>
-                </td>
-                <td className={styles.cell}>{standing.all.win}</td>
-                <td className={styles.cell}>{standing.all.draw}</td>
-                <td className={styles.cell}>{standing.all.lose}</td>
-                <td className={styles.cell}>{standing.all.goals.for}</td>
-                <td className={styles.cell}>{standing.all.goals.against}</td>
-                <td className={styles.cell}>{standing.goalsDiff}</td>
+      <div className={styles.mainContainer}>
+        <select value={selectedSeason} onChange={handleSeasonChange}>
+          {Array.from({ length: moment().year() - 2000 + 1 }, (_, index) => (
+            <option key={index} value={moment().year() - index}>
+              {moment().year() - index}
+            </option>
+          ))}
+        </select>
+        <div className={styles.standingsContainer}>
+          <table className={styles.standingsTable}>
+            <thead>
+              <tr>
+                <th className={styles.headerCell}>Team</th>
+                <th className={styles.headerCell}>Wins</th>
+                <th className={styles.headerCell}>Draws</th>
+                <th className={styles.headerCell}>Losses</th>
+                <th className={styles.headerCell}>Goals Scored</th>
+                <th className={styles.headerCell}>Goals Allowed</th>
+                <th className={styles.headerCell}>Goal Differential</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {standings.map((standing) => (
+                <tr key={standing.team.id} className={styles.standingRow}>
+                  <td className={styles.cell}>
+                    <div className={styles.teamLogo}>
+                      <img src={standing.team.logo} className={styles.logo} alt={standing.team.name} />
+                    </div>
+                    <span>{standing.team.name}</span>
+                  </td>
+                  <td className={styles.cell}>{standing.all.win}</td>
+                  <td className={styles.cell}>{standing.all.draw}</td>
+                  <td className={styles.cell}>{standing.all.lose}</td>
+                  <td className={styles.cell}>{standing.all.goals.for}</td>
+                  <td className={styles.cell}>{standing.all.goals.against}</td>
+                  <td className={styles.cell}>{standing.goalsDiff}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     )
   }
 
-  const standingsByGroup = flattenedStandings.reduce((acc, standing) => {
+  const standingsByGroup = standings.reduce((acc, standing) => {
     const groupName = standing.group || 'Other'
     acc[groupName] = acc[groupName] || []
     acc[groupName].push(standing)
@@ -56,6 +86,13 @@ const Standings = () => {
 
   return (
     <div>
+      <select value={selectedSeason} onChange={handleSeasonChange}>
+        {Array.from({ length: moment().year() - 2000 + 1 }, (_, index) => (
+          <option key={index} value={moment().year() - index}>
+            {moment().year() - index}
+          </option>
+        ))}
+      </select>
       {Object.entries(standingsByGroup).map(([groupName, groupStandings]) => (
         <div key={groupName} className={styles.standingsContainer}>
           <h2>{groupName}</h2>

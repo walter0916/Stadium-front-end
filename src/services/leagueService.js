@@ -24,9 +24,9 @@ async function getLeagueById(leagueId) {
   }
 }
 
-async function getStandings(standingId) {
+async function getStandings(standingId, year) {
   try {
-    const res = await fetch(`${BASE_URL}/standings/${standingId}`, {
+    const res = await fetch(`${BASE_URL}/standings/${standingId}/${year}`, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
     return await res.json()
