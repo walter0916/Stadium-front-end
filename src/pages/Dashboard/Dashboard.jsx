@@ -24,7 +24,6 @@ const Dashboard = ({ user }) => {
   const [profile, setProfile] = useState([])
   const [blogs, setBlogs] = useState([])
   const [teamIds, setTeamIds] = useState([])
-  const [unreadNotifications, setUnreadNotifications] = useState([])
   library.add(fas)
 
   useEffect(() => {
@@ -33,9 +32,6 @@ const Dashboard = ({ user }) => {
       setProfile(profileData)
       const favoriteTeamData = profileData.favoriteTeams.map(team => team.teamId )
       setTeamIds(favoriteTeamData)
-      const notificationsData = await notificationsService.getUserNotifications(profileId)
-      const unreadNotifications = notificationsData.filter(notification => !notification.read)
-      setUnreadNotifications(unreadNotifications)
       const blogsData = await blogsService.getAllBlogs()
       blogsData.sort((a, b) => b.likes - a.likes || new Date(b.createdAt) - new Date(a.createdAt))
       const topTrendingBlogs = blogsData.slice(0, 4)
@@ -80,15 +76,17 @@ const Dashboard = ({ user }) => {
         user={user}
       />
       </div>
-      <div className={styles.communityContainer}>
+      <div className={styles.communityPlayerContainer}>
       <div className={styles.joinedCommunities}>
         <h2>Joined Communities</h2>
         {profile.joinedCommunities ? (
           <ul className={styles.communitiesList}>
             {profile.joinedCommunities.map((community) => (
               <li key={community._id}>
-                <div className={styles.circle}>
-                  <Link to={`/community/${community._id}`}><img src={community.logo} alt={community.teamName} /></Link>
+                <div>
+                  <Link to={`/community/${community._id}`}>
+                    <img src={community.logo} alt={community.teamName} className={styles.circle} />
+                  </Link>
                 </div>
               </li>
               ))}
@@ -97,8 +95,23 @@ const Dashboard = ({ user }) => {
           <p>No communities joined</p>
           )}
       </div>
-      <div className={styles.searchBarContainer}>
-        <TeamSearchBar user={user} />
+      <div className={styles.favoritePlayers}>
+        <h2>Favorite Players</h2>
+        {profile.joinedCommunities ? (
+          <ul className={styles.favoritePlayersList}>
+            {profile.favoritePlayers.map((player) => (
+              <li key={player._id}>
+                <div>
+                  <Link to={`/community/${player._id}`}>
+                    <img  src={player.photo} alt={player.name} className={styles.circle} />
+                  </Link>
+                </div>
+              </li>
+              ))}
+          </ul>
+        ) : (
+          <p>No favorite players added</p>
+          )}
       </div>
       </div>
       </div>
