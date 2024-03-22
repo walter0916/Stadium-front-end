@@ -13,7 +13,6 @@ const TeamSearchBar = () => {
     teamName: ''
   })
   const [error, setError] = useState('')
-  const [teamInfo, setTeamInfo] = useState(null)
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })

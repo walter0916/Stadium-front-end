@@ -14,6 +14,7 @@ import ProfileOverview from "../../components/ProfileOverview/ProfileOverview"
 import EditProfileForm from "../../components/EditProfileForm/EditProfileForm"
 import LeagueSearchBar from "../../components/LeagueSearchBar/LeagueSearchBar"
 import TeamSearchBar from "../../components/TeamSearchBar/TeamSearchBar"
+import PlayerSearchBar from "../../components/PlayerSearchBar/PlayerSearchBar"
 
 // services
 import * as profileService from '../../services/profileService'
@@ -46,6 +47,7 @@ const Profile = (props) => {
         {activeComponent === 'usersPosts' && <UsersPosts />}
         {activeComponent === 'usersBlogs' && <UsersBlogs />}
         {activeComponent === 'interestForm' && <LeagueSearchBar profile={profile}/>}
+        {activeComponent === 'playerForm' && <PlayerSearchBar profile={profile}/>}
         {activeComponent === 'teamForm' && <TeamSearchBar profile={profile}/>}
         {activeComponent === 'communitiesForm' && <CommunitiesHub profile={profile}/>}
         {activeComponent === 'profileOverview' && <ProfileOverview profile={profile}/>}

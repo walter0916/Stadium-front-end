@@ -110,6 +110,22 @@ async function getTeamInfo(formData) {
   }
 }
 
+async function getPlayerInfo(formData, teamId, year) {
+  try {
+    const res = await fetch(`${BASE_URL}/getPlayerInfo/${teamId}/${year}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
 async function addTeamToFavorites(formData) {
   try {
     const profileId = tokenService.getUserFromToken().profile
@@ -144,4 +160,4 @@ async function addLeagueToInterests(formData) {
   }
 }
 
-export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile, getTeamInfo, addTeamToFavorites, getUpcomingFixture, addLeagueToInterests}
+export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile, getTeamInfo, addTeamToFavorites, getUpcomingFixture, addLeagueToInterests, getPlayerInfo}
