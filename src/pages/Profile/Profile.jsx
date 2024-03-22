@@ -12,13 +12,14 @@ import UsersBlogs from "../../components/UsersBlogs/UsersBlogs"
 import CommunitiesHub from "../../components/CommuntiesHub/CommunitiesHub"
 import ProfileOverview from "../../components/ProfileOverview/ProfileOverview"
 import EditProfileForm from "../../components/EditProfileForm/EditProfileForm"
+import LeagueSearchBar from "../../components/LeagueSearchBar/LeagueSearchBar"
+import TeamSearchBar from "../../components/TeamSearchBar/TeamSearchBar"
 
 // services
 import * as profileService from '../../services/profileService'
 
 // styles
 import styles from './Profile.module.css'
-import LeagueSearchBar from "../../components/LeagueSearchBar/LeagueSearchBar"
 
 const Profile = (props) => {
   const [profile, setProfile] = useState({})
@@ -45,6 +46,7 @@ const Profile = (props) => {
         {activeComponent === 'usersPosts' && <UsersPosts />}
         {activeComponent === 'usersBlogs' && <UsersBlogs />}
         {activeComponent === 'interestForm' && <LeagueSearchBar profile={profile}/>}
+        {activeComponent === 'teamForm' && <TeamSearchBar profile={profile}/>}
         {activeComponent === 'communitiesForm' && <CommunitiesHub profile={profile}/>}
         {activeComponent === 'profileOverview' && <ProfileOverview profile={profile}/>}
         {activeComponent === 'editProfile' && <EditProfileForm profile={profile}/>}

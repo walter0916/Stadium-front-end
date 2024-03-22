@@ -5,9 +5,9 @@ import { useState } from 'react'
 import * as profileService from '../../services/profileService'
 
 // styles
-import styles from './SearchBar.module.css'
+import styles from './TeamSearchBar.module.css'
 
-const SearchBar = () => {
+const TeamSearchBar = () => {
   const [searchResults, setSearchResults] = useState([])
   const [formData, setFormData] = useState({
     teamName: ''
@@ -78,6 +78,6 @@ const SearchBar = () => {
   )
 }
 
-export default SearchBar
+export default TeamSearchBar
 
 

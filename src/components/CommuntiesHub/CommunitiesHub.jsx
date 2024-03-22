@@ -2,7 +2,7 @@
 import { useState } from "react"
 
 // components
-import SearchBar from "../SearchBar/SearchBar"
+import SearchBar from "../TeamSearchBar/TeamSearchBar"
 import CreateCommunityForm from "../CreateCommunityForm/CreateCommunityForm"
 
 // services

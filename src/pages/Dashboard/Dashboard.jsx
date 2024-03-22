@@ -13,7 +13,7 @@ import * as blogsService from '../../services/blogService'
 
 // components
 import LeagueCard from '../../components/LeagueCard/LeagueCard'
-import SearchBar from '../../components/SearchBar/SearchBar'
+import TeamSearchBar from '../../components/TeamSearchBar/TeamSearchBar'
 import FavoriteTeamsFixtures from '../../components/FavoriteTeamsFixtures/FavoriteTeamsFixtures'
 
 // styles
@@ -98,7 +98,7 @@ const Dashboard = ({ user }) => {
           )}
       </div>
       <div className={styles.searchBarContainer}>
-        <SearchBar user={user} />
+        <TeamSearchBar user={user} />
       </div>
       </div>
       </div>
