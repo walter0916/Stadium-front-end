@@ -50,6 +50,21 @@ const TeamFixtures = () => {
     setSelectedSeason(selectedYear)
   }
 
+  if (fixtures.length === 0) {
+    return (
+    <div className={styles.mainContainer}>
+      <select value={selectedSeason} onChange={handleSeasonChange}>
+        {Array.from({ length: moment().year() - 2000 + 1 }, (_, index) => (
+          <option key={index} value={moment().year() - index}>
+            {moment().year() - index}
+          </option>
+        ))}
+      </select>
+      <h2>no fixtures found</h2>
+    </div>
+    )
+  }
+
   return (
     <div className={styles.mainContainer}>
       <select value={selectedSeason} onChange={handleSeasonChange}>

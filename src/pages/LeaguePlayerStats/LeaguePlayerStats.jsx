@@ -45,27 +45,35 @@ const LeaguePlayerStats = () => {
       <div className={styles.statsContainer}>
         <ol className={styles.TopScorersList}>
           <h2>Top Scorers</h2>
-          {leagueStats[0].map((scorer, index) => (
-            <li key={scorer.player.id} className={styles.PlayerStatsItem}>
-              <img src={scorer.player.photo} alt="player photo" className={styles.PlayerPhoto} />
-              <div>
-                <div className={styles.PlayerName}>{scorer.player.name}</div>
-                <div className={styles.PlayerGoals}>{scorer.statistics[0].goals.total}</div>
-              </div>
-            </li>
-          ))}
+          {leagueStats[0].length === 0 ? (
+            <p>No top scorers found</p>
+          ) : (
+            leagueStats[0].map((scorer, index) => (
+              <li key={scorer.player.id} className={styles.PlayerStatsItem}>
+                <img src={scorer.player.photo} alt="player photo" className={styles.PlayerPhoto} />
+                <div>
+                  <div className={styles.PlayerName}>{scorer.player.name}</div>
+                  <div className={styles.PlayerGoals}>{scorer.statistics[0].goals.total}</div>
+                </div>
+              </li>
+            ))
+          )}
         </ol>
         <ol className={styles.TopScorersList}>
           <h2>Top Assists</h2>
-          {leagueStats[1].map((scorer, index) => (
-            <li key={scorer.player.id} className={styles.PlayerStatsItem}>
-              <img src={scorer.player.photo} alt="player photo" className={styles.PlayerPhoto} />
-              <div>
-                <div className={styles.PlayerName}>{scorer.player.name}</div>
-                <div className={styles.PlayerGoals}>{scorer.statistics[0].goals.assists}</div>
-              </div>
-            </li>
-          ))}
+          {leagueStats[1].length === 0 ? (
+            <p>No top assisters found</p>
+          ) : (
+            leagueStats[1].map((scorer, index) => (
+              <li key={scorer.player.id} className={styles.PlayerStatsItem}>
+                <img src={scorer.player.photo} alt="player photo" className={styles.PlayerPhoto} />
+                <div>
+                  <div className={styles.PlayerName}>{scorer.player.name}</div>
+                  <div className={styles.PlayerGoals}>{scorer.statistics[0].goals.assists}</div>
+                </div>
+              </li>
+            ))
+          )}
         </ol>
       </div>
     </div>
