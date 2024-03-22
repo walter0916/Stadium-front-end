@@ -33,7 +33,7 @@ const Community = (props) => {
   }
 
   return (
-    <main>
+    <>
       {community.communityMembers ? (
         <div className={styles.container}>
           <img src={community.logo} alt="Team Logo" />
@@ -55,7 +55,7 @@ const Community = (props) => {
       ) : (
         <p>Loading...</p>
       )}
-    </main>
+    </>
   )
 }
 

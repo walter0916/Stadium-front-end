@@ -29,50 +29,102 @@ const TeamStatistics = () => {
 
   return (
     <div className={styles.mainContainer}>
-    <div className={styles.teamStatsContainer}>
       <div className={styles.teamInfoCard}>
         <h1>{teamStats.team.name}</h1>
         <img src={teamStats.team.logo} alt="" />
-        <span>
+        <span className={styles.league}>
           <img src={teamStats.league.logo} alt="" />
           {teamStats.league.name}
         </span>
-      </div>
-      <div className={styles.teamStats}>
         <p>Form: 
-        {teamStats.form.split('').map((letter, index) => (
-            <span 
-              key={index}
-              className={
-                letter === 'W' ? styles.win : 
-                letter === 'D' ? styles.draw : 
-                letter === 'L' ? styles.loss : ''
-              }
-            >
-              {letter}
-            </span>
-          ))}
-        </p>
-        <p>
-          Goals Scored: <span className={styles.stat}>{teamStats.goals.for.total.total}</span>
-        </p>
-        <p>
-          Average Goals Scored per 90: <span className={styles.stat}>{teamStats.goals.for.average.total}</span>
-        </p>
-        <p>
-          Goals Conceded: <span className={styles.stat}>{teamStats.goals.against.total.total}</span>
-        </p>
-        <p>
-          Average Goals Conceded per 90: <span className={styles.stat}>{teamStats.goals.against.average.total}</span>
-        </p>
-        <p>
-          Clean Sheets: <span className={styles.stat}>{teamStats.clean_sheet.total}</span>
-        </p>
-        <p>
-          Biggest Win Streak: <span className={styles.stat}>{teamStats.biggest.streak.wins}</span>
+          {teamStats.form.split('').map((letter, index) => (
+              <span 
+                key={index}
+                className={
+                  letter === 'W' ? styles.win : 
+                  letter === 'D' ? styles.draw : 
+                  letter === 'L' ? styles.loss : ''
+                }
+              >
+                {letter}
+              </span>
+            ))}
         </p>
       </div>
-    </div>
+      <div className={styles.teamStatsContainer}>
+        <div className={styles.teamStats}>
+          <h2>Goals Scored: </h2>
+          <p>
+            Home: <span className={styles.stat}>{teamStats.goals.for.total.home} </span>
+          </p>
+          <p>
+            Away: <span className={styles.stat}>{teamStats.goals.for.total.away} </span>
+          </p>
+          <p>
+            total: <span className={styles.stat}>{teamStats.goals.for.total.total} </span>
+          </p>
+        </div>
+        <div className={styles.teamStats}>
+          <h2>Average Goals Scored per 90:</h2>
+          <p>
+            Home: <span className={styles.stat}>{teamStats.goals.for.average.home}</span>
+          </p>
+          <p>
+            Away: <span className={styles.stat}>{teamStats.goals.for.average.away}</span>
+          </p>
+          <p>
+            Total: <span className={styles.stat}>{teamStats.goals.for.average.total}</span>
+          </p>
+        </div>
+        <div className={styles.teamStats}>
+          <h2>Goals Conceded:</h2>
+          <p>
+            Home: <span className={styles.stat}>{teamStats.goals.against.total.home}</span>
+          </p>
+          <p>
+            Away: <span className={styles.stat}>{teamStats.goals.against.total.away}</span>
+          </p>
+          <p>
+            Total: <span className={styles.stat}>{teamStats.goals.against.total.total}</span>
+          </p>
+        </div>
+        <div className={styles.teamStats}>
+          <h2>Average Goals Conceded per 90:</h2>
+          <p>
+            Home: <span className={styles.stat}>{teamStats.goals.against.average.total}</span>
+          </p>
+          <p>
+            Away: <span className={styles.stat}>{teamStats.goals.against.average.away}</span>
+          </p>
+          <p>
+            Total: <span className={styles.stat}>{teamStats.goals.against.average.total}</span>
+          </p>
+        </div>
+        <div className={styles.teamStats}>
+          <h2>Clean Sheets: </h2>
+          <p>
+            Home: <span className={styles.stat}>{teamStats.clean_sheet.home}</span>
+          </p>
+          <p>
+            away: <span className={styles.stat}>{teamStats.clean_sheet.away}</span>
+          </p>
+          <p>
+            Total: <span className={styles.stat}>{teamStats.clean_sheet.total}</span>
+          </p>
+        </div>
+        <div className={styles.teamStats}>
+          <h2>Biggest Streaks</h2>
+          <p>
+            Win Streak: <span className={styles.stat}>{teamStats.biggest.streak.wins}</span>
+          </p>
+          <p>
+            Draw Streak: <span className={styles.stat}>{teamStats.biggest.streak.draws}</span>
+          </p>
+          <p>
+            Loss Streak: <span className={styles.stat}>{teamStats.biggest.streak.loses}</span>
+          </p>
+        </div>
+      </div>
     </div>
   )
 }

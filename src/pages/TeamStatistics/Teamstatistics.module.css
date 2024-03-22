@@ -1,24 +1,28 @@
 .mainContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100vw;
   height: 100vh;
-}
-
-.teamStatsContainer {
-  display: flex;
-  width: max-content;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   padding: 10px;
 }
 
+.teamStatsContainer {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+  gap: 10px;
+  align-items: center;
+}
+
 .teamInfoCard {
-  width: 300px;
+  width: 50vw;
+  height: 25vh;
   padding: 20px;
   background-color: #f0f0f0; 
-  border-radius: 8px;
-  margin-right: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +40,7 @@
   margin-bottom: 10px;
 }
 
-.teamInfoCard span {
+.league {
   display: flex;
   align-items: center;
 }
@@ -47,9 +51,43 @@
   margin-right: 10px;
 }
 
-.teamStats {
-  flex: 1;
+.teamInfoCard:hover {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
+
+.teamInfoCard:hover {
+  background-color: #e0e0e0;
+}
+
+.teamStats {
+  padding: 20px; /* Add padding to each stat card */
+  background-color: #f9f9f9; /* Background color for stats cards */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.teamStats h2 {
+  font-family: 'sport-font', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.teamStats p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.stat {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.teamStatsItem {
+  margin-bottom: 20px; /* Add spacing between each stat card */
+}
+
 
 .win {
   color: green;

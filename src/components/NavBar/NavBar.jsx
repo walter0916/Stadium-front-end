@@ -42,7 +42,7 @@ const NavBar = ({ user, handleLogout }) => {
         <div className={styles.loggedInContainer}>
           <div className={styles.linksContainer}>
             <NavLink to="/" className={styles.homeLink}>
-              <FontAwesomeIcon icon={faHome} />
+              <FontAwesomeIcon icon={faHome} className={styles.homeIcon} />
             </NavLink>
             <div className={styles.notificationContainer}>
             <NavLink to={'/profile'} className={styles.iconWrapper} data-number={unreadNotifications.length}>
