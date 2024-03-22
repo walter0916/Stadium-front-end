@@ -39,8 +39,22 @@ const PlayerSearchBar = (props) => {
     }
   }
 
-  const handleAddToFavorites = async (teamId) => {
-
+  const handleAddToFavorites = async (playerId) => {
+    const playerInfo = searchResults.find(result => result.player.id === playerId)
+    const playerFormData = {
+      playerId: playerInfo.player.id,
+      name: playerInfo.player.name,
+      nationality: playerInfo.player.nationality,
+      age: playerInfo.player.age,
+      height: playerInfo.player.height,
+      weight: playerInfo.player.weight,
+      photo: playerInfo.player.photo,
+      teamName: playerInfo.statistics[0].team.name,
+      teamLogo: playerInfo.statistics[0].team.logo,
+      teamId: playerInfo.statistics[0].team.id,
+      position: playerInfo.statistics[0].games.position,
+    }
+    await profileService.addPlayerToFavorites(playerFormData)
   }
 
 
@@ -71,7 +85,7 @@ const PlayerSearchBar = (props) => {
               <img className={styles.logo} src={result.player.photo} alt='player photo' />
               {result.player.name}
             </div>
-            <button onClick={() => handleAddToFavorites(result.team.id)}>Add to Favorites</button>
+            <button onClick={() => handleAddToFavorites(result.player.id)}>Add to Favorites</button>
           </li>
         ))}
       </ul>

@@ -143,6 +143,23 @@ async function addTeamToFavorites(formData) {
   }
 }
 
+async function addPlayerToFavorites(formData) {
+  try {
+    const profileId = tokenService.getUserFromToken().profile
+    const res = await fetch(`${BASE_URL}/${profileId}/favoritePlayer`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    return await res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
 async function addLeagueToInterests(formData) {
   try {
     const profileId = tokenService.getUserFromToken().profile
@@ -160,4 +177,4 @@ async function addLeagueToInterests(formData) {
   }
 }
 
-export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile, getTeamInfo, addTeamToFavorites, getUpcomingFixture, addLeagueToInterests, getPlayerInfo}
+export { getAllProfiles, addPhoto, getProfileById, editInterests, editProfile, getTeamInfo, addTeamToFavorites, getUpcomingFixture, addLeagueToInterests, getPlayerInfo, addPlayerToFavorites}
