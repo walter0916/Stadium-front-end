@@ -27,7 +27,7 @@ const PlayerSearchBar = (props) => {
   const handleSubmit = async(evt) => {
     evt.preventDefault()
     try {
-      const data = await profileService.getPlayerInfo(formData, teamId, 2023)
+      const data = await profileService.getPlayerInfoByName(formData, teamId, 2023)
       if (data.response.length === 0) {
         setError('No Player found with that name.')
       } else {
