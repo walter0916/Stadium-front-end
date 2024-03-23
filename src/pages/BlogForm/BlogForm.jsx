@@ -81,17 +81,17 @@ const BlogForm = () => {
 
   return (
     <div className={styles.formContainer}>
-      <h2>Create a New Blog</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
-            <label>Title:</label>
-            <input
+        <h2>Create a New Blog</h2>
+          <label>Title:</label>
+          <input
               type="text"
               className={styles.titleInput}
               name="title"
               value={formData.title}
               onChange={handleChange}
               required
-            />
+          />
           <div className={styles.fileInputContainer}>
             <label className={styles.fileInputLabel}>
               <FontAwesomeIcon icon={faCloudUploadAlt} className={styles.uploadIcon} />

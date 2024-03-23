@@ -9,10 +9,11 @@
 }
 
 .fixtureCard {
-  background-color: #f4f4f4;
+  background-color: #1F2833;
   border-radius: 8px;
   padding: 10px;
   height: 10vh;
+  color: white;
 }
 
 .fixtureDate {
@@ -30,15 +31,15 @@
 
 .awayTeam {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
   width: 30%;
 }
 .homeTeam {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   width: 30%;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .awayTeamName {

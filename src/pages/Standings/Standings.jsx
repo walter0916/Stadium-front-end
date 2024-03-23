@@ -57,13 +57,13 @@ const Standings = () => {
             <tbody>
               {standings.map((standing) => (
                 <tr key={standing.team.id} className={styles.standingRow}>
-                  <td className={styles.cell}>
-                    <div className={styles.teamLogo}>
-                      <img src={standing.team.logo} className={styles.logo} alt={standing.team.name} />
+                  <td className={styles.teamCell}>
+                    <div className={styles.teamContainer}>
+                      <img src={standing.team.logo} className={styles.logo} alt='team logo' />
+                      <Link to={`/league/${leagueId}/${standing.team.id}/statistics`} className={styles.link}>
+                        {standing.team.name}
+                      </Link>
                     </div>
-                    <Link to={`/league/${leagueId}/${standing.team.id}/statistics`} className={styles.link}>
-                      {standing.team.name}
-                    </Link>
                   </td>
                   <td className={styles.cell}>{standing.all.win}</td>
                   <td className={styles.cell}>{standing.all.draw}</td>

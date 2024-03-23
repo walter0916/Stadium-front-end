@@ -34,7 +34,7 @@ const LeaguePlayerStats = () => {
   }
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
       <select value={selectedSeason} onChange={handleSeasonChange}>
         {Array.from({ length: moment().year() - 2000 + 1 }, (_, index) => (
           <option key={index} value={moment().year() - index}>
@@ -44,7 +44,9 @@ const LeaguePlayerStats = () => {
       </select>
       <div className={styles.statsContainer}>
         <ol className={styles.TopScorersList}>
-          <h2>Top Scorers</h2>
+          <div className={styles.header}>
+            <h2>Top Scorers</h2>
+          </div>
           {leagueStats[0].length === 0 ? (
             <p>No top scorers found</p>
           ) : (
@@ -60,7 +62,9 @@ const LeaguePlayerStats = () => {
           )}
         </ol>
         <ol className={styles.TopScorersList}>
-          <h2>Top Assists</h2>
+          <div className={styles.header}>
+            <h2>Top Assists</h2>
+          </div>
           {leagueStats[1].length === 0 ? (
             <p>No top assisters found</p>
           ) : (

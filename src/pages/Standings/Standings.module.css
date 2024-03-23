@@ -8,10 +8,20 @@
   margin-top: 20px;
 }
 
-.headerCell, .cell {
+.headerCell, .cell, .teamCell {
   padding: 12px;
   text-align: center;
   border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.teamCell {
+  width: 15vw;
+  background-color: #1F2833;
+}
+
+.teamCell:hover {
+  background-color: #4ede15;
 }
 
 .headerCell {
@@ -27,10 +37,10 @@
 }
 
 .cell:hover {
-  background-color: #dff0d8;
+  background-color: #4ede15;
 }
 
-.cell, .headerCell {
+.cell, .headerCell, .teamCell {
   transition: background-color 0.3s ease;
 }
 
@@ -42,18 +52,32 @@
 
 .link {
   text-decoration: none;
-  color: black;
+  color: White;
+  font-weight: 600;
 }
 
 .link:visited {
-  color: black;
+  color: White;
 }
 
 .link:hover {
-  color: orange;
+  color: blue;
   font-weight: bolder;
 }
 
 .logo {
   height: 30px;
+}
+
+.teamContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: max-content;
+}
+
+.mainContainer {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
 }

@@ -6,6 +6,7 @@
   width: 100vw;
   height: 100vh;
   padding: 10px;
+  background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
 }
 
 .teamStatsContainer {
@@ -62,10 +63,11 @@
 }
 
 .teamStats {
-  padding: 20px; /* Add padding to each stat card */
-  background-color: #f9f9f9; /* Background color for stats cards */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  padding: 20px;
+  background-color: #1F2833;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white; 
 }
 
 .teamStats h2 {
@@ -85,17 +87,17 @@
 }
 
 .teamStatsItem {
-  margin-bottom: 20px; /* Add spacing between each stat card */
+  margin-bottom: 20px; 
 }
 
 
 .win {
-  color: green;
+  color: rgb(13, 211, 13);
   font-weight: bold;
 }
 
 .draw {
-  color: #f0ad4e;
+  color: orange;
   font-weight: bold; 
 }
 

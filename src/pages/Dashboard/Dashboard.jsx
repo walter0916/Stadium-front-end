@@ -4,16 +4,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
-import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 
 // services
 import * as profileService from '../../services/profileService'
-import * as notificationsService from '../../services/notificationService'
 import * as blogsService from '../../services/blogService'
 
 // components
 import LeagueCard from '../../components/LeagueCard/LeagueCard'
-import TeamSearchBar from '../../components/TeamSearchBar/TeamSearchBar'
 import FavoriteTeamsFixtures from '../../components/FavoriteTeamsFixtures/FavoriteTeamsFixtures'
 
 // styles
@@ -60,16 +57,6 @@ const Dashboard = ({ user }) => {
       </div>
       <div className={styles.mainContainer}>
       <div className={styles.upcomingFixturesContainer}>
-      {/* <div className={styles.blogFormLink}>
-        <h1>Create a blog</h1>
-        <Link to={'/blog/new'}><FontAwesomeIcon icon={faPencilAlt} className={`${styles.pencil} fa-3x`} /></Link>
-      </div>
-      <div className={styles.notifications}>
-        <h1>Notifications</h1>
-        <Link to={'/profile'} className={styles.iconWrapper} data-number={unreadNotifications.length}>
-        <FontAwesomeIcon icon={['fas', 'bell']} className={styles.bell} />
-        </Link>
-      </div> */}
       <h2>Upcoming Fixtures</h2>
       <FavoriteTeamsFixtures 
         teamIds={teamIds} 

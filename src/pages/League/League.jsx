@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 
 // services
 import * as blogService from '../../services/blogService'
@@ -55,6 +57,7 @@ const League = (props) => {
       <Link to={`/league/${league._id}/standings`} state={{ league }} className={styles.link}>League Standings</Link>
       <Link to={`/league/${league._id}/fixtures`} state={{ league }} className={styles.link}>League Fixtures</Link>
       <Link to={`/league/${league._id}/playerStats`} state={{ league }} className={styles.link}>League Player Stats</Link>
+      <Link to={'/blog/new'} className={styles.link}>Create A Blog <FontAwesomeIcon icon={faPencilAlt} className={`${styles.pencil} fa-1x`} /></Link>
       <div className={styles.leagueBlogCards}>
         {leagueBlogs.length ? (
           leagueBlogs.map((blog) => (
