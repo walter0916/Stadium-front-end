@@ -89,7 +89,7 @@ const Dashboard = ({ user }) => {
             {profile.favoritePlayers.map((player) => (
               <li key={player._id}>
                 <div>
-                  <Link to={`/player/${player.teamId}/${player.playerId}/statistics`}>
+                  <Link to={`/player/${player.playerId}/${player.teamId}/statistics`}>
                     <img  src={player.photo} alt={player.name} className={styles.circle} />
                   </Link>
                 </div>
