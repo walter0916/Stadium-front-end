@@ -7,7 +7,7 @@ import moment from "moment"
 import * as leagueService from '../../services/leagueService'
 
 // styles
-import styles from './TeamStatistics.module.css'
+import styles from './TeamStatisticsStyles.module.css'
 
 const TeamStatistics = () => {
   const {teamId, leagueId} = useParams()
