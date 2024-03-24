@@ -6,7 +6,7 @@ import * as leagueService from '../../services/leagueService'
 import * as profileService from '../../services/profileService'
 
 // styles
-import styles from './leagueSearchBar.module.css'
+import styles from './SearchBar.module.css'
 
 const LeagueSearchBar = () => {
   const [searchResults, setSearchResults] = useState([])
