@@ -79,7 +79,7 @@ const EditProfileForm = (props) => {
       </div>
       {message && <div className={styles.errorMessage}>{message}</div>}
       <div>
-        <label>Name:
+        <label>Name: 
         <input
           type="text"
           id="name"
