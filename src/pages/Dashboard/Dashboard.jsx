@@ -1,8 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 
 // services
@@ -21,7 +19,6 @@ const Dashboard = ({ user }) => {
   const [profile, setProfile] = useState([])
   const [blogs, setBlogs] = useState([])
   const [teamIds, setTeamIds] = useState([])
-  library.add(fas)
 
   useEffect(() => {
     const fetchLeagues = async () => {
