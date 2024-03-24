@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 80vh;
+  height: 100vh;
   border: 1px solid #ccc;
   padding: 20px;
 }
@@ -41,10 +41,45 @@
   padding: 10px;
   border-radius: 10px;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.communityCard img {
+  height: 40px;
+}
+
+.communityCard a{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.communityCard a {
+  color: white;
+  text-decoration: none;
+}
+
+.communityCard:hover a:visited {
+  color: black;
+  font-weight: 600;
+}
+
+.communityCard:hover a {
+  color: black;
+  font-weight: 600;
+}
+
+.communityCard a:visited {
+  color: white;
 }
 
 .communityCard:hover {
   background-color: #ccc;
+  color: black;
 }
 
 .createCommunitySection {
