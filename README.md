@@ -4,6 +4,8 @@
 
 Welcome to Stadium, the ultimate app for soccer fans to connect, share, and engage with their favorite teams and leagues.
 
+[Stadium](https://stadium-v2.netlify.app 'Stadium')
+
 ## Overview
 
 Stadium is a feature-rich platform where soccer enthusiasts can personalize their experience, join team communities, read and create blogs, and much more. 
