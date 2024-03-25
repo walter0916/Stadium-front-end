@@ -72,7 +72,6 @@ const ChangePassword = ({ handleAuthEvt }) => {
           />
         </label>
         <div>
-          <Link to="/">Cancel</Link>
           <button className={styles.button} disabled={isFormInvalid()}>
             Change Password
           </button>

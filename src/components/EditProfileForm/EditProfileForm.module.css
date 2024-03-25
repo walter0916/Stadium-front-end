@@ -9,6 +9,11 @@
   position: relative;
   margin-bottom: 20px;
 }
+.nameInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .profilePhoto {
   width: 150px;
@@ -66,7 +71,6 @@
   cursor: pointer;
   transition: background-color 0.3s;
   font-weight: 600;
-  color: black;
 }
 
 .form button:hover {

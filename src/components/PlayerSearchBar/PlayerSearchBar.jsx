@@ -59,6 +59,7 @@ const PlayerSearchBar = (props) => {
 
 
   return (
+    <div className={styles.container}>
     <div className={styles.searchContainer}>
       <form onSubmit={handleSubmit}>
         <select name="teamId" id="" onChange={handleTeamIdChange}>
@@ -89,6 +90,7 @@ const PlayerSearchBar = (props) => {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   )
 }

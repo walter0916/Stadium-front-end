@@ -50,6 +50,7 @@ const TeamSearchBar = () => {
   }
 
   return (
+    <div className={styles.container}>
     <div className={styles.searchContainer}>
       <form onSubmit={handleSubmit}>
         <input
@@ -73,6 +74,7 @@ const TeamSearchBar = () => {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   )
 }
