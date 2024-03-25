@@ -10,13 +10,15 @@ Stadium is a feature-rich platform where soccer enthusiasts can personalize thei
 
 ## Features
 
-- **Customizable Dashboard:** Personalize your dashboard by adding the soccer leagues you are interested in. Get quick access to league pages and trending blogs.
+- **Customizable Dashboard:** Personalize your dashboard by adding the soccer leagues you are interested in. Get quick access to league pages, trending blogs, upcoming matches for favorite teams, and favorite players' information.
 
-- **League Pages:** Explore dedicated pages for each soccer league, featuring blogs, comments, and a vibrant community of fans.
+- **League Pages:** Explore dedicated pages for each soccer league, featuring blogs, comments, team standings, match schedules, and a vibrant community of fans.
 
 - **Trending Blogs:** Discover the hottest blogs curated from users across the platform. Like, dislike, and engage with trending content.
 
 - **Team Communities:** Join communities for your favorite teams. Connect with fellow fans, share updates, and engage in discussions.
+
+- **Favorite Teams & Players :** Keep track of your favorite teams' upcoming matches and favorite players' performance. Visit player info pages to view detailed information and current stats.
 
 - **User Interaction:** Like and dislike posts, comment on blogs, and reply to other users. Foster a dynamic and interactive community.
 
