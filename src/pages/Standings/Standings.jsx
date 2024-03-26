@@ -34,7 +34,7 @@ const Standings = () => {
   if (standings.length <= 30) {
     return (
       <div className={styles.mainContainer}>
-        <select value={selectedSeason} onChange={handleSeasonChange}>
+        <select value={selectedSeason} onChange={handleSeasonChange} className={styles.yearSelect}>
           {Array.from({ length: moment().year() - 2000 + 1 }, (_, index) => (
             <option key={index} value={moment().year() - index}>
               {moment().year() - index}
@@ -46,19 +46,20 @@ const Standings = () => {
             <thead>
               <tr>
                 <th className={styles.headerCell}>Team</th>
-                <th className={styles.headerCell}>Wins</th>
-                <th className={styles.headerCell}>Draws</th>
-                <th className={styles.headerCell}>Losses</th>
-                <th className={styles.headerCell}>Goals Scored</th>
-                <th className={styles.headerCell}>Goals Allowed</th>
-                <th className={styles.headerCell}>Goal Differential</th>
+                <th className={styles.headerCell}>W</th>
+                <th className={styles.headerCell}>D</th>
+                <th className={styles.headerCell}>L</th>
+                <th className={styles.headerCell}>GS</th>
+                <th className={styles.headerCell}>GA</th>
+                <th className={styles.headerCell}>GD</th>
               </tr>
             </thead>
             <tbody>
-              {standings.map((standing) => (
+              {standings.map((standing, index) => (
                 <tr key={standing.team.id} className={styles.standingRow}>
                   <td className={styles.teamCell}>
                     <div className={styles.teamContainer}>
+                      {index + 1}.
                       <img src={standing.team.logo} className={styles.logo} alt='team logo' />
                       <Link to={`/league/${leagueId}/${standing.team.id}/statistics`} className={styles.link}>
                         {standing.team.name}

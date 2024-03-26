@@ -74,3 +74,19 @@
 .scoreSeparator {
   font-weight: bold;
 }
+
+@media screen and (max-height: 950px) {
+  .fixtureCard {
+    height: 25vh;
+    padding: 5px;
+  }
+  .awayTeam{
+    width: 35%;
+  }
+  .homeTeam{
+    width: 35%;
+  }
+  .fixturesContainer{
+    width: 90%;
+  }
+}

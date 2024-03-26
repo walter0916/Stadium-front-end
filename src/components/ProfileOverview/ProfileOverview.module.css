@@ -45,3 +45,13 @@
   height: 5px;
   background-color: greenyellow;
 }
+
+@media screen and (max-height: 950px) {
+  .profileContainer{
+    margin: 0;
+    width: 90%;
+  }
+  .buttonContainer{
+    width: 80vw;
+  }
+}

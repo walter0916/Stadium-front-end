@@ -57,3 +57,9 @@
   font-size: 20px;
   margin: 0;
 }
+
+@media screen and (max-height: 950px) {
+  .blogCard {
+    width: 90%;
+  }
+}

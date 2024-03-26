@@ -10,3 +10,20 @@
 .componentContainer {
   width: 80%;
 }
+
+@media screen and (max-height: 950px) {
+  .componentContainer, .profileContainer{
+    width: 100vw;
+  }
+  .profileContainer{
+    flex-direction: column;
+    padding: 0;
+  }
+  .componentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+}

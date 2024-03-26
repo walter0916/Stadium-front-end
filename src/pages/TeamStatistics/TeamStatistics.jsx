@@ -36,20 +36,21 @@ const TeamStatistics = () => {
           <img src={teamStats.league.logo} alt="" />
           {teamStats.league.name}
         </span>
-        <p>Form: 
+        <div className={styles.teamForm}>
+          <span className={styles.formLabel}>Form: </span>
           {teamStats.form.split('').map((letter, index) => (
-              <span 
-                key={index}
-                className={
-                  letter === 'W' ? styles.win : 
-                  letter === 'D' ? styles.draw : 
-                  letter === 'L' ? styles.loss : ''
-                }
-              >
-                {letter}
-              </span>
-            ))}
-        </p>
+            <span 
+              key={index}
+              className={
+                letter === 'W' ? styles.win : 
+                letter === 'D' ? styles.draw : 
+                letter === 'L' ? styles.loss : ''
+              }
+            >
+              {letter}
+            </span>
+          ))}
+        </div>
       </div>
       <div className={styles.teamStatsContainer}>
         <div className={styles.teamStats}>

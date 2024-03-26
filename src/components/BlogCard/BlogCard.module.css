@@ -70,3 +70,17 @@
 .liked {
   color: orange;
 }
+
+@media screen and (max-height: 950px) {
+  .leagueBlogCard{
+    width: 90vw;
+    flex-direction: column;
+  }
+  .leagueBlogCard img {
+    width: 100%;
+    height: auto;
+  }
+  .articleContent {
+    width: 100%;
+  }
+}

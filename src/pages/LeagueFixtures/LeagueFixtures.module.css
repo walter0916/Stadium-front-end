@@ -80,3 +80,30 @@
 .scoreSeparator {
   font-weight: bold;
 }
+
+@media screen and (max-height: 950px) {
+  .fixturesContainer{
+    width: 95%;
+  }
+  .homeTeam{
+    width: 35%;
+  }
+  .awayTeam{
+    width: 35%;
+  }
+  .scoreContainer{
+    margin: 5px;
+  }
+  .yearSelect {
+    margin-top: 10px;
+    width: 50%;
+    font-size: xx-large;
+    margin: auto;
+  }
+  .mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

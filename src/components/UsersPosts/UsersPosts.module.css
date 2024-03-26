@@ -36,3 +36,9 @@
 .postCard h3 {
   font-size: 15px;
 }
+
+@media screen and (max-height: 950px) {
+  .postCard {
+    width: 100%;
+  }
+}

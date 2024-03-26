@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .blogContainer {
@@ -47,4 +48,27 @@
   width: 60vw;
   border: 1px solid #ccc;
   margin-top: 20px;
+}
+
+@media screen and (max-height: 950px) {
+  .blogContainer {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .blogContainer img {
+    width: 100%;
+  }
+  .articleContent {
+    width: 100%;
+  }
+  .articleContent h2{
+    font-size: 16px;
+  }
+  .commentsContainer, .commentFormContainer{
+    width: 90vw;
+  }
+  .commentsContainer {
+    margin-bottom: 10px;
+  }
 }

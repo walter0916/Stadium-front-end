@@ -80,8 +80,7 @@ const CommentCard = (props) => {
   }
 
   return (
-    <div>
-
+    <>
     <div className={styles.commentCard}>
       <div className={styles.imgContainer}>
         <img src={props.comment.author.photo} alt=""/>
@@ -116,14 +115,23 @@ const CommentCard = (props) => {
           {replies.map((reply) => (
             <div key={reply._id} className={styles.reply}>
               <div className={styles.replyP}>
-              <img className={styles.replyImg} src={reply.author.photo} width={30} alt="" />
-              <span><small className={styles.replyAuthor}>{reply.author.name}</small> <small className={styles.replyContent}>{reply.content}</small> <small>{formatDistanceToNow(new Date(reply.createdAt), { addSuffix: true })}</small></span>
+                <img className={styles.replyImg} src={reply.author.photo} width={30} alt="author photo" />
+                <div className={styles.replyContentContainer}>
+                  <span>
+                    <small className={styles.replyAuthor}>{reply.author.name}</small>
+                    &nbsp; 
+                    <small className={styles.replyContent}>{reply.content}</small>
+                  </span>
+                  <span>
+                    <small>{formatDistanceToNow(new Date(reply.createdAt), { addSuffix: true })}</small>
+                  </span>
+                </div>
               </div>
             </div>
           ))}
         </div>
       )}
-      </div>
+      </>
   )
 }
 

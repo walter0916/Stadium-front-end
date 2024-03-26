@@ -122,3 +122,12 @@
   margin-top: 5px;
   font-size: 14px;
 }
+
+@media screen and (max-height: 950px) {
+  .contentInput, .titleInput, .leagueSelect{
+    width: 80%;
+  }
+  .leagueSelect {
+    font-size: xx-large;
+  }
+}

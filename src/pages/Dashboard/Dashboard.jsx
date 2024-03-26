@@ -1,6 +1,5 @@
 // npm modules
 import { useState, useEffect } from 'react'
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { Link } from 'react-router-dom'
 
 // services

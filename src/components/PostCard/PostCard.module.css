@@ -6,6 +6,7 @@
   flex-direction: column;
   width: 500px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .userInfo {
@@ -112,6 +113,7 @@
 .replyImg {
   margin-top: 4px;
   border-radius: 50%;
+  height: 30px;
 }
 
 .thumbsUpButton,
@@ -133,4 +135,10 @@
 .thumbsUpButton:active,
 .thumbsDownButton:active {
   color: #1f618d;
+}
+
+@media screen and (max-height:950px){
+  .postCard {
+    width: 90%;
+  }
 }

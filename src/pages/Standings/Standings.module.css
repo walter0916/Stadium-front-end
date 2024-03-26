@@ -18,6 +18,7 @@
 .teamCell {
   width: 15vw;
   background-color: #1F2833;
+  color: white;
 }
 
 .teamCell:hover {
@@ -80,4 +81,40 @@
   width: 100vw;
   min-height: 100vh;
   background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
+}
+
+@media screen and (max-height: 950px) {
+  .headerCell, .cell, .teamCell {
+    padding: 2px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  .headerCell {
+    font-size: 10px;
+  }
+  .cell, .teamCell {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .logo{
+    height: 15px;
+  }
+  .standingsContainer {
+    overflow-x: auto;
+    margin: 5px;
+  }
+
+  .yearSelect {
+    margin-top: 10px;
+    width: 50%;
+    font-size: xx-large;
+    margin: auto;
+  }
+
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+  }
 }

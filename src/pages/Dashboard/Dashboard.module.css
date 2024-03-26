@@ -273,3 +273,20 @@
   height: 35vh;
   max-height: 300px;
 }
+
+@media screen and (max-height: 950px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+  }
+  .communityPlayerContainer {
+    width: 100%;
+  }
+  .upcomingFixturesContainer{
+    width: 100%;
+  }
+  .blogCards {
+    justify-content: flex-start;
+  }
+}

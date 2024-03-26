@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding: 10px;
   background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
 }
@@ -27,7 +27,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.teamForm {
+  width: 80%;
+  height: max-content;
+  text-align: center;
+}
+.teamForm span {
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .teamInfoCard h1 {
@@ -123,4 +133,15 @@
 .stat {
   font-weight: bold;
   color: #007bff;
+}
+
+@media screen and (max-height: 950px) {
+  .teamStatsContainer{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  }
+  .teamInfoCard {
+    width: 90%;
+    height: max-content;
+  }
+
 }

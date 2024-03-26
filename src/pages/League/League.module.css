@@ -126,3 +126,20 @@
   color: orange;
   font-weight: bolder;
 }
+
+@media screen and (max-height: 950px) {
+  .leagueBlogCardContainer, .leagueContainer{
+    width: 100vw;
+  }
+  .link{
+    font-size: 20px;
+  }
+  .leagueContainer h1 {
+    font-size: 34px;
+    margin-top: 0;
+  }
+  .logo{
+    height: 15vh;
+    margin-bottom: 0;
+  }
+}

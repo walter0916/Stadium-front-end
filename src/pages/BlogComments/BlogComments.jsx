@@ -3,13 +3,14 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 
+
 // services
 import * as blogService from '../../services/blogService'
 import * as notificationService from '../../services/notificationService'
 import * as commentService from '../../services/commentService'
 
 // components
-import CommentForm from "../../components/CommentForm/CommentForm"
+import CommentForm from "../../components/CommentForm/CommentForm";
 import CommentCard from "../../components/CommentCard/CommentCard"
 
 // styles
@@ -48,15 +49,15 @@ const BlogComments = (props) => {
           <p>via {blog.author.name}</p>
         </div>
       </div>
-        ) : '' }
-        <div className={styles.commentFormContainer}>
-          <CommentForm user={props.user} blogId={blog._id} handleAddComment={handleAddComment} />
+      ) : '' }
+      <div className={styles.commentFormContainer}>
+        <CommentForm user={props.user} blogId={blog._id} handleAddComment={handleAddComment} />
+      </div>
+      {blog.comments?.length > 0 ? (
+        <div className={styles.commentsContainer}>
+          { blog.comments.map(comment => <CommentCard key={comment._id} comment={comment} blogId={blogId} user={props.user}/>) }
         </div>
-      {blog.author ? (
-              <div className={styles.commentsContainer}>
-              { blog.comments.map(comment => <CommentCard key={comment._id} comment={comment} blogId={blogId} user={props.user}/>) }
-            </div>
-      ) : ' '}  
+      ) : 'No Comments Found'}  
     </div>
   )
 }

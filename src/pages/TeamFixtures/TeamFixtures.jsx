@@ -67,7 +67,7 @@ const TeamFixtures = () => {
 
   return (
     <div className={styles.mainContainer}>
-      <select value={selectedSeason} onChange={handleSeasonChange}>
+      <select value={selectedSeason} onChange={handleSeasonChange} className={styles.yearSelect}>
         {Array.from({ length: moment().year() - 2000 + 1 }, (_, index) => (
           <option key={index} value={moment().year() - index}>
             {moment().year() - index}

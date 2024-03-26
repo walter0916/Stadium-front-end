@@ -15,7 +15,6 @@ input[type="file"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3286430.jpg'); */
   background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
 }
 
@@ -163,5 +162,12 @@ input[type="file"] {
       -moz-transform: scale(1);
       -ms-transform: scale(1);
       -o-transform: scale(1);
+  }
+}
+
+@media screen and (max-height:950px) {
+  .formContainer{
+    width: 80vw;
+    height: 50vh;
   }
 }

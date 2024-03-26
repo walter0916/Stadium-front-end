@@ -52,3 +52,30 @@
   color: #c5c6c7;
 }
 
+@media screen and (max-height: 950px) {
+  .statsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .TopScorersList{
+    width: 90%;
+  }
+  .PlayerPhoto{
+    height: 50px;
+    width: auto;
+  }
+  .yearSelect {
+    margin-top: 10px;
+    width: 50%;
+    font-size: xx-large;
+    margin: auto;
+  }
+
+  .mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+}
