@@ -141,4 +141,10 @@
   .postCard {
     width: 90%;
   }
+  .buttonsContainer{
+    width: max-content;
+  }
+  .repliesButton{
+    margin-left: 5px;
+  }
 }

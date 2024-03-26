@@ -20,12 +20,12 @@
   border: 1px solid #ccc;
   margin-right: 5px;
   margin-left: 5px;
-  box-shadow: 5px 6px 6px 2px #e9ecef;
   margin-top: 5px;
   margin-bottom: 5px;
   text-decoration: none;
   color: black;
   padding: 25px;
+  background-color: white;
 }
 
 .postCard:visited {

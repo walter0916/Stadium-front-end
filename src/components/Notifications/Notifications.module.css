@@ -2,3 +2,9 @@
   height: 70vh;
   overflow-x: scroll;
 }
+
+@media screen and (max-height:950px) {
+  .notificationsContainer{
+    height: 55vh;
+  }
+}
