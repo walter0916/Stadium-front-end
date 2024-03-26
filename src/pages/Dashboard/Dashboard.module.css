@@ -47,7 +47,6 @@
 }
 
 .leagueLinksContainer {
-  font-family: 'sport-font', sans-serif;
   display:flex;
   flex-direction: column;
   text-align: center;
@@ -57,6 +56,10 @@
   background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
   padding: 10px;
   color: white;
+}
+
+.leagueLinksContainer h2{
+  font-family: 'sport-font', sans-serif;
 }
 
 .interests {
@@ -70,6 +73,24 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   justify-content: space-between;
   margin-bottom: 10px;
+  text-align: center;
+}
+
+.interests p {
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.interests a {
+  color: black;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
+.interests a:visited {
+  color: black;
 }
 
 .searchBarContainer {
@@ -127,10 +148,10 @@
   background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
+  color: white;
 }
 
 .upcomingFixturesContainer h2 {
-  color: white;
   font-family: 'sport-font', sans-serif;
 }
 .favoritePlayersList,
