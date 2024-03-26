@@ -13,18 +13,24 @@ const TeamStatistics = () => {
   const {teamId, leagueId} = useParams()
   const [teamStats, setTeamStats] = useState({})
   const [selectedSeason, setSelectedSeason] = useState(moment().year()-1)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchTeamStats = async () => {
       const statsData = await leagueService.getTeamStats(leagueId, teamId, selectedSeason)
       const filteredData = statsData.response
       setTeamStats(filteredData)
+      setLoading(false)
     }
     fetchTeamStats()
   },[leagueId, teamId, selectedSeason])
 
-  if (!teamStats || !teamStats.team) {
-    return <div >Loading...</div>;
+  if(loading) {
+    return (
+      <div className={styles.mainContainer}>
+        <h1>loading...</h1>
+      </div>
+    )
   }
 
   return (

@@ -14,12 +14,14 @@ const LeaguePlayerStats = () => {
   const leagueId = location.state?.league.leagueId
   const [leagueStats, setLeagueStats] = useState([])
   const [selectedSeason, setSelectedSeason] = useState(moment().year()-1)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchLeaguePlayerStats = async () => {
       const statsData = await leagueService.getLeagueStats(leagueId, selectedSeason)
       const filteredData = statsData
       setLeagueStats(filteredData)
+      setLeagueStats(false)
     }
     fetchLeaguePlayerStats()
   },[leagueId, selectedSeason])
@@ -29,8 +31,13 @@ const LeaguePlayerStats = () => {
     const selectedYear = parseInt(e.target.value)
     setSelectedSeason(selectedYear)
   }
-  if (leagueStats.length === 0) {
-    return <div className={styles.container}>Loading...</div>;
+  
+  if(loading) {
+    return (
+      <div className={styles.mainContainer}>
+        <h1>loading...</h1>
+      </div>
+    )
   }
 
   return (

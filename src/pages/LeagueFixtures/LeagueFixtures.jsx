@@ -13,6 +13,7 @@ const LeagueFixtures = () => {
   const location = useLocation()
   const leagueId = location.state?.league.leagueId
   const [fixtures, setFixtures] = useState([])
+  const [loading, setLoading] = useState(true)
   const [selectedSeason, setSelectedSeason] = useState(moment().year()-1)
   console.log(leagueId)
 
@@ -24,6 +25,7 @@ const LeagueFixtures = () => {
       moment(a.fixture.date).diff(moment(b.fixture.date))
       )
       setFixtures(sortedFixtures)
+      setLoading(false)
     }
     fetchFixtures()
   },[leagueId, selectedSeason])
@@ -53,17 +55,25 @@ const LeagueFixtures = () => {
     setSelectedSeason(selectedYear)
   }
 
+  if(loading) {
+    return (
+      <div className={styles.mainContainer}>
+        <h1>loading...</h1>
+      </div>
+    )
+  }
+
   if (fixtures.length === 0) {
     return (
     <div className={styles.mainContainer}>
-      <select value={selectedSeason} onChange={handleSeasonChange}>
+      <select value={selectedSeason} onChange={handleSeasonChange} className={styles.yearSelect}>
         {Array.from({ length: moment().year() - 2000 + 1 }, (_, index) => (
           <option key={index} value={moment().year() - index}>
             {moment().year() - index}
           </option>
         ))}
       </select>
-      <h2>no fixtures found</h2>
+      <h1>No fixtures found</h1>
     </div>
     )
   }

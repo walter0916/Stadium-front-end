@@ -4,6 +4,10 @@
   background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
 }
 
+.mainContainer h1{
+  color: white;
+}
+
 .fixturesContainer {
   display: flex;
   flex-direction: column;
