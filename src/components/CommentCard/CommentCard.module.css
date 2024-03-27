@@ -94,7 +94,7 @@
   height: 30px;
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-height: 1369px) {
   .commentCard {
     width: 100%;
     margin-bottom: 10px;

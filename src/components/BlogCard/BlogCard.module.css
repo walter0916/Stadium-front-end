@@ -71,7 +71,7 @@
   color: orange;
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-height: 1369px) {
   .leagueBlogCard{
     width: 90vw;
     flex-direction: column;

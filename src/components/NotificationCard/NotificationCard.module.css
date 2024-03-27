@@ -41,7 +41,7 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-height: 1369px) {
   .notificationContainer {
     width: 80vw;
   }

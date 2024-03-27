@@ -7,7 +7,7 @@ const SideBar = (props) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsToggleable(window.innerHeight < 950)
+      setIsToggleable(window.innerHeight < 1369)
     }
     handleResize()
     window.addEventListener('resize', handleResize)

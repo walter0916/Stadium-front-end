@@ -75,7 +75,7 @@
   font-weight: bold;
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-height: 1369px) {
   .fixtureCard {
     height: 25vh;
     padding: 5px;

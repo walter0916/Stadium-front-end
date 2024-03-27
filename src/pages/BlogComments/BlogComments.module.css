@@ -50,7 +50,7 @@
   margin-top: 20px;
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-height: 1369px) {
   .blogContainer {
     width: 90vw;
     display: flex;

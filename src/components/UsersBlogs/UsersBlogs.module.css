@@ -57,6 +57,15 @@
   font-size: 20px;
   margin: 0;
 }
+@media screen and (max-height: 1369px) {
+  .blogCard {
+    width:80%
+  }
+  .blogContainer{
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 @media screen and (max-height: 950px) {
   .blogCard {
