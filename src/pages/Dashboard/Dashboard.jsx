@@ -62,7 +62,7 @@ const Dashboard = ({ user }) => {
       <div className={styles.communityPlayerContainer}>
       <div className={styles.joinedCommunities}>
         <h2>Joined Communities</h2>
-        {profile.joinedCommunities ? (
+        {profile.joinedCommunities?.length > 0 ? (
           <ul className={styles.communitiesList}>
             {profile.joinedCommunities.map((community) => (
               <li key={community._id}>
@@ -80,7 +80,7 @@ const Dashboard = ({ user }) => {
       </div>
       <div className={styles.favoritePlayers}>
         <h2>Favorite Players</h2>
-        {profile.joinedCommunities ? (
+        {profile.favoritePlayers?.length > 0 ? (
           <ul className={styles.favoritePlayersList}>
             {profile.favoritePlayers.map((player) => (
               <li key={player._id}>
