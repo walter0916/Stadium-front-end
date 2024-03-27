@@ -42,7 +42,7 @@ const Dashboard = ({ user }) => {
       <div className={styles.leagueLinksContainer}>
         <h1>Links To League Page</h1>
       <div className={styles.interests}>
-        {profile.interests ? (
+        {profile.interests?.length > 0 ? (
           profile.interests.map((interest) => (
             <LeagueCard key={interest._id} interest={interest} />           
             ))

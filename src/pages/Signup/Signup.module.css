@@ -155,7 +155,7 @@ input[type="file"] {
   }
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-height: 1369px) {
   .formContainer{
     width: 80vw;
     height: max-content;
