@@ -52,6 +52,8 @@
 
   .sideBar.show {
     left: 0;
+    width: 100%;
+    position: relative;
   }
 
   .toggleButton {

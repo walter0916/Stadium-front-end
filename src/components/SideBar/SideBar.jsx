@@ -20,6 +20,10 @@ const SideBar = (props) => {
     setIsOpen(!isOpen)
   }
 
+  const closeSidebar = () => {
+    setIsOpen(false)
+  }
+
   return (
     <div className={`${styles.sideBar} ${isOpen ? styles.show : styles.hidden}`}>
       {isToggleable && (
@@ -29,13 +33,13 @@ const SideBar = (props) => {
       )}
       <h2>{props.profile.name}</h2>
       <div className={styles.buttonContainer}>
-        <button onClick={() => props.handleButtonClick('changePassword')}>Change Password</button>
-        <button onClick={() => props.handleButtonClick('interestForm')}>Add Favorite Leagues</button>
-        <button onClick={() => props.handleButtonClick('playerForm')}>Add Favorite players</button>
-        <button onClick={() => props.handleButtonClick('teamForm')}>Add Favorite Teams</button>
-        <button onClick={() => props.handleButtonClick('editProfile')}>Edit Profile</button>
-        <button onClick={() => props.handleButtonClick('communitiesForm')}>Communities Hub</button>
-        <button onClick={() => props.handleButtonClick('profileOverview')}>Profile Overview</button>
+        <button onClick={() => {props.handleButtonClick('changePassword'); closeSidebar()}}>Change Password</button>
+        <button onClick={() => {props.handleButtonClick('interestForm'); closeSidebar()}}>Add Favorite Leagues</button>
+        <button onClick={() => {props.handleButtonClick('playerForm'); closeSidebar()}}>Add Favorite players</button>
+        <button onClick={() => {props.handleButtonClick('teamForm'); closeSidebar()}}>Add Favorite Teams</button>
+        <button onClick={() => {props.handleButtonClick('editProfile'); closeSidebar()}}>Edit Profile</button>
+        <button onClick={() => {props.handleButtonClick('communitiesForm'); closeSidebar()}}>Communities Hub</button>
+        <button onClick={() => {props.handleButtonClick('profileOverview'); closeSidebar()}}>Profile Overview</button>
       </div>
     </div>
   )
