@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import styles from './SideBar.module.css'
 
 const SideBar = (props) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
   const [isToggleable, setIsToggleable] = useState(false)
 
   useEffect(() => {

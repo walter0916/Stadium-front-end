@@ -47,7 +47,7 @@ const Dashboard = ({ user }) => {
             <LeagueCard key={interest._id} interest={interest} />           
             ))
             ) : (
-              <p>No interests available visit <Link to={'/profile'}>profile page</Link> to add</p>
+              <p>No Favorite Leagues added visit <Link to={'/profile'}>profile page</Link> to add favorite leagues</p>
               )}
       </div>
       </div>
