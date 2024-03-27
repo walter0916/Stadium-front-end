@@ -21,7 +21,7 @@ const LeaguePlayerStats = () => {
       const statsData = await leagueService.getLeagueStats(leagueId, selectedSeason)
       const filteredData = statsData
       setLeagueStats(filteredData)
-      setLeagueStats(false)
+      setLoading(false)
     }
     fetchLeaguePlayerStats()
   },[leagueId, selectedSeason])
