@@ -112,6 +112,7 @@ const Signup = ({ handleAuthEvt }) => {
             name="photo" 
             onChange={handleChangePhoto}
             ref={imgInputRef}
+            required
           />
         </label>
         <div>
