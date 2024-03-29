@@ -75,7 +75,7 @@ const Dashboard = ({ user }) => {
               ))}
           </ul>
         ) : (
-          <p>No communities joined</p>
+          <p>No communities joined visit <Link to={'/profile'}>profile page</Link> to add favorite teams and join communities </p>
           )}
       </div>
       <div className={styles.favoritePlayers}>
@@ -93,7 +93,7 @@ const Dashboard = ({ user }) => {
               ))}
           </ul>
         ) : (
-          <p>No favorite players added</p>
+          <p>No favorite players added visit <Link to={'/profile'}>profile page</Link> to add</p>
           )}
       </div>
       </div>
