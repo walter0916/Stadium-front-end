@@ -104,7 +104,7 @@ const Dashboard = ({ user }) => {
         {blogs.length ? blogs.map((blog) => (<Link to={`/league/${blog.league._id}/blog/${blog._id}`} key={blog._id} className={styles.blogCard}>
           <img src={blog.photo} alt="" />
           <h2>{blog.title}</h2>
-        </Link>)) : ''}
+        </Link>)) : 'No Trending Blogs'}
           </div>
       </div>
     </main>

@@ -43,7 +43,7 @@ const Community = (props) => {
             Team Fixtures
           </Link>
           <PostForm handleAddPost={handleAddPost} />
-          {community.posts.length ? (
+          {community.posts?.length ? (
             community.posts.map((post) => <PostCard key={post._id} post={post} communityId={communityId} user={props.user} />)
           ) : (
             <div className={styles.noPostsContainer}>
