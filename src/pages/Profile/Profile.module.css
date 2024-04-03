@@ -11,7 +11,7 @@
   width: 80%;
 }
 
-@media screen and (max-height: 1369px) {
+@media screen and (max-height: 1180px) {
   .componentContainer, .profileContainer{
     width: 100vw;
   }

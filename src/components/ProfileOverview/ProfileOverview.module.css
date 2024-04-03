@@ -47,7 +47,7 @@
   background-color: greenyellow;
 }
 
-@media screen and (max-height: 1369px) {
+@media screen and (max-height: 1180px) {
   .profileContainer{
     margin: 0;
     width: 90%;

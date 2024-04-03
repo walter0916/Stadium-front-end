@@ -37,7 +37,7 @@
   font-size: 15px;
 }
 
-@media screen and (max-height: 1369px) {
+@media screen and (max-height: 1180px) {
   .postCard {
     width: 100%;
   }

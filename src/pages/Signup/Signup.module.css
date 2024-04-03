@@ -19,7 +19,7 @@ input[type="file"] {
   flex-direction: column;
   background-color: white;
   height: 55vh;
-  width: 35vw;
+  width: 40vw;
   box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: #ffffff;
@@ -155,7 +155,7 @@ input[type="file"] {
   }
 }
 
-@media screen and (max-height: 1369px) {
+@media screen and (max-height: 980px) {
   .formContainer{
     width: 80vw;
     height: max-content;

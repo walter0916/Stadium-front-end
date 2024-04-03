@@ -1,7 +1,7 @@
 .notificationContainer {
   display: flex;
   flex-direction: row;
-  width: 25vw;
+  width: 30vw;
   height: 150px;
   border: 1px solid #ccc;
   margin-bottom: 20px;
@@ -41,7 +41,7 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-height: 1369px) {
+@media screen and (max-height: 1180px) {
   .notificationContainer {
     width: 80vw;
   }

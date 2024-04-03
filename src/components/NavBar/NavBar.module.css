@@ -89,7 +89,7 @@
   top: 55px;
   right: 0;
   height: 10vh;
-  width: 12vw;
+  width: 15vw;
   text-align: center;
 }
 
@@ -202,7 +202,7 @@
   }
 }
 
-@media screen and (max-height: 1369px) {
+@media screen and (max-height: 980px) {
   .notificationContainer {
     padding: 5px;
     border-radius: 10px;

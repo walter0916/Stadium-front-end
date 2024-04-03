@@ -37,7 +37,7 @@
 }
 
 
-@media screen and (max-height: 1369px) {
+@media screen and (max-height: 1180px) {
   .sideBar {
     position: fixed;
     top: 0;

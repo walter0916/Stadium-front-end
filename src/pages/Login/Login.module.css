@@ -22,9 +22,10 @@ input[type="file"] {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
   background-color: white;
-  height: 30vh;
-  width: 25vw;
+  height: 40vh;
+  width: 40vw;
   box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: #ffffff;
@@ -165,7 +166,7 @@ input[type="file"] {
   }
 }
 
-@media screen and (max-height:1369px) {
+@media screen and (max-height:980px) {
   .formContainer{
     width: 80vw;
     height: 50vh;
