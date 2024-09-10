@@ -57,7 +57,6 @@
 .searchDropdown {
   top: 0;
   width: calc(100% - 16px); 
-  /* border: 1px solid #4C8C32;  */
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   list-style: none;

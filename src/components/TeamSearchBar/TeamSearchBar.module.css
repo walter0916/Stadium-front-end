@@ -12,20 +12,52 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: fit-content;
+  width: 40%;
 }
 
-.searchContainer input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 0 auto;
+.searchForm {
+  width: 100%;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid grey;
+  border-right: none;
+  padding: 5px;
+  height: 100%;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: grey;
+}
+
+.searchTerm:focus{
+  color: black;
+}
+
+.searchButton {
+  width: 20%;
+  height: 100%;
+  border: 3px solid grey;
+  background: grey;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0;
+}
+
+.searchResultContainer {
+  display: flex;
+  width: 100%;
+  align-content: space-around;
+  align-items: center;
 }
 
 .searchDropdown {
   top: 0;
   width: calc(100% - 16px); 
-  border: 1px solid #4C8C32; 
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   list-style: none;
@@ -34,8 +66,6 @@
 
 .searchDropdown li {
   border-radius: 4px;
-  background: #6DBB3D;
-  border: 1px solid #4C8C32; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
   width: 100%;
@@ -57,32 +87,30 @@
 .searchDropdown button {
   margin-left: 8px;
   padding: 4px 8px;
-  background-color: #4C8C32; 
+  background-color: rgb(47, 108, 23); 
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  height: 20%;
+}
+
+.searchDropdown button:hover {
+  background-color: white;
+  color: grey
 }
 
 .teamInfo {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
+  font-weight: 500;
 }
 
 .logo {
-  height: 30px;
-}
-
-.searchButton {
-  padding: 8px 8px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-weight: 600;
+  height: 50px;
 }
 
 .searchButton:hover {

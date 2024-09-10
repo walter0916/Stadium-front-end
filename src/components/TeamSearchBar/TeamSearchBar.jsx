@@ -1,5 +1,7 @@
 // npm modules
 import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 // services
 import * as profileService from '../../services/profileService'
@@ -51,30 +53,33 @@ const TeamSearchBar = () => {
 
   return (
     <div className={styles.container}>
-    <div className={styles.searchContainer}>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Search team by name..."
-          name='teamName'
-          value={formData.teamName}
-          onChange={handleChange}
-        />
-        <button type="submit" className={styles.searchButton}>Search</button>
-      </form>
-      {error && <p className={styles.error}>{error}</p>}
-      <ul className={styles.searchDropdown}>
-        {searchResults.map((result) => (
-          <li key={result.team.id} className={styles.searchResultContainer}>
-            <div className={styles.teamInfo}>
-              <img className={styles.logo} src={result.team.logo} alt={result.team.name} />
-              {result.team.name}
-            </div>
-            <button onClick={() => handleAddToFavorites(result.team.id)}>Add to Favorites</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <div className={styles.searchContainer}>
+        <form onSubmit={handleSubmit} className={styles.searchForm}>
+          <input
+            type="text"
+            placeholder="Search team by name..."
+            name='teamName'
+            value={formData.teamName}
+            onChange={handleChange}
+            className={styles.searchTerm}
+          />
+          <button type="submit" className={styles.searchButton}>
+            <FontAwesomeIcon icon={faSearch} className={styles.searchIcon}/>
+          </button>
+        </form>
+        {error && <p className={styles.error}>{error}</p>}
+        <ul className={styles.searchDropdown}>
+          {searchResults.map((result) => (
+            <li key={result.team.id} className={styles.searchResultContainer}>
+              <div className={styles.teamInfo}>
+                <img className={styles.logo} src={result.team.logo} alt={result.team.name} />
+                {result.team.name}
+              </div>
+              <button onClick={() => handleAddToFavorites(result.team.id)}>Add to Favorites</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
