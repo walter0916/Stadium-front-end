@@ -1,5 +1,7 @@
 // npm modules
 import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 // services
 import * as leagueService from '../../services/leagueService'
@@ -22,13 +24,13 @@ const LeagueSearchBar = () => {
     try {
       const data = await leagueService.getLeagueInfo(formData)
       if (data.response.length === 0) {
-        setError('No team found with that name.')
+        setError('No League found with that name.')
       } else {
         setSearchResults(data.response)
         setError('')
       }
     } catch (error) {
-      setError('An error occurred while fetching team information.')
+      setError('An error occurred while fetching league information.')
     }
   }
 
@@ -46,16 +48,19 @@ const LeagueSearchBar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.searchContainer}>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Search league by name..."
-            name='leagueName'
-            value={formData.leagueName}
-            onChange={handleChange}
-          />
-          <button type="submit" className={styles.searchButton}>Search</button>
-        </form>
+          <form onSubmit={handleSubmit} className={styles.searchForm}>
+            <input
+              type="text"
+              placeholder="Search league by name..."
+              name='leagueName'
+              value={formData.leagueName}
+              onChange={handleChange}
+              className={styles.searchTerm} 
+            />
+            <button type="submit" className={styles.searchButton}>
+            <FontAwesomeIcon icon={faSearch} className={styles.searchIcon} />
+            </button>
+          </form>
         {error && <p className={styles.error}>{error}</p>}
         <ul className={styles.searchDropdown}>
           {searchResults.map((result) => (
