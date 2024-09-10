@@ -1,5 +1,7 @@
 // npm modules
 import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 // services
 import * as profileService from '../../services/profileService'
@@ -68,21 +70,26 @@ const PlayerSearchBar = (props) => {
             <option key={favoriteTeam._id} value={favoriteTeam.teamId}>{favoriteTeam.name}</option>  
           )}
         </select>
-        <input
-          type="text"
-          placeholder="Search team by name..."
-          name='playerName'
-          value={formData.playerName}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit" className={styles.searchButton}>Search</button>
+          <div className={styles.searchFormInput}>
+            <input
+              type="text"
+              placeholder="Search team by name..."
+              name='playerName'
+              value={formData.playerName}
+              onChange={handleChange}
+              required
+              className={styles.searchTerm}
+            />
+            <button type="submit" className={styles.searchButton}>
+              <FontAwesomeIcon icon={faSearch} className={styles.icon}/>
+            </button>
+          </div>
       </form>
       {error && <p className={styles.error}>{error}</p>}
       <ul className={styles.searchDropdown}>
         {searchResults.map((result) => (
           <li key={result.player.id} className={styles.searchResultContainer}>
-            <div className={styles.teamInfo}>
+            <div className={styles.playerInfo}>
               <img className={styles.logo} src={result.player.photo} alt='player photo' />
               {result.player.name}
             </div>

@@ -10,26 +10,104 @@
 .searchContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   width: 40vw;
 }
 
-.searchContainer form {
-  display: flex;
+.searchContainer select {
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-.searchContainer input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 0 auto;
+.searchContainer select{
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+.searchContainer select:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    radial-gradient(gray 70%, transparent 72%);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+
+.searchFormInput {
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid grey;
+  border-right: none;
+  padding: 5px;
+  height: 100%;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: grey;
+}
+
+.searchTerm:focus{
+  color: black;
+}
+
+.searchButton {
+  width: 15%;
+  height: 100%;
+  border: 3px solid grey;
+  background: grey;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0;
+}
+
+.searchResultContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchDropdown {
   top: 0;
   width: calc(100% - 16px); 
-  border: 1px solid #4C8C32; 
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   list-style: none;
@@ -38,8 +116,6 @@
 
 .searchDropdown li {
   border-radius: 4px;
-  background: #6DBB3D;
-  border: 1px solid #4C8C32; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
   width: 100%;
@@ -61,33 +137,31 @@
 .searchDropdown button {
   margin-left: 8px;
   padding: 4px 8px;
-  background-color: #4C8C32; 
+  background-color: rgb(47, 108, 23); 
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  height: 20%;
 }
 
-.teamInfo {
+.searchDropdown button:hover {
+  background-color: white;
+  color: grey
+}
+
+.playerInfo {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 .logo {
-  height: 30px;
+  height: 50px;
+  border-radius: 50%;
 }
 
-.searchButton {
-  padding: 8px 8px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-weight: 600;
-}
 
 .searchButton:hover {
   background-color: #45a049;
@@ -102,7 +176,6 @@
     margin-top: 60px;
   }
   .searchContainer select {
-    font-size: x-large;
-    width: 90vw;
+    width: 50vw;
   }
 }
