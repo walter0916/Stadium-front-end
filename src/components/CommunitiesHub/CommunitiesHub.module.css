@@ -67,6 +67,7 @@
 
 .communityCard img {
   height: 10vh;
+  transition: transform 0.3s ease;
 }
 
 .communityCard a{
@@ -94,9 +95,9 @@
   color: white;
 }
 
-.communityCard:hover {
-  background-color: #ccc;
-  color: black;
+.communityCard img:hover {
+  /* background-color: #ccc; */
+  transform: translateY(-10px)
 }
 
 .error {

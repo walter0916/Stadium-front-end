@@ -31,7 +31,6 @@ const SideBar = (props) => {
           {isOpen ? 'Hide' : '|||'}
         </div>
       )}
-      <h2>{props.profile.name}</h2>
       <div className={styles.buttonContainer}>
         <button onClick={() => {props.handleButtonClick('changePassword'); closeSidebar()}}>Change Password</button>
         <button onClick={() => {props.handleButtonClick('interestForm'); closeSidebar()}}>Add Favorite Leagues</button>
