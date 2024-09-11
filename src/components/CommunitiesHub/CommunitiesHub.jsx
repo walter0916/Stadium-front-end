@@ -31,24 +31,18 @@ const CommunitiesHub = (props) => {
 
   return (
     <div className={styles.communitiesHub}>
-      <div className={styles.joinedSearchContainer}>
-      {/* <section className={styles.searchSection}>
-        <h1>Find communities to join</h1>
-        <SearchBar />
-      </section> */}
-      <section className={styles.joinedCommunitiesSection}>
-        <h1>Joined Communities</h1>
+      <h1>Joined Communities</h1>
+      <div className={styles.joinedCommunitiesSection}>
         {loading && <p>Loading...</p>}
         {error && <p className={styles.error}>{error}</p>}
         {joinedCommunities.map((community) => (
           <div key={community._id} className={styles.communityCard}>
-            <Link to={`/community/${community._id}`}><img src={community.logo} alt="" />{community.teamName}</Link>
-            <button onClick={() => handleLeaveCommunity(community._id)} disabled={loading}>
+            <Link to={`/community/${community._id}`}><img src={community.logo} alt="" /></Link>
+            <button onClick={() => handleLeaveCommunity(community._id)} disabled={loading} className={styles.leaveButton}>
               {loading ? 'Leaving...' : 'Leave'}
             </button>
           </div>
         ))}
-      </section>
       </div>
     </div>
   )
