@@ -12,6 +12,7 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  margin-top: 10px;
 }
 
 .buttonContainer {
@@ -21,6 +22,7 @@
   align-items: center;
   justify-content: center;
   border-top: 2px solid black;
+  margin-top: 10px;
 }
 
 .buttonContainer button {
@@ -44,7 +46,7 @@
   left: 0;
   right: 0;
   height: 5px;
-  background-color: greenyellow;
+  background-color: #89fc00;
 }
 
 @media screen and (max-height: 1180px) {
