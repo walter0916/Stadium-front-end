@@ -81,6 +81,7 @@ input[type="file"] {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  color: #89fc00;
 }
 
 .form input:focus {
