@@ -17,13 +17,11 @@ input[type="file"] {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: white;
-  height: 55vh;
-  width: 40vw;
+  height: fit-content;
+  width: 45vw;
   box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
+  color: white;
 }
 
 .message {
@@ -34,27 +32,31 @@ input[type="file"] {
   font-weight: bold;
 }
 
+.form img {
+  height: 10vh;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80%;
+  height: 100%;
 }
 
 .form a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .form a:visited {
-  color: black;
+  color: white;
 }
 
 .form input {
   padding: 14.5px;
   width: 100%;
-  margin: 1.5rem 0;
+  margin-bottom: 1rem;
   outline: none;
   background-color: #9191911f;
   border: none;
@@ -66,6 +68,7 @@ input[type="file"] {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  color: #89fc00;
 }
 
 .form input:focus {
@@ -75,8 +78,8 @@ input[type="file"] {
 }
 
 .form button {
-  background-color: #0f3460;
-  color: #ffffff;
+  background-color: #89fc00;
+  color: black;
   display: block;
   padding: 13px;
   border-radius: 5px;
@@ -86,7 +89,7 @@ input[type="file"] {
   font-weight: bold;
   width: 100%;
   cursor: pointer;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   transition: all 0.1s ease-in-out;
   border: none;
   -webkit-border-radius: 5px;
@@ -116,9 +119,6 @@ input[type="file"] {
   margin-bottom: 8px;
 }
 
-.button {
-  margin-left: 16px;
-}
 
 .form > label:last-of-type {
   margin-bottom: 16px;
@@ -155,7 +155,7 @@ input[type="file"] {
   }
 }
 
-@media screen and (max-height: 980px) {
+@media screen and (max-width: 980px) {
   .formContainer{
     width: 80vw;
     height: max-content;

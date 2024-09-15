@@ -8,6 +8,8 @@ import * as authService from '../../services/authService'
 // css
 import styles from './Signup.module.css'
 
+import logo from '/src/assets/stadium.png'
+
 const Signup = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
   const imgInputRef = useRef(null)
@@ -80,9 +82,10 @@ const Signup = ({ handleAuthEvt }) => {
   return (
     <main className={styles.container}>
       <div className={styles.formContainer}>
-      <h1>Sign Up</h1>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+      <img src={logo} alt="" />
+        <h1>Sign Up</h1>
           <input type="text" value={name} name="name" onChange={handleChange} placeholder='Name' />
           <input
             type="text"
