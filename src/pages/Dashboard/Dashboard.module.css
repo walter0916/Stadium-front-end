@@ -295,7 +295,7 @@
   max-height: 300px;
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-height: 650px) {
   .mainContainer {
     display: flex;
     flex-direction: column;

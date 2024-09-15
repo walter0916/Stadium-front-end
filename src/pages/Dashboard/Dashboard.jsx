@@ -52,51 +52,51 @@ const Dashboard = ({ user }) => {
       </div>
       </div>
       <div className={styles.mainContainer}>
-      <div className={styles.upcomingFixturesContainer}>
-      <h2>Upcoming Fixtures</h2>
-      <FavoriteTeamsFixtures 
-        teamIds={teamIds} 
-        user={user}
-      />
-      </div>
-      <div className={styles.communityPlayerContainer}>
-      <div className={styles.joinedCommunities}>
-        <h2>Joined Communities</h2>
-        {profile.joinedCommunities?.length > 0 ? (
-          <ul className={styles.communitiesList}>
-            {profile.joinedCommunities.map((community) => (
-              <li key={community._id}>
-                <div>
-                  <Link to={`/community/${community._id}`}>
-                    <img src={community.logo} alt={community.teamName} className={styles.circle} />
-                  </Link>
-                </div>
-              </li>
-              ))}
-          </ul>
-        ) : (
-          <p>No communities joined visit <Link to={'/profile'}>profile page</Link> to add favorite teams and join communities </p>
-          )}
-      </div>
-      <div className={styles.favoritePlayers}>
-        <h2>Favorite Players</h2>
-        {profile.favoritePlayers?.length > 0 ? (
-          <ul className={styles.favoritePlayersList}>
-            {profile.favoritePlayers.map((player) => (
-              <li key={player._id}>
-                <div>
-                  <Link to={`/player/${player.playerId}/${player.teamId}/statistics`}>
-                    <img  src={player.photo} alt={player.name} className={styles.circle} />
-                  </Link>
-                </div>
-              </li>
-              ))}
-          </ul>
-        ) : (
-          <p>No favorite players added visit <Link to={'/profile'}>profile page</Link> to add</p>
-          )}
-      </div>
-      </div>
+        <div className={styles.upcomingFixturesContainer}>
+          <h2>Upcoming Fixtures</h2>
+          <FavoriteTeamsFixtures 
+            teamIds={teamIds} 
+            user={user}
+          />
+        </div>
+        <div className={styles.communityPlayerContainer}>
+          <div className={styles.joinedCommunities}>
+            <h2>Joined Communities</h2>
+            {profile.joinedCommunities?.length > 0 ? (
+              <ul className={styles.communitiesList}>
+                {profile.joinedCommunities.map((community) => (
+                  <li key={community._id}>
+                    <div>
+                      <Link to={`/community/${community._id}`}>
+                        <img src={community.logo} alt={community.teamName} className={styles.circle} />
+                      </Link>
+                    </div>
+                  </li>
+                  ))}
+              </ul>
+            ) : (
+              <p>No communities joined visit <Link to={'/profile'}>profile page</Link> to add favorite teams and join communities </p>
+              )}
+          </div>
+          <div className={styles.favoritePlayers}>
+            <h2>Favorite Players</h2>
+            {profile.favoritePlayers?.length > 0 ? (
+              <ul className={styles.favoritePlayersList}>
+                {profile.favoritePlayers.map((player) => (
+                  <li key={player._id}>
+                    <div>
+                      <Link to={`/player/${player.playerId}/${player.teamId}/statistics`}>
+                        <img  src={player.photo} alt={player.name} className={styles.circle} />
+                      </Link>
+                    </div>
+                  </li>
+                  ))}
+              </ul>
+            ) : (
+              <p>No favorite players added visit <Link to={'/profile'}>profile page</Link> to add</p>
+              )}
+          </div>
+        </div>
       </div>
       <div className={styles.trendingBlogs}>
         <h1>Trending Blogs</h1>

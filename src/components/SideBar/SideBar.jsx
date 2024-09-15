@@ -7,7 +7,7 @@ const SideBar = (props) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsToggleable(window.innerHeight < 1180)
+      setIsToggleable(window.innerWidth < 1000)
     }
     handleResize()
     window.addEventListener('resize', handleResize)
@@ -26,12 +26,12 @@ const SideBar = (props) => {
 
   return (
     <div className={`${styles.sideBar} ${isOpen ? styles.show : styles.hidden}`}>
-      {isToggleable && (
-        <div className={styles.toggleButton} onClick={toggleSidebar}>
-          {isOpen ? 'Hide' : '|||'}
-        </div>
-      )}
       <div className={styles.buttonContainer}>
+        {isToggleable && (
+          <div className={styles.toggleButton} onClick={toggleSidebar}>
+            {isOpen ? 'Hide' : '|||'}
+          </div>
+        )}
         <button onClick={() => {props.handleButtonClick('changePassword'); closeSidebar()}}>Change Password</button>
         <button onClick={() => {props.handleButtonClick('interestForm'); closeSidebar()}}>Add Favorite Leagues</button>
         <button onClick={() => {props.handleButtonClick('playerForm'); closeSidebar()}}>Add Favorite players</button>

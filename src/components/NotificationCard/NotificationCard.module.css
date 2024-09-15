@@ -9,7 +9,6 @@
   margin-bottom: 20px;
   border-radius: 10px;
   text-decoration: none;
-  color: black;
   color: white;
 }
 
@@ -45,7 +44,7 @@
   flex-direction: column;
 }
 
-@media screen and (max-height: 1180px) {
+@media screen and (max-width: 1000px) {
   .notificationContainer {
     width: 80vw;
   }
