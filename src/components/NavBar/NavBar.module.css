@@ -8,11 +8,10 @@
 
 .links li {
   margin-right: 20px; 
-  border: 2px solid white;
   padding: 5px;
-  border-radius: 10px;
   color: white;
   font-weight: bolder;
+  border-bottom: 2px solid #89fc00;
 }
 
 .links li a {
@@ -21,9 +20,7 @@
 }
 
 .links li:hover {
-  color: black;
-  background-color: #89fc00;
-  border: 2px solid black;
+  border-bottom: 2px solid #ccc;
 }
 
 .links li a:visited {
@@ -31,7 +28,7 @@
   color: white;
 }
 .links li a:hover {
-  color: black;
+  color: white;
 }
 
 .links li a.nav-link {

@@ -8,6 +8,8 @@ import * as authService from '../../services/authService'
 // css
 import styles from './Login.module.css'
 
+import logo from '/src/assets/stadium.png'
+
 const LoginPage = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
 
@@ -46,9 +48,10 @@ const LoginPage = ({ handleAuthEvt }) => {
   return (
     <main className={styles.container}>
       <div className={styles.formContainer}> 
-      <h1>Log In</h1>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+        <img src={logo} alt="" />
+        <h1>Log In</h1>
           <input
             type="text"
             value={email}
