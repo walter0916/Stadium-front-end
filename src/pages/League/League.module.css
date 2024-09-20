@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #e5e5e5;
+  background-color: white;
   min-height: 100vh;
 }
 
@@ -127,7 +127,7 @@
   font-weight: bolder;
 }
 
-@media screen and (max-height: 1369px) {
+@media screen and (max-width: 1000px) {
   .leagueBlogCardContainer, .leagueContainer{
     width: 100vw;
   }
