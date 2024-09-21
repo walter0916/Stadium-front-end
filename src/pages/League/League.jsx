@@ -53,7 +53,7 @@ const League = (props) => {
   return (
     <div className={styles.leagueContainer}>
       <img src={league.logo} alt="" className={styles.logo} />
-      <h1>{league.name}</h1>
+      <h1 style={{ textTransform: 'uppercase' }}>{league.name}</h1>
       <Link to={`/league/${league._id}/standings`} state={{ league }} className={styles.link}>League Standings</Link>
       <Link to={`/league/${league._id}/fixtures`} state={{ league }} className={styles.link}>League Fixtures</Link>
       <Link to={`/league/${league._id}/playerStats`} state={{ league }} className={styles.link}>League Player Stats</Link>
