@@ -1,6 +1,11 @@
 @font-face {
-  font-family: 'Effra';
+  font-family: 'Effra-Bold';
   src: url('../../assets/Fonts/TrialStaticFonts/Effra_Trial_Bd.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Effra';
+  src: url('../../assets/Fonts/TrialStaticFonts/Effra_Trial_Rg.ttf') format('truetype');
 }
 
 .leagueContainer {
@@ -10,12 +15,11 @@
   align-items: center;
   background-color: white;
   min-height: 100vh;
-  
 }
 
-.leagueContainer h1{
+.leagueName{
   font-size: 36px;
-  font-family: 'Effra', sans-serif;
+  font-family: 'Effra-Bold', sans-serif;
 }
 
 .logo {
@@ -125,6 +129,7 @@
 .link {
   text-decoration: none;
   color: black;
+  font-family: 'Effra', sans-serif;
 }
 
 .link:visited {

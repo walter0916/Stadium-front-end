@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Effra-Bold';
+  src: url('../../assets/Fonts/TrialStaticFonts/Effra_Trial_Bd.ttf') format('truetype');
+}
+
 .blogCommentsContainer {
   display: flex;
   flex-direction: column;
@@ -12,7 +17,8 @@
   height: max-content;
   margin-top: 100px;
   border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3)
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-family: 'Effra-Bold', sans-serif;
 }
 
 .blogContainer img {
@@ -50,7 +56,7 @@
   margin-top: 20px;
 }
 
-@media screen and (max-height: 1180px) {
+@media screen and (max-width: 1000px) {
   .blogContainer {
     width: 90vw;
     display: flex;

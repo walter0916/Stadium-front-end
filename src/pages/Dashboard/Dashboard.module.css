@@ -3,11 +3,6 @@
   src: url('../../assets/Fonts/airstrike.ttf') format('truetype');
 }
 
-@font-face {
-  font-family: 'sport-header';
-  src: url('../../assets/Fonts/CollegiateBlackFLF.ttf') format('truetype');
-}
-
 ::-webkit-scrollbar {
   width: 12px; 
 }

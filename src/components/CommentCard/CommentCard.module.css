@@ -1,7 +1,13 @@
+@font-face {
+  font-family: 'Effra';
+  src: url('../../assets/Fonts/TrialStaticFonts/Effra_Trial_Rg.ttf') format('truetype');
+}
+
 .commentCard {
   width: 100%;
   display: flex;
   flex-direction: row;
+  font-family: 'Effra', sans-serif;
 }
 
 .imgContainer {
@@ -94,7 +100,7 @@
   height: 30px;
 }
 
-@media screen and (max-height: 1180px) {
+@media screen and (max-width: 1000px) {
   .commentCard {
     width: 100%;
     margin-bottom: 10px;

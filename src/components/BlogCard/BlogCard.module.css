@@ -1,8 +1,14 @@
+@font-face {
+  font-family: 'Effra-Bold';
+  src: url('../../assets/Fonts/TrialStaticFonts/Effra_Trial_Bd.ttf') format('truetype');
+}
+
 .leagueBlogCard {
   display: flex;
   flex-direction: row;
   width: 60vw;
   height: max-content;
+  font-family: 'Effra-Bold', sans-serif;
 }
 .leagueBlogCard img {
   width: 30%;
