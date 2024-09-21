@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Effra';
+  src: url('../../assets/Fonts/TrialStaticFonts/Effra_Trial_Rg.ttf') format('truetype');
+}
+
+.mainContainer {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  font-family: 'Effra', sans-serif;
+}
+
 .yearSelect {
   background-color: #89fc00; 
   color: #1F2833; 
@@ -100,13 +114,6 @@
   width: max-content;
 }
 
-.mainContainer {
-  width: 100vw;
-  min-height: 100vh;
-  background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
 
 @media screen and (max-width: 1000px) {
   .headerCell, .cell, .teamCell {
