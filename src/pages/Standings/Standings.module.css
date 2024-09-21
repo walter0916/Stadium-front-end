@@ -1,17 +1,48 @@
+.yearSelect {
+  background-color: #89fc00; 
+  color: #1F2833; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 5px 10px; 
+  font-size: 16px; 
+  font-weight: bold;
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.yearSelect:hover {
+  background-color: #4ede15; 
+}
+
+.yearSelect:focus {
+  outline: none; 
+  border: 2px solid #4ede15; 
+}
+
+.yearSelect option {
+  background-color: #1F2833; 
+  color: white; 
+}
+
+
 .standingsContainer {
   margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .standingsTable {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .headerCell, .cell, .teamCell {
   padding: 12px;
   text-align: center;
-  border: 1px solid #ddd;
   font-size: 16px;
 }
 
@@ -19,10 +50,6 @@
   width: 15vw;
   background-color: #1F2833;
   color: white;
-}
-
-.teamCell:hover {
-  background-color: #4ede15;
 }
 
 .headerCell {
@@ -37,15 +64,11 @@
   background-color: #e6e6e6;
 }
 
-.cell:hover {
-  background-color: #4ede15;
-}
-
 .cell, .headerCell, .teamCell {
   transition: background-color 0.3s ease;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .cell, .headerCell {
     font-size: 14px;
   }
@@ -62,7 +85,7 @@
 }
 
 .link:hover {
-  color: blue;
+  border-bottom:2px solid #89fc00;
   font-weight: bolder;
 }
 
@@ -81,9 +104,11 @@
   width: 100vw;
   min-height: 100vh;
   background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-width: 1000px) {
   .headerCell, .cell, .teamCell {
     padding: 2px;
     text-align: center;
@@ -109,7 +134,6 @@
   .yearSelect {
     margin-top: 10px;
     width: 50%;
-    font-size: xx-large;
     margin: auto;
   }
 
