@@ -86,28 +86,46 @@ const Signup = ({ handleAuthEvt }) => {
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
       <img src={logo} alt="" />
         <h1>Sign Up</h1>
-          <input type="text" value={name} name="name" onChange={handleChange} placeholder='Name' />
+        <div className={styles.formGroup}>
+          <input 
+            type="text" 
+            value={name} 
+            name="name" 
+            onChange={handleChange}
+            placeholder=''
+          />
+          <label>Name</label>
+        </div>
+        <div className={styles.formGroup}>
           <input
-            type="text"
+            type="email"
             value={email}
             name="email"
-            placeholder='Email address'
+            placeholder=''
             onChange={handleChange}
           />
+          <label>Email</label>
+        </div>
+        <div className={styles.formGroup}>
           <input
             type="password"
             value={password}
             name="password"
-            placeholder='Password'
+            placeholder=''
             onChange={handleChange}
           />
+          <label>Password</label>
+        </div>
+        <div className={styles.formGroup}>
           <input
             type="password"
             value={passwordConf}
             name="passwordConf"
-            placeholder="Confirm Password"
+            placeholder=''
             onChange={handleChange}
           />
+          <label>Confirm Password</label>
+        </div>
         <label className={styles.label}>
           Upload Photo
           <input 
@@ -125,7 +143,7 @@ const Signup = ({ handleAuthEvt }) => {
           >
             {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
           </button>
-          <Link to="/auth/login">Already have an account?</Link>
+          <p>Already have an account? <Link to="/auth/login">Log in</Link> </p>
         </div>
       </form>
       </div>
