@@ -26,10 +26,50 @@ input[type="file"] {
   height: fit-content;
   max-height: 65vh;
   width: 30vw;
-  box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2); */
   border-radius: 10px;
-
   padding: 20px;
+}
+
+.formGroup {
+  position: relative;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 14.5px 14px 14.5px 40px; 
+  margin-bottom: 0;
+  background-color: #9191911f;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #89fc00;
+  outline: none;
+}
+
+.form input:focus {
+  box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.2);
+}
+
+.form input:focus ~ label,
+.form input:not(:placeholder-shown) ~ label {
+  top: -15px;
+  left: 10px;
+  font-size: 12px;
+  color: #89fc00;
+}
+
+.formGroup label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-90%);
+  font-size: 16px;
+  color: #8c8c8c;
+  pointer-events: none;
+  transition: 0.3s ease all;
 }
 
 .form img {
@@ -65,6 +105,13 @@ input[type="file"] {
   color: white;
 }
 
+.form a:hover {
+  text-decoration: underline;
+}
+
+.form p {
+  color: #8c8c8c;
+}
 
 .form input {
   padding: 14.5px;

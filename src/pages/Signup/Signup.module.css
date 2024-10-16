@@ -94,7 +94,7 @@ input[type="file"] {
 
 .formGroup input {
   width: 100%;
-  padding: 14.5px 14px 14.5px 40px; /* Adjusted padding for label */
+  padding: 14.5px 14px 14.5px 40px; 
   margin-bottom: 0;
   background-color: #9191911f;
   border: none;

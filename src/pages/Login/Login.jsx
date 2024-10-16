@@ -52,25 +52,31 @@ const LoginPage = ({ handleAuthEvt }) => {
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
         <img src={logo} alt="" />
         <h1>Log In</h1>
+        <div className={styles.formGroup}>
           <input
             type="text"
             value={email}
             name="email"
-            placeholder='Email address'
+            placeholder=''
             onChange={handleChange}
           />
+          <label>Email</label>
+        </div>
+        <div className={styles.formGroup}>
           <input
             type="password"
             value={password}
             name="password"
-            placeholder='Password'
+            placeholder=''
             onChange={handleChange}
           />
+          <label htmlFor="">Password</label>
+        </div>
         <div>
           <button className={styles.themeButton} disabled={isFormInvalid()}>
             Log In
           </button>
-          <Link to="/auth/signup">Don't have an account? Sign up now</Link>
+          <p>Don't have an account? <Link to="/auth/signup">Sign up now</Link> </p>
         </div>
       </form>
       </div>
