@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   width: 100%;
   height: 100%;
 }
@@ -13,6 +12,7 @@
   justify-content: center;
   flex-direction: column;
   width: 40%;
+  margin: 20px;
 }
 
 .searchForm {
@@ -22,7 +22,7 @@
 
 .searchTerm {
   width: 100%;
-  border: 3px solid grey;
+  border: 3px solid #ccc;
   border-right: none;
   padding: 5px;
   height: 100%;
@@ -36,12 +36,12 @@
 }
 
 .searchButton {
-  width: 20%;
+  width: 15%;
   height: 100%;
-  border: 3px solid grey;
-  background: grey;
+  border: 3px solid #ccc;
+  background: white;
   text-align: center;
-  color: #fff;
+  color: black;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
@@ -87,17 +87,16 @@
 .searchDropdown button {
   margin-left: 8px;
   padding: 4px 8px;
-  background-color: rgb(47, 108, 23); 
+  background-color: transparent; 
   color: #fff;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
   height: 20%;
+  font-size: 16px;
 }
 
 .searchDropdown button:hover {
-  background-color: white;
-  color: grey
+  border-bottom:2px solid #89fc00;
 }
 
 .teamInfo {
@@ -113,6 +112,3 @@
   height: 50px;
 }
 
-.searchButton:hover {
-  background-color: #45a049;
-}

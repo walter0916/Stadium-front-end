@@ -2,21 +2,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   width: 100%;
-  padding: 20px;
 }
 
 .searchContainer {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 40vw;
+  width: 40%;
+  margin: 20px;
+}
+
+.searchContainer form {
+  width: 100%;
+
 }
 
 .searchContainer select {
   background-color: white;
-  border: thin solid blue;
+  border: thin solid #ccc;
   border-radius: 4px;
   display: inline-block;
   font: inherit;
@@ -28,6 +32,8 @@
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
+  width: 100%;
+  font-size: 14px;
 }
 
 .searchContainer select{
@@ -38,7 +44,7 @@
   background-position:
     calc(100% - 20px) calc(1em + 2px),
     calc(100% - 15px) calc(1em + 2px),
-    calc(100% - .5em) .5em;
+    calc(100% - .7em) .5em;
   background-size:
     5px 5px,
     5px 5px,
@@ -54,13 +60,12 @@
   background-position:
     calc(100% - 15px) 1em,
     calc(100% - 20px) 1em,
-    calc(100% - .5em) .5em;
+    calc(100% - .7em) .5em;
   background-size:
     5px 5px,
     5px 5px,
     1.5em 1.5em;
   background-repeat: no-repeat;
-  border-color: green;
   outline: 0;
 }
 
@@ -73,7 +78,7 @@
 
 .searchTerm {
   width: 100%;
-  border: 3px solid grey;
+  border: 3px solid #ccc;
   border-right: none;
   padding: 5px;
   height: 100%;
@@ -89,14 +94,15 @@
 .searchButton {
   width: 15%;
   height: 100%;
-  border: 3px solid grey;
-  background: grey;
+  border: 3px solid #ccc;
+  background: white;
   text-align: center;
-  color: #fff;
+  color: black;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
   margin: 0;
+  padding: 1.5px;
 }
 
 .searchResultContainer {
@@ -137,17 +143,16 @@
 .searchDropdown button {
   margin-left: 8px;
   padding: 4px 8px;
-  background-color: rgb(47, 108, 23); 
+  background-color: transparent; 
   color: #fff;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
   height: 20%;
+  font-size: 16px;
 }
 
 .searchDropdown button:hover {
-  background-color: white;
-  color: grey
+  border-bottom: 2px solid #89fc00;
 }
 
 .playerInfo {
@@ -155,6 +160,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 50%;
 }
 
 .logo {
@@ -163,12 +169,7 @@
 }
 
 
-.searchButton:hover {
-  background-color: #45a049;
-}
-
-
-@media screen and (max-height: 950px){
+/* @media screen and (max-width: 950px){
   .searchContainer form {
     flex-direction: column;
     align-items: center;
@@ -178,4 +179,4 @@
   .searchContainer select {
     width: 50vw;
   }
-}
+} */

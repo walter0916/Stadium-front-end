@@ -62,14 +62,14 @@ const PlayerSearchBar = (props) => {
 
   return (
     <div className={styles.container}>
-    <div className={styles.searchContainer}>
-      <form onSubmit={handleSubmit}>
-        <select name="teamId" id="" onChange={handleTeamIdChange}>
-          <option value="">select team before searching</option>
-          {favoriteTeams.map(favoriteTeam => 
-            <option key={favoriteTeam._id} value={favoriteTeam.teamId}>{favoriteTeam.name}</option>  
-          )}
-        </select>
+      <div className={styles.searchContainer}>
+        <form onSubmit={handleSubmit}>
+          <select name="teamId" id="" onChange={handleTeamIdChange}>
+            <option value="">select team before searching</option>
+            {favoriteTeams.map(favoriteTeam => 
+              <option key={favoriteTeam._id} value={favoriteTeam.teamId}>{favoriteTeam.name}</option>  
+            )}
+          </select>
           <div className={styles.searchFormInput}>
             <input
               type="text"
@@ -84,20 +84,20 @@ const PlayerSearchBar = (props) => {
               <FontAwesomeIcon icon={faSearch} className={styles.icon}/>
             </button>
           </div>
-      </form>
-      {error && <p className={styles.error}>{error}</p>}
-      <ul className={styles.searchDropdown}>
-        {searchResults.map((result) => (
-          <li key={result.player.id} className={styles.searchResultContainer}>
-            <div className={styles.playerInfo}>
-              <img className={styles.logo} src={result.player.photo} alt='player photo' />
-              {result.player.name}
-            </div>
-            <button onClick={() => handleAddToFavorites(result.player.id)}>Add to Favorites</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+        </form>
+        {error && <p className={styles.error}>{error}</p>}
+        <ul className={styles.searchDropdown}>
+          {searchResults.map((result) => (
+            <li key={result.player.id} className={styles.searchResultContainer}>
+              <div className={styles.playerInfo}>
+                <img className={styles.logo} src={result.player.photo} alt='player photo' />
+                {result.player.name}
+              </div>
+              <button onClick={() => handleAddToFavorites(result.player.id)}>Add to Favorites</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
