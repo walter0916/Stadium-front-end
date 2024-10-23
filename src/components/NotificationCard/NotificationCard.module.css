@@ -13,12 +13,12 @@
 }
 
 .notificationContainer:hover{
-  border-bottom: 1px solid #89fc00;
+  transform: translateY(-05%);
 }
 
 .notificationContainer:visited {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .notificationContainer.unread {

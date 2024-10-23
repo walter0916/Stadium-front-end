@@ -56,7 +56,7 @@
   color: #c5c6c7;
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-width: 950px) {
   .statsContainer {
     flex-direction: column;
     align-items: center;

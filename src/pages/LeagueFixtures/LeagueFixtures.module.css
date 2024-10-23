@@ -85,7 +85,7 @@
   font-weight: bold;
 }
 
-@media screen and (max-height: 1180px) {
+@media screen and (max-width: 1180px) {
   .fixturesContainer{
     width: 90%;
   }

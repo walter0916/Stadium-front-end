@@ -199,7 +199,7 @@
   }
 }
 
-@media screen and (max-height: 980px) {
+@media screen and (max-width: 980px) {
   .notificationContainer {
     padding: 5px;
     border-radius: 10px;
