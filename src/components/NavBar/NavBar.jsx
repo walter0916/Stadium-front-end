@@ -1,5 +1,5 @@
 // npm modules
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -20,6 +20,7 @@ const NavBar = ({ user, handleLogout }) => {
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen)
   }
+  const dropdownRef = useRef(null)
   library.add(fas)
 
   useEffect(() => {
@@ -35,6 +36,19 @@ const NavBar = ({ user, handleLogout }) => {
     fetchProfile()
   }, [user])
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false) 
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [dropdownRef])
+
 
   return (
     <nav className={styles.navContainer}>
@@ -44,18 +58,16 @@ const NavBar = ({ user, handleLogout }) => {
             <NavLink to="/" className={styles.homeLink}>
               <FontAwesomeIcon icon={faHome} className={styles.homeIcon} />
             </NavLink>
-            <div className={styles.notificationContainer}>
-            <NavLink to={'/profile'} className={styles.iconWrapper} data-number={unreadNotifications.length}>
-              <FontAwesomeIcon icon={['fas', 'bell']} className={styles.bell} />
-            </NavLink>
-            </div>
+            
           </div>
-          <div className={styles.userProfile} onClick={toggleDropdown}>
-            <p>Welcome, {user.name}</p>
+          <NavLink to={'/profile'} className={styles.iconWrapper} data-number={unreadNotifications.length}>
+            <FontAwesomeIcon icon={['fas', 'bell']} className={styles.bell} />
+          </NavLink>
+          <div className={styles.userProfile} onClick={toggleDropdown} ref={dropdownRef}>
             <img src={profile.photo} alt="User Profile" />
           </div>
           {dropdownOpen && (
-            <ul className={styles.dropdown}>
+            <ul className={`${styles.dropdown} ${dropdownOpen ? styles.open : ''}`} ref={dropdownRef} >
               <li><NavLink to="/profile">My Profile</NavLink></li>
               <li onClick={handleLogout}>Log Out</li>
             </ul>
