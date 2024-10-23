@@ -17,27 +17,27 @@
   display: flex;
   flex-direction: column;
   width: 30%;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   margin-right: 5px;
   margin-left: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 25px;
-  background-color: white;
+  background-color: #333;
 }
 
 .postCard:visited {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .postCard h3 {
   font-size: 15px;
 }
 
-@media screen and (max-height: 1180px) {
+@media screen and (max-width: 1180px) {
   .postCard {
     width: 100%;
   }

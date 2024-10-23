@@ -27,6 +27,7 @@
 }
 
 .overlay {
+  padding: 5px;
   position: absolute;
   top: 0;
   left: 0;
@@ -57,7 +58,7 @@
   font-size: 20px;
   margin: 0;
 }
-@media screen and (max-height: 1180px) {
+@media screen and (max-width: 1180px) {
   .blogCard {
     width:80%
   }
@@ -67,7 +68,7 @@
   }
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-width: 950px) {
   .blogCard {
     width: 90%;
   }
