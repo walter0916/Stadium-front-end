@@ -1,6 +1,22 @@
+.logoContainer {
+  width: 120px; 
+  height: 120px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden; 
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3); 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
 .logo {
-  height: 90%;
-  margin: 5px;
+  height: 90px;
+  width: 90px;
+  object-fit: contain;
+  padding: 5px;
+  background: transparent;
 }
 
 .logo:hover {
@@ -11,4 +27,5 @@
 
 .logoContainer:hover {
   background-color: rgb(239, 237, 237);
+  transform: scale(1.05);
 }

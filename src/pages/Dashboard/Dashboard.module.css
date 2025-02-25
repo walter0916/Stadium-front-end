@@ -41,33 +41,17 @@
   text-align: center;
 }
 
-.leagueLinksContainer {
-  display:flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  background: linear-gradient(0deg, #131313 34.38%, rgba(23, 23, 23, 0) 99.26%),#1F1C20 ;
-  padding: 10px;
-  color: white;
-}
-
-.leagueLinksContainer h2{
-  font-family: 'sport-font', sans-serif;
-}
-
 .interests {
   display: flex;
   width: 95%;
-  overflow-y: auto;
-  background-color: white;
+  overflow-y: visible;
   height: 20vh;
   max-height: 200px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   justify-content: space-between;
   margin-bottom: 10px;
+  margin-top: 10px;
   text-align: center;
 }
 

@@ -39,8 +39,6 @@ const Dashboard = ({ user }) => {
       <div className={styles.headerContainer}>
         <h1 className={styles.header}>Stadium</h1>
       </div>
-      <div className={styles.leagueLinksContainer}>
-        <h1>Links To League Page</h1>
       <div className={styles.interests}>
         {profile.interests?.length > 0 ? (
           profile.interests.map((interest) => (
@@ -49,7 +47,6 @@ const Dashboard = ({ user }) => {
             ) : (
               <p>No Favorite Leagues added visit <Link to={'/profile'}>profile page</Link> to add favorite leagues</p>
               )}
-      </div>
       </div>
       <div className={styles.mainContainer}>
         <div className={styles.upcomingFixturesContainer}>
