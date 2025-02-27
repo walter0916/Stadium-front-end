@@ -1,16 +1,20 @@
 .logoContainer {
-  width: 120px; 
-  height: 120px; 
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: rgb(255, 255, 255);
-  overflow: hidden; 
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3); 
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  background: radial-gradient(circle at 30% 30%, white, rgb(200, 200, 200) 60%, rgb(150, 150, 150) 100%);
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3), 
+              inset 4px 4px 8px rgba(255, 255, 255, 0.5), 
+              inset -4px -4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
 }
 
+/* Logo Image */
 .logo {
   height: 90px;
   width: 90px;
@@ -19,13 +23,37 @@
   background: transparent;
 }
 
-.logo:hover {
-  transform: translateY(-4px);
-  transition: transform 0.5s ease;
+/* Light Reflection Effect */
+.logoContainer::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* Hover Effect: Enlarges & Adds Glow */
+.logoContainer:hover {
+  transform: scale(1.2) rotateY(10deg);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6), 
+              inset 5px 5px 10px rgba(255, 255, 255, 0.7), 
+              inset -5px -5px 10px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 
-.logoContainer:hover {
-  background-color: rgb(239, 237, 237);
-  transform: scale(1.05);
+/* Neon Glow Animation */
+@keyframes glowEffect {
+  0% { box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3); }
+  50% { box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6); }
+  100% { box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3); }
 }
+
+/* Apply Glow Effect */
+.logoContainer:hover {
+  animation: glowEffect 1.5s infinite ease-in-out;
+}
+
